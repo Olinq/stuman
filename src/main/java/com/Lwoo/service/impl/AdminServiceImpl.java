@@ -43,4 +43,10 @@ public class AdminServiceImpl implements AdminService{
 		// TODO Auto-generated method stub
 		return adminMapper.get(id);
 	}
+
+	@Override
+	public Admin findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

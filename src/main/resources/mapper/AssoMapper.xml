@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.Lwoo.mapper.AssoMapper">
+    	<insert id="add" parameterType="Asso">
+    		insert into asso(tname,description,logo,cid) values(#{tname},#{description},#{logo},#{cid})
+    	</insert>
+    	<delete id="delete" parameterType="Asso">
+    		delete from asso where id=#{id}
+    	</delete>
+    	<select id="get" parameterType="_int" resultType="Asso">
+    		select * from asso where id=#{id}
+    	</select>
+    	<update id="update" parameterType="Asso">
+    		update asso set tname=#{tname},description=#{description},logo=#{logo},cid=#{cid} where id=#{id}
+    	</update>
+    	<select id="list" resultType="Asso">
+    	select * from asso 
+    	</select>
+    </mapper>
