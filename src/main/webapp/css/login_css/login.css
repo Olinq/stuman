@@ -1,0 +1,28 @@
+body
+{	background-image:url('../../img/login_img/login.jpg');
+    padding-top: 40px;
+    background-size: cover;
+}
+.form-signin {
+    max-width: 280px;
+    padding: 15px;
+    margin:100px;
+    margin-top:160px;
+    margin-left: 200px;
+  }
+.panel-default {
+opacity: 0.9; /*透明度*/
+}
+.input-group-addon
+{
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+    color: rgb(255, 255, 255);
+}
+.fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
