@@ -15,17 +15,19 @@
 					<th>ID</th>
 					<th>用户名</th>
 					<th>密码</th>
+					<th>邮箱</th>
 					<th>编辑</th>
 					<th>删除</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${admins}" var="c">
+				<c:forEach items="${pageInfo.list}" var="c">
 				
 				<tr>
 					<td>${c.id}</td>
 					<td>${c.username }</td>
 					<td>${c.password}</td>
+					<td>${c.email }</td>
 					<td><a href="editAdmin?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
 					<td><a deleteLink="true" href="deleteAdminById?id=${c.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
@@ -44,11 +46,15 @@
 	    		<table class="addTable">
 	    			<tr>
 	    				<td>用户名</td>
-	    				<td><input  id="username" name="username" type="text" class="form-control"></td>
+	    				<td><input  id="username" name="username" type="text" class="form-control"  required="required"></td>
 	    			</tr>
 	    			<tr>
 	    				<td>密&nbsp;码</td>
-	    				<td><input  id="password" name="password" type="text" class="form-control"></td>
+	    				<td><input  id="password" name="password" type="text" class="form-control"  required="required"></td>
+	    			</tr>
+	    			<tr>
+	    				<td>邮&nbsp;箱</td>
+	    				<td><input  id="email" name="email" type="email" class="form-control"  required="required" ></td>
 	    			</tr>
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="center">
@@ -62,4 +68,5 @@
 	
 </div>
 
-<jsp:include page="../jsp/FooterJsp.jsp" />
+</body>
+</html>

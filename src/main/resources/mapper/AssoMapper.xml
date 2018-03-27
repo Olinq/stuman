@@ -16,6 +16,9 @@
     		update asso set tname=#{tname},description=#{description},logo=#{logo},cid=#{cid} where id=#{id}
     	</update>
     	<select id="list" resultType="Asso">
-    	select * from asso 
+    	select * from asso order by id desc
+    	</select>
+    	<select id="getListByCid" parameterType="_int" resultType="Asso">
+    		select * from asso where cid=#{cid}
     	</select>
     </mapper>

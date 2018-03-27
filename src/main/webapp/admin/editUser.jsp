@@ -23,7 +23,7 @@
 	    			</tr>
 	    			<tr>
 	    				<td>联系方式</td>
-	    					<td><input  id="tel" name="tel" value="${user.tel}" type="text" class="form-control"></td>
+	    					<td><input  id="email" name="email" value="${user.email}" type="text" class="form-control"></td>
 	    			</tr>	  
 	    			<tr>
 	    				<td>会员状态</td>

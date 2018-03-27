@@ -1,8 +1,6 @@
 /**
  * 
  */
-
-
 //判断是否删除
 $(function(){
 	$("a").click(function(){

@@ -26,10 +26,15 @@
     <link href="${ctx}/js/bootstrap-select/bootstrap-select.min.css"  rel="stylesheet">
     <!-- 组件中文化 -->
     <script src="${ctx}/js/bootstrap-select/defaults-zh_CN.min.js"></script>
+    <!-- jQueryValidate -->
+    <script src="${ctx}/js/jQueryValidate/jquery.validate.min.js"></script>
+    <script src="${ctx}/js/jQueryValidate/messages_zh.js"></script>
     
     <link href="${ctx}/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="${ctx}/css/nav_css/nav.css" rel="stylesheet">
     <link href="${ctx}/css/style.css" rel="stylesheet">
     <script src="${ctx}/js/admin.js"></script>
+    <script src="${ctx}/js/addValid.js"></script>
     <script src="${ctx}/js/register_js.js"></script>
 </head>
 <body>

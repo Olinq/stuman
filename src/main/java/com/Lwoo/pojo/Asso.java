@@ -8,9 +8,9 @@ public class Asso {
     private String description;
 
     private String logo;
+//    private Category category;
 
     private Integer cid;
-
     public Integer getId() {
         return id;
     }
@@ -50,4 +50,11 @@ public class Asso {
     public void setCid(Integer cid) {
         this.cid = cid;
     }
+
+	@Override
+	public String toString() {
+		return "Asso [id=" + id + ", tname=" + tname + ", description=" + description + ", logo=" + logo + ", cid="
+				+ cid + "]";
+	}
+    
 }

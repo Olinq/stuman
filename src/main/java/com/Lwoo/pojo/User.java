@@ -9,7 +9,7 @@ public class User {
 
     private String sex;
 
-    private String tel;
+    private String email;
 
     private Integer statu;
 
@@ -47,13 +47,6 @@ public class User {
         this.sex = sex == null ? null : sex.trim();
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel == null ? null : tel.trim();
-    }
 
     public Integer getStatu() {
         return statu;
@@ -70,4 +63,12 @@ public class User {
     public void setAssoId(Integer assoId) {
         this.assoId = assoId;
     }
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

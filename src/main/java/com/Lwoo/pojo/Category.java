@@ -6,7 +6,7 @@ public class Category {
     private Integer id;
 
     private String category;
-    List<Asso> list;
+    List<Asso> assos;
     public Integer getId() {
         return id;
     }
@@ -23,11 +23,17 @@ public class Category {
         this.category = category == null ? null : category.trim();
     }
 
-	public List<Asso> getList() {
-		return list;
+	public List<Asso> getAssos() {
+		return assos;
 	}
 
-	public void setList(List<Asso> list) {
-		this.list = list;
+	public void setAssos(List<Asso> assos) {
+		this.assos = assos;
 	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", category=" + category + ", assos=" + assos + "]";
+	}
+
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.Lwoo.pojo.Admin;
+import com.Lwoo.pojo.Asso;
 import com.Lwoo.pojo.Category;
 import com.Lwoo.service.CategoryService;
 import com.github.pagehelper.PageHelper;
@@ -26,9 +26,16 @@ public class CategoryController {
 	@RequestMapping("listCategory")
 	  public String categorysList(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model){
 	      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
-		  PageHelper.startPage(page, 5);
-		  List<Category> categorys = categoryService.list();
-		  System.out.println("----categoryController\n"+categorys);
+//		   for (Category c : categorys) {
+//	            System.out.println(c);
+//	            List<Asso> ps = c.getAssos();
+//	            for (Asso p : ps) {
+//	                System.out.println("\t"+p);
+//	            }
+//	        }
+		 PageHelper.startPage(page, 5);
+	      List<Category> categorys = categoryService.list();
+	      System.out.println("----categorysController\n"+categorys);
 	      PageInfo<Category> pageInfo=new PageInfo<Category>(categorys);
 	      model.addAttribute("pageInfo",pageInfo);
 	      model.addAttribute("categorys",categorys);

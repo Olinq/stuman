@@ -33,7 +33,7 @@
 					<td>${c.username }</td>
 					<td>${c.password }</td>
 					<td>${c.sex }</td>
-					<td>${c.tel }</td>
+					<td>${c.email }</td>
 					<td>${c.statu }</td>
 					<td>${c.assoId }</td>
 					<td><a href="editUser?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>

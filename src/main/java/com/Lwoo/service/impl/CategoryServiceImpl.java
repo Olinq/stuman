@@ -17,6 +17,7 @@ public class CategoryServiceImpl implements CategoryService{
 	@Override
 	public List<Category> list() {
 		// TODO Auto-generated method stub
+//		System.out.println(categoryMapper.list());
 		return categoryMapper.list();
 	}
 
@@ -47,6 +48,12 @@ public class CategoryServiceImpl implements CategoryService{
 	@Override
 	public Category findByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return categoryMapper.findByUsername(username);
+	}
+
+	@Override
+	public List<Category> getCatagoryList() {
+		// TODO Auto-generated method stub
+		return categoryMapper.getCatagoryList();
 	}
 }

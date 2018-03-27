@@ -50,4 +50,10 @@ public class AssoServiceImpl implements AssoService {
 		return null;
 	}
 
+	@Override
+	public List<Asso> getListByCid(int cid) {
+		// TODO Auto-generated method stub
+		return assoMapper.getListByCid(cid);
+	}
+
 }

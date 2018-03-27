@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <nav class="pageNav">
+	<span class="navbar-brand">总记录数：${pageInfo.total }</span>
   <ul class="pagination">
   <!-- 首页 -->
     <li <c:if test="${!pageInfo.hasPreviousPage}">class="btn disabled"</c:if>>

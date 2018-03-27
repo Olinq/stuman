@@ -16,6 +16,10 @@
 	    			<tr>
 	    				<td>密&nbsp;码</td>
 	    					<td><input  id="password" name="password" value="${admin.password}" type="text" class="form-control"></td>
+	    			</tr>	
+	    			<tr>
+	    				<td>邮&nbsp;箱</td>
+	    					<td><input  id="email" name="email" value="${admin.email}" type="text" class="form-control"></td>
 	    			</tr>	    			
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="center">

@@ -7,11 +7,11 @@ div.workingArea{
 }
 
 div.addDiv{
-	width:400px;
+	width:600px;
 	margin:0px auto;
 }
 div.editDiv{
-	width:400px;
+	width:600px;
 	margin:0px auto;
 	
 }
@@ -29,9 +29,11 @@ table.editTable td{
 table.addTable td{
 	padding:5px;
 }
-	
-nav.pageNav{
-	text-align:right;
+nav.pageNav.navbar-brand{
+	text-align:left;
+}	
+nav.pageNav.pagination{
+	text-align:center;
 }
 div.listDataTableDiv{
 	min-height:0px;
@@ -96,4 +98,11 @@ td{
 }
 th{
 	font-size:14px;
+}
+.box{
+	width: 20px;
+	height: 20px;
+	padding: 2px;
+	border:1px solid #ccc;
+	border-radius: 2px;
 }

@@ -6,6 +6,7 @@ public class Admin {
 	private int id;
 	private String username;
 	private String password;
+	private String email;
 	List<Asso> assos;
 	public int getId() {
 		return id;
@@ -34,6 +35,12 @@ public class Admin {
 	@Override
 	public String toString() {
 		return "Admin [id=" + id + ", username=" + username + ", password=" + password + ", assos=" + assos + "]";
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

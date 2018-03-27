@@ -42,7 +42,7 @@
 	    		<table class="addTable">
 	    			<tr>
 	    				<td>社团类型</td>
-	    				<td><input  id="category" name="category" type="text" class="form-control"></td>
+	    				<td><input  id="category" name="category" type="text" class="form-control" required="required"> <span id="span"></span></td>
 	    			</tr>
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="center">
@@ -55,5 +55,48 @@
 	</div>
 	
 </div>
-
+<script>
+$(function() {
+	//表单验证JS
+	  $("#addForm").validate({
+	    //出错时添加的标签
+	    errorElement: "span",
+	    rules: {
+	      txtUserName: {
+	        required: true,
+	        minlength: 3,
+	        maxlength: 16,
+	        remote: {
+	          type: "post",
+	          url: "${ctx}/stuman/checkCategory",
+	          data: {
+	            username: function() {
+	              return $("#category").val();
+	            }
+	          },
+	          dataType: "html",
+	          dataFilter: function(data, type) {
+	            if (data == "true")
+	              return true;
+	            else
+	              return false;
+	          }
+	        }
+	      }
+	    },
+	    success: function(label) {
+	      //正确时的样式
+	      label.text(" ").addClass("success");
+	    },
+	    messages: {
+	      txtUserName: {
+	        required: "请输入用户名，3-16个字符（字母、数字、下划线），注册后不能更改",
+	        minlength: "用户名长度不能小于3个字符",
+	        maxlength: "用户名长度不能大于16个字符",
+	        remote: "用户名不可用"
+	      }
+	    }
+	  });
+	});
+</script>
 <jsp:include page="../jsp/FooterJsp.jsp" />
