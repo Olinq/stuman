@@ -56,47 +56,38 @@
 	
 </div>
 <script>
-$(function() {
-	//表单验证JS
-	  $("#addForm").validate({
-	    //出错时添加的标签
-	    errorElement: "span",
-	    rules: {
-	      txtUserName: {
-	        required: true,
-	        minlength: 3,
-	        maxlength: 16,
-	        remote: {
-	          type: "post",
-	          url: "${ctx}/stuman/checkCategory",
-	          data: {
-	            username: function() {
-	              return $("#category").val();
-	            }
-	          },
-	          dataType: "html",
-	          dataFilter: function(data, type) {
-	            if (data == "true")
-	              return true;
-	            else
-	              return false;
-	          }
-	        }
-	      }
-	    },
-	    success: function(label) {
-	      //正确时的样式
-	      label.text(" ").addClass("success");
-	    },
-	    messages: {
-	      txtUserName: {
-	        required: "请输入用户名，3-16个字符（字母、数字、下划线），注册后不能更改",
-	        minlength: "用户名长度不能小于3个字符",
-	        maxlength: "用户名长度不能大于16个字符",
-	        remote: "用户名不可用"
-	      }
-	    }
-	  });
-	});
+$().ready(function() {
+	 $("#addForm").validate({
+			 onsubmit:true,// 是否在提交时验证
+			 onfocusout:false,// 是否在获取焦点时验证
+			 onkeyup :false,// 是否在敲击键盘时验证
+			
+		 rules: {//规则
+			 category: {//要对应相对应的input中的name属性
+			 required: true
+			 },
+		 },
+		 messages:{//验证错误信息
+			 category: {
+			 required: "请输入类型名"
+			 }
+		 },
+		 submitHandler: function(form) { //通过之后回调
+		 //进行ajax传值
+			 $.ajax({
+				 	url : "${ctx}/stuman/checkCategory",
+				 	type : "post",
+				 	contentType: 'application/json;charset=UTF-8', 
+				 	dataType : "json",
+				 	data: JSON.stringify({category: $("#category").val()}),
+			 	success : function(msg) {
+				 	//要执行的代码
+				 	alert("成功"+msg);
+			 }
+			 });
+		 },
+		 invalidHandler: function(form, validator) {return false;}
+	 }); 
+});
 </script>
 <jsp:include page="../jsp/FooterJsp.jsp" />

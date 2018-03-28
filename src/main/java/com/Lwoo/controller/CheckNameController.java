@@ -38,7 +38,7 @@ public class CheckNameController {
 	@RequestMapping(value="checkCategory",method = RequestMethod.POST)
 	@ResponseBody
 	public String checkCategory(@RequestBody Map<String, String> map){
-		String validData=map.get("validData");
+		String validData=map.get("category");
 		System.out.println("checkUsername----"+validData);
 		Category category=categoryService.findByUsername(validData);
 		String result="true";

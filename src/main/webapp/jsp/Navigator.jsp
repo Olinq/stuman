@@ -44,6 +44,7 @@ $(function(){
 	var d = {"str":"你多大"};
 	  var str= JSON.stringify(d);
 	  $("#typeId").empty();  //清空原有select内的数据
+	  $("#typeId").css({"height":"500px","overflow-y":"auto"}); 
     $.ajax({
   	  url:"${ctx}/stuman/getCatagoryList",
   	  type:"POST",
@@ -58,7 +59,7 @@ $(function(){
   			    var id=item.id;          
   				var category=item.category;
   				 $("#typeId").append("<li><a href='getListByCid?id="+id+"'>"+category +"</a></li>");
-  				 if(4==index){
+  				 if(index%5==0&&index!=0){
   					$("#typeId").append("<li role='separator' class='divider'></li>");
   				 }
   					 
