@@ -32,6 +32,7 @@
     <link href="${ctx}/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="${ctx}/css/nav_css/nav.css" rel="stylesheet">
     <link href="${ctx}/css/style.css" rel="stylesheet">
+    <link href="${ctx}/css/HeadCSS.css" rel="stylesheet">
     <script src="${ctx}/js/admin.js"></script>
     <script src="${ctx}/js/addValid.js"></script>
     <script src="${ctx}/js/register_js.js"></script>

@@ -5,3 +5,15 @@
 	 background-color:#;  //导航栏背景色
 	 line-height:100px;
 }
+
+.error{
+
+       color:red;//错误信息颜色
+
+}
+.blue{
+	color:blue;//正确信息颜色
+}
+.disabled{
+	disabled:true;//设置按钮不可用
+}

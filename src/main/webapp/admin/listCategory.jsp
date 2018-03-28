@@ -38,15 +38,15 @@
 	<div class="panel panel-warning addDiv">
 	  <div class="panel-heading">新增社团类型</div>
 	  <div class="panel-body">
-	    	<form method="post" id="addForm" action="addCategory">
+	    	<form method="post" id="addFormCategory" action="addCategory">
 	    		<table class="addTable">
 	    			<tr>
 	    				<td>社团类型</td>
-	    				<td><input  id="category" name="category" type="text" class="form-control" required="required"> <span id="span"></span></td>
+	    				<td><input  id="category" name="category" type="text" class="form-control" ><span id="tishi"></span></td>
 	    			</tr>
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="center">
-	    					<button type="submit" class="btn btn-success">提 交</button>
+	    					<button id="submit" type="submit" class="btn btn-success">提 交</button>
 	    				</td>
 	    			</tr>
 	    		</table>
@@ -56,38 +56,6 @@
 	
 </div>
 <script>
-$().ready(function() {
-	 $("#addForm").validate({
-			 onsubmit:true,// 是否在提交时验证
-			 onfocusout:false,// 是否在获取焦点时验证
-			 onkeyup :false,// 是否在敲击键盘时验证
-			
-		 rules: {//规则
-			 category: {//要对应相对应的input中的name属性
-			 required: true
-			 },
-		 },
-		 messages:{//验证错误信息
-			 category: {
-			 required: "请输入类型名"
-			 }
-		 },
-		 submitHandler: function(form) { //通过之后回调
-		 //进行ajax传值
-			 $.ajax({
-				 	url : "${ctx}/stuman/checkCategory",
-				 	type : "post",
-				 	contentType: 'application/json;charset=UTF-8', 
-				 	dataType : "json",
-				 	data: JSON.stringify({category: $("#category").val()}),
-			 	success : function(msg) {
-				 	//要执行的代码
-				 	alert("成功"+msg);
-			 }
-			 });
-		 },
-		 invalidHandler: function(form, validator) {return false;}
-	 }); 
-});
+
 </script>
 <jsp:include page="../jsp/FooterJsp.jsp" />
