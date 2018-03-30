@@ -49,4 +49,10 @@ public class AdminServiceImpl implements AdminService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Admin checkLogin(String username,String password) {
+		// TODO Auto-generated method stub
+		return adminMapper.checkLogin(username, password);
+	}
 }

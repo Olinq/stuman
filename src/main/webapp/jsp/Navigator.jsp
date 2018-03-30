@@ -23,20 +23,12 @@
             <li><a href="listAdmin">管理员管理</a></li>
             <li><a href="listUser">用户管理</a></li>
           </ul>
-          <form class="navbar-form navbar-left form-horizontal" role="search">
-              <div class="input-group">
-                 <input type="text" class="search-box" placeholder="Search">
-                 <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
-              </div>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Account 
-             
+         
+          <div class="nav navbar-brand navbar-right" style="margin-right:30px">
+              <a href="#" style="color:white" role="button">
+             	注销 
               </a>
-            </li>
-          </ul>
+          </div>
         </div>
     </nav>
    <script>

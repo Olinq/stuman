@@ -7,7 +7,7 @@
 	<div class="panel panel-warning editDiv">
 	  <div class="panel-heading">编辑社团类型</div>
 	  <div class="panel-body">
-	    	<form method="post" id="editForm" action="updateCategory">
+	    	<form method="post" id="categoryForm" action="updateCategory">
 	    		<table class="editTable">
 	    			<tr>
 	    				<td>用户名</td>
@@ -16,7 +16,7 @@
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="center">
 	    					<input type="hidden" name="id" value="${category.id}">
-	    					<button type="submit" class="btn btn-success">提 交</button>
+	    					<button id="submit" type="submit" class="btn btn-success">提 交</button>
 	    				</td>
 	    			</tr>
 	    		</table>

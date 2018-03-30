@@ -18,7 +18,7 @@
 					<th>用户名</th>
 					<th>密码</th>
 					<th>性别</th>
-					<th>联系方式</th>
+					<th>Email</th>
 					<th>会员状态</th>
 					<th>会员所属社团</th>
 					<th>编辑</th>

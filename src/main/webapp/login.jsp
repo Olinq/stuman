@@ -8,12 +8,15 @@
   	<script src="./webjars/jquery/3.1.1/jquery.min.js"></script>
     <link href="./webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="./webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-    <link href="./css/login_css/login.css"  rel="stylesheet">
-    <script src="./js/login_js/login.js"></script>
+    <link href="./css/logincss/ilogin.css"  rel="stylesheet"/>
+    <script src="./js/ilogin.js"></script>
+    <!-- jQueryValidate -->
+    <script src="./js/jQueryValidate/jquery.validate.min.js"></script>
+    <script src="./js/jQueryValidate/messages_zh.js"></script>
 </head>
 <body style="">
 <div id="fullscreen_bg" class="fullscreen_bg">
- <form class="form-signin" action="#">
+ <form id="form-signin" class="form-signin" action="checkAdminLogin" method="post">
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -25,13 +28,13 @@
         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
                             </span>
-                            <input type="text" class="form-control" placeholder="Use Name" />
+                            <input id="username" name="username" type="text" class="form-control" placeholder="Use Name" />
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" placeholder="Password" />
+                            <input id="password" name="password" type="password" class="form-control" placeholder="Password" />
                         </div>   
                         </div>
 
@@ -45,5 +48,8 @@
     </div>
 </form>
 </div>
+<script>
+
+</script>
 </body>
 </html>

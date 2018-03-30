@@ -38,7 +38,7 @@
 	<div class="panel panel-warning addDiv">
 	  <div class="panel-heading">新增社团类型</div>
 	  <div class="panel-body">
-	    	<form method="post" id="addFormCategory" action="addCategory">
+	    	<form method="post" id="categoryForm" action="addCategory">
 	    		<table class="addTable">
 	    			<tr>
 	    				<td>社团类型</td>

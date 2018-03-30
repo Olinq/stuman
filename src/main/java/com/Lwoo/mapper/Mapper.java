@@ -12,4 +12,5 @@ public interface Mapper<T> {
 	public List<T> list();
 	public int count();
 	public T findByUsername(String username);
+	public T checkLogin(String username,String password);
 }

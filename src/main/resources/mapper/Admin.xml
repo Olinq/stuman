@@ -18,4 +18,7 @@
     	<select id="list" resultType="Admin">
     	select * from admin order by id desc
     	</select>
+    	<select id="checkLogin" parameterType="string" resultType="Admin">
+    		select * from admin where username=#{username} and password=#{password}
+    	</select>
     </mapper>

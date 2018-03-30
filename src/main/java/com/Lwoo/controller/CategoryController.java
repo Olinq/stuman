@@ -39,7 +39,7 @@ public class CategoryController {
 	      PageInfo<Category> pageInfo=new PageInfo<Category>(categorys);
 	      model.addAttribute("pageInfo",pageInfo);
 	      model.addAttribute("categorys",categorys);
-	      return "admin/listCategory";
+	      return "admin/listCategory"; 
 	  }
 	//增加社团类型
 	@RequestMapping("addCategory")
