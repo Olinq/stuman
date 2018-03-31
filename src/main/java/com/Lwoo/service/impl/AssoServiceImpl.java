@@ -56,4 +56,10 @@ public class AssoServiceImpl implements AssoService {
 		return assoMapper.getListByCid(cid);
 	}
 
+	@Override
+	public List<Asso> search(String fingData) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

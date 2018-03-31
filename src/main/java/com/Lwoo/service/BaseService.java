@@ -9,4 +9,5 @@ public interface BaseService<T> {
     public void delete(T t);
     public void add(T t);
     public T findByUsername(String username);
+    public List<T> search(String fingData);
 }

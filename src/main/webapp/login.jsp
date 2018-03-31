@@ -24,6 +24,7 @@
                 <div class="panel-body">
          <h3 class="text-center">
                         管理员登录<br/><br/></h3> 
+                        <span id="errorMsg" style="color:red"></span>
         <div class="form-group">                
         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
@@ -38,7 +39,7 @@
                         </div>   
                         </div>
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">
+		<button id="login" class="btn btn-lg btn-primary btn-block" type="submit">
             Login
 		</button>
      </div>

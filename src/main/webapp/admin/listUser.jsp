@@ -4,11 +4,20 @@
 <jsp:include page="../jsp/HeadJsp.jsp"/>
 <jsp:include page="../jsp/Navigator.jsp"/>
 <div class="workingArea">
-	<span class="label label-info" >用户管理</span>
-	<div style="text-align:right;">
-	<span class="fix-to-right"><a class="btn btn-info" href="addPage">增加会员</a></span>
+	<div style="margin-bottom:10px">
+		<span class="label label-info" >用户管理</span>
+		<div style="float:right;margin-bottom:10px">
+		<form method="post" id="findDataForm" action="findCatagoryData">
+			<table title="根据ID或者名字查找">
+				<tr>
+					<td><input  id="findData" name="findData" type="text" class="form-control" placeholder="根据ID或者名字查找" ></td>
+					<td width="60px"> <button id="submit" type="submit" class="btn btn-info">查找</button></td>
+					<td width="100px"><span><a class="btn btn-success" href="addPage">增加会员</a></span></td>
+				</tr>
+			</table>
+		</form>
+		</div>
 	</div>
-	<br>
 	
 	<div class="listDataTableDiv">
 		<table class="table table-striped table-bordered table-hover  table-condensed">

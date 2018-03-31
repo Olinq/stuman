@@ -2,7 +2,7 @@ package com.Lwoo.mapper;
 
 import java.util.List;
 
-import com.Lwoo.pojo.Admin;
+import org.apache.ibatis.annotations.Param;
 
 public interface Mapper<T> {
 	public void add(T t);
@@ -12,5 +12,6 @@ public interface Mapper<T> {
 	public List<T> list();
 	public int count();
 	public T findByUsername(String username);
-	public T checkLogin(String username,String password);
+	public T checkLogin(@Param("username")String username,@Param("password")String password);
+	public List<T> search(String fingData);
 }

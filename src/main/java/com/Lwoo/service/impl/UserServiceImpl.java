@@ -49,4 +49,10 @@ public class UserServiceImpl implements UserService{
 		return userMapper.findByUsername(username);
 	}
 
+	@Override
+	public List<User> search(String fingData) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

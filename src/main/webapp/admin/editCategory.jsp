@@ -11,12 +11,13 @@
 	    		<table class="editTable">
 	    			<tr>
 	    				<td>用户名</td>
-	    				<td><input  id="category" name="category" value="${category.category}" type="text" class="form-control"></td>
+	    				<td><input  id="category" name="category" value="${category.category}" type="text" class="form-control" placeholder="字符长度大于6" ><span id="tishi"></span></td>
 	    			</tr>
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="center">
 	    					<input type="hidden" name="id" value="${category.id}">
-	    					<button id="submit" type="submit" class="btn btn-success">提 交</button>
+	    					<input type="hidden" name="page" value="${page}">
+	    					<button id="submitCategory" type="submit" class="btn btn-success">提 交</button>
 	    				</td>
 	    			</tr>
 	    		</table>

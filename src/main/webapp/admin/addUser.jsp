@@ -41,24 +41,24 @@ function setAssoSelect(){
 <div class="panel panel-warning addDiv">
 	  <div class="panel-heading">新增会员</div>
 	  <div class="panel-body">
-	    	<form method="post" id="addForm" action="addUser">
+	    	<form method="post" id="addUserForm" action="addUser">
 	    		<table class="addTable">
 	    			<tr>
 	    				<td>用户名</td>
-	    				<td><input  id="username" name="username"  type="text" class="form-control">
+	    				<td><input  id="Userusername" name="username"  type="text" class="form-control">
 	    				<span id="message"></span></td>
 	    			</tr>
 	    			<tr>
 	    				<td>密&nbsp;码</td>
-	    				<td><input  id="password" name="password" type="text" class="form-control"></td>
+	    				<td><input  id="Userpassword" name="password" type="text" class="form-control"></td>
 	    			</tr>
 	    			<tr>
 	    				<td>性&nbsp;别</td>
 	    				<td><input  id="sex" name="sex" type="text" class="form-control"></td>
 	    			</tr>
 	    			<tr>
-	    				<td>联系方式</td>
-	    				<td><input  id="email" name="email" type="text" class="form-control"></td>
+	    				<td>Email</td>
+	    				<td><input  id="Useremail" name="email" type="text" class="form-control"></td>
 	    			</tr>
 	    			<tr>
 	    				<td>会员状态</td>

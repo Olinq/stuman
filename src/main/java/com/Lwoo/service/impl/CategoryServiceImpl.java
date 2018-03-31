@@ -56,4 +56,10 @@ public class CategoryServiceImpl implements CategoryService{
 		// TODO Auto-generated method stub
 		return categoryMapper.getCatagoryList();
 	}
+
+	@Override
+	public List<Category> search(String fingData) {
+		// TODO Auto-generated method stub
+		return categoryMapper.search(fingData);
+	}
 }

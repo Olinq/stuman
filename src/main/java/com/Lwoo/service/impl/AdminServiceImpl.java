@@ -47,12 +47,24 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public Admin findByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return adminMapper.findByUsername(username);
 	}
 
 	@Override
 	public Admin checkLogin(String username,String password) {
 		// TODO Auto-generated method stub
 		return adminMapper.checkLogin(username, password);
+	}
+
+	@Override
+	public List<Admin> search(String fingData) {
+		// TODO Auto-generated method stub
+		return adminMapper.search(fingData);
+	}
+
+	@Override
+	public Admin findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return adminMapper.findByEmail(email);
 	}
 }

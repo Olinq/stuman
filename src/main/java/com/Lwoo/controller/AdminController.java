@@ -58,7 +58,7 @@ public class AdminController {
 	}
 	@RequestMapping("updateAdmin")
 	public ModelAndView updateAdmin(Admin admin){
-		System.out.println("updateAdmin----\n"+admin);
+		System.out.println("updateAdmin----"+admin);
 		adminService.update(admin);
 		ModelAndView mav = new ModelAndView("redirect:/listAdmin");
 		return mav;
