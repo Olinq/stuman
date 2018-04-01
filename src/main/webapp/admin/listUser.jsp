@@ -29,7 +29,7 @@
 					<th>性别</th>
 					<th>Email</th>
 					<th>会员状态</th>
-					<th>会员所属社团</th>
+					<th>会员所属社团ID</th>
 					<th>编辑</th>
 					<th>删除</th>
 				</tr>

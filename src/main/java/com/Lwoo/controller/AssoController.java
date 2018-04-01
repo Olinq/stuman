@@ -48,8 +48,7 @@ public class AssoController {
 	public ModelAndView addAsso(MultipartFile file,Asso asso,HttpServletRequest request){
 		System.out.println(asso);
 		  //图片上传成功后，将图片的地址写到数据库
-		String pojoPath =request.getServletContext().getRealPath("/");//保存图片的路径
-		//String pojoPath =System.getProperty("weburl");//保存图片的路径
+		String pojoPath =request.getServletContext().getRealPath("/img/logo");//保存图片的路径
         System.out.println(pojoPath);
         //获取原始图片的拓展名
         String originalFilename = file.getOriginalFilename();
@@ -91,7 +90,36 @@ public class AssoController {
 		return mav;
 	}
 	@RequestMapping("updateAsso")
-	public ModelAndView updateAsso(Asso asso){
+	public ModelAndView updateAsso(Asso asso,MultipartFile file,HttpServletRequest request){
+		String pojoPath =request.getServletContext().getRealPath("/img/logo");//保存图片的路径
+		if(""!=file.getOriginalFilename()){
+			System.out.println("===更改图片---------");
+			  //图片上传成功后，将图片的地址写到数据库
+	        System.out.println(pojoPath);
+	        //删除原有图片
+	        File f=new File(pojoPath+ "\\" +asso.getLogo());
+	        if(f.exists()){//检查File是否存在
+	        	f.delete();//删除File文件
+	        	System.out.println("+++++++++删除");
+	        }
+	        //获取原始图片的拓展名
+	        String originalFilename = file.getOriginalFilename();
+	        //新的文件名字
+	        String newFileName = UUID.randomUUID()+originalFilename;
+	        System.out.println(newFileName);
+	        File targetFile = new File(pojoPath,newFileName); 
+	        	//把本地文件上传到封装上传文件位置的全路径
+	           try {
+				file.transferTo(targetFile);
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        asso.setLogo(newFileName);
+		}
 		System.out.println("updateAsso----\n"+asso);
 		assoService.update(asso);
 		ModelAndView mav = new ModelAndView("redirect:/listAsso");

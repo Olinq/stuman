@@ -41,8 +41,8 @@
 					<td>${c.tname}</td>
 					<td data-toggle="tooltip"  title="${c.description}" 
 					style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${c.description}</td>
-					<td><a href="editAdmin?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
-					<td><a deleteLink="true" href="deleteAdminById?id=${c.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<td><a href="editAsso?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
+					<td><a deleteLink="true" href="deleteAssoById?id=${c.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 				</c:forEach>
 			</tbody>
