@@ -7,10 +7,10 @@
 	<div style="margin-bottom:10px">
 		<span class="label label-info" >用户管理</span>
 		<div style="float:right;margin-bottom:10px">
-		<form method="post" id="findDataForm" action="findCatagoryData">
+		<form method="post" id="findDataForm" action="findUserData">
 			<table title="根据ID或者名字查找">
 				<tr>
-					<td><input  id="findData" name="findData" type="text" class="form-control" placeholder="根据ID或者名字查找" ></td>
+					<td><input  id="findData" name="findData" type="text" class="form-control" placeholder="根据ID或者名字查找" required="required"></td>
 					<td width="60px"> <button id="submit" type="submit" class="btn btn-info">查找</button></td>
 					<td width="100px"><span><a class="btn btn-success" href="addPage">增加会员</a></span></td>
 				</tr>

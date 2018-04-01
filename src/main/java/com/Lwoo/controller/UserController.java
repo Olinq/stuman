@@ -37,7 +37,7 @@ public class UserController {
 	      model.addAttribute("users",users);
 	      return "admin/listUser";
 	  }
-	//
+	//跳转添加页面
 	@RequestMapping("addPage")
 	public String addPage(){
 	    return "admin/addUser";
@@ -73,5 +73,17 @@ public class UserController {
 			ModelAndView mav = new ModelAndView("redirect:/listUser");
 			return mav;
 		}
-	
+		//查找某个社团的会员
+		@RequestMapping("getListByAssoId")
+		  public String getListByAssoId(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model,int id){
+			System.out.println("Method---getListByAssoId");
+		      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
+		      PageHelper.startPage(page, 10);
+		      List<User> users = userService.getListByAssoId(id);
+		      System.out.println("----assosController\n"+users);
+		      PageInfo<User> pageInfo=new PageInfo<User>(users);
+		      model.addAttribute("pageInfo",pageInfo);
+		      model.addAttribute("users",users);
+		      return "admin/listUser";
+		  }
 }

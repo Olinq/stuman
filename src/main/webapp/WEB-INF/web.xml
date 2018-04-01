@@ -85,4 +85,9 @@
         <error-code>500</error-code>  
         <location>/rest/page/500</location>  
     </error-page> 
+    <!-- 项目绝对路径 -->
+    <context-param>    
+        <param-name>webAppRootKey</param-name>     
+        <param-value>weburl</param-value>    
+	</context-param> 
 </web-app>

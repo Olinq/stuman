@@ -23,31 +23,31 @@ public class AssoServiceImpl implements AssoService {
 	@Override
 	public Asso get(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return assoMapper.get(id);
 	}
 
 	@Override
 	public void update(Asso t) {
 		// TODO Auto-generated method stub
-
+		assoMapper.update(t);
 	}
 
 	@Override
 	public void delete(Asso t) {
 		// TODO Auto-generated method stub
-
+		assoMapper.delete(t.getId());
 	}
 
 	@Override
 	public void add(Asso t) {
 		// TODO Auto-generated method stub
-
+		assoMapper.add(t);
 	}
 
 	@Override
 	public Asso findByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return assoMapper.findByUsername(username);
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class AssoServiceImpl implements AssoService {
 	@Override
 	public List<Asso> search(String fingData) {
 		// TODO Auto-generated method stub
-		return null;
+		return assoMapper.search(fingData);
 	}
 
 }

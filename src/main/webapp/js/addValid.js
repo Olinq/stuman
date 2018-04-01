@@ -64,7 +64,7 @@ function rulesValid(){
 	 onfocusout:false,// 是否在获取焦点时验证
 	 onkeyup :false,// 是否在敲击键盘时验证
 	
- rules: {//规则
+	 rules: {//规则
 	 username: {//要对应相对应的input中的name属性
 		 required: true
 	 },
@@ -95,6 +95,36 @@ function rulesValid(){
 	 email: {
 		 required: "请输入电子邮件",
 		 email:   "请输入正确邮箱"
+	 }
+ },
+});
+ $("#addAssoForm").validate({
+	 onsubmit:true,// 是否在提交时验证
+	 onfocusout:false,// 是否在获取焦点时验证
+	 onkeyup :false,// 是否在敲击键盘时验证
+	
+ rules: {//规则
+	 tname: {//要对应相对应的input中的name属性
+	 required: true,
+	 },
+	 description:{
+		 required:true,
+		 minlength:30
+	 },
+	 cid:{
+		 required:true
+	 }
+ },
+ messages:{//验证错误信息
+	 tname: {
+	 required: "请输入社团名",
+	 },
+	 description:{
+		 required:"	请输入社团描述",
+		 minlength:"社团描述不少于30个字符"
+	 },
+	 cid:{
+		 required:"请选择社团类型"
 	 }
  },
 });
@@ -184,6 +214,74 @@ function check(){
 	         		msgSuccess($("#tishiEmail"),$("#Adminemail").val(),"Admin");
 	         	}else{
 	         		msgError($("#tishiEmail"),$("#Adminemail").val(),"Admin");
+	         	}
+        }
+        });
+    });
+    
+    $('#Userusername').keyup(function(){
+    	if(!lengthValid($(this).val(),"User"))return;
+        $.ajax({
+         	url : "checkUserUsername",
+         	type : "post",
+         	contentType: 'application/json;charset=UTF-8', 
+         	dataType : "json",
+         	data: JSON.stringify({username: $("#Userusername").val()}),
+        	success : function(msg) {
+        		var jsonArry=eval(msg); //将json类型字符串转换为json对象
+      		 	console.log(jsonArry);
+         		//要执行的代码
+	         	if("true"==jsonArry.result+""){
+//	            	alert("checkAdminUsername");
+	         		msgSuccess($("#tishi"),$("#Userusername").val(),"User");
+	         	}else{
+	         		msgError($("#tishi"),$("#Userusername").val(),"User");
+	         	}
+        }
+        });
+    });
+    
+    //邮箱验证
+    $('#Useremail').keyup(function(){
+    	var a=$(this).val();
+    	if(""==a)return;
+        $.ajax({
+         	url : "checkUseremail",
+         	type : "post",
+         	contentType: 'application/json;charset=UTF-8', 
+         	dataType : "json",
+         	data: JSON.stringify({email: $("#Useremail").val()}),
+        	success : function(msg) {
+        		var jsonArry=eval(msg); //将json类型字符串转换为json对象
+      		 	console.log(jsonArry);
+         		//要执行的代码
+	         	if("true"==jsonArry.result+""){
+//	            	alert("checkAdminUsername");
+	         		msgSuccess($("#tishiEmail"),$("#Useremail").val(),"User");
+	         	}else{
+	         		msgError($("#tishiEmail"),$("#Useremail").val(),"User");
+	         	}
+        }
+        });
+    });
+    
+    $('#tname').keyup(function(){
+    	if(""==$(this).val())return;
+        $.ajax({
+         	url : "checkAssoname",
+         	type : "post",
+         	contentType: 'application/json;charset=UTF-8', 
+         	dataType : "json",
+         	data: JSON.stringify({tname: $("#tname").val()}),
+        	success : function(msg) {
+        		var jsonArry=eval(msg); //将json类型字符串转换为json对象
+      		 	console.log(jsonArry);
+         		//要执行的代码
+	         	if("true"==jsonArry.result+""){
+//	            	alert("checkAdminUsername");
+	         		msgSuccess($("#tishi"),$("#tname").val(),"Asso");
+	         	}else{
+	         		msgError($("#tishi"),$("#tname").val(),"Asso");
 	         	}
         }
         });

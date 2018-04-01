@@ -52,7 +52,19 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> search(String fingData) {
 		// TODO Auto-generated method stub
-		return null;
+		return userMapper.search(fingData);
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return userMapper.findByEmail(email);
+	}
+
+	@Override
+	public List<User> getListByAssoId(int assoId) {
+		// TODO Auto-generated method stub
+		return userMapper.getListByAssoId(assoId);
 	}
 
 }

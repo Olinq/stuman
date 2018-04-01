@@ -13,6 +13,17 @@
             <li  class="dropdown">
             	<a href="listAsso" class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">社团管理<span class="caret"></span></a>
             	 <ul class="dropdown-menu" id="typeId">
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Test</a></li>
+              </ul>
+            </li>
+            <li><a href="listAdmin">管理员管理</a></li>
+            <li class="dropdown">
+            <a href="listUser" class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">用户管理<span class="caret"></span></a>
+            	 <ul class="dropdown-menu" id="typeAsso">
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Inbox</a></li>
                 <li><a href="#">Followers</a></li>
@@ -20,8 +31,6 @@
                 <li><a href="#">Settings</a></li>
               </ul>
             </li>
-            <li><a href="listAdmin">管理员管理</a></li>
-            <li><a href="listUser">用户管理</a></li>
           </ul>
          
           <div class="nav navbar-brand navbar-right" style="margin-right:30px">
@@ -31,38 +40,71 @@
           </div>
         </div>
     </nav>
-   <script>
+<script>
 $(function(){
+	loadType();
+	loadAsso();
+});
+function loadType(){
 	var d = {"str":"你多大"};
 	  var str= JSON.stringify(d);
 	  $("#typeId").empty();  //清空原有select内的数据
 	  $("#typeId").css({"height":"500px","overflow-y":"auto"}); 
-    $.ajax({
-  	  url:"${ctx}/stuman/getCatagoryList",
-  	  type:"POST",
-  	  contentType: 'application/json;charset=UTF-8', 
-  	  dataType:"json",
-  	  data:str,  // 以json字符串方式传递
-  	  success:function(data){
-  		  var jsonArry=eval(data); //将json类型字符串转换为json对象
-  		  console.log(jsonArry);
-  		  console.log("------------------------");
-  		  $.each(jsonArry,function(index,item){
-  			    var id=item.id;          
-  				var category=item.category;
-  				 $("#typeId").append("<li><a href='getListByCid?id="+id+"'>"+category +"</a></li>");
-  				 if(index%5==0&&index!=0){
-  					$("#typeId").append("<li role='separator' class='divider'></li>");
-  				 }
-  					 
-  		  });
-  	  },
-  	  error:function(XMLHttpRequest,textStatus, errorThrown) { 
-             alert("加载导航栏下拉框信息失败");
-         }
-    });	
+  $.ajax({
+	  url:"${ctx}/stuman/getCatagoryList",
+	  type:"POST",
+	  contentType: 'application/json;charset=UTF-8', 
+	  dataType:"json",
+	  data:str,  // 以json字符串方式传递
+	  success:function(data){
+		  var jsonArry=eval(data); //将json类型字符串转换为json对象
+		  console.log(jsonArry);
+		  console.log("------------------------");
+		  $.each(jsonArry,function(index,item){
+			    var id=item.id;          
+				var category=item.category;
+				 $("#typeId").append("<li><a href='getListByCid?id="+id+"'>"+category +"</a></li>");
+				 if(index%5==0&&index!=0){
+					$("#typeId").append("<li role='separator' class='divider'></li>");
+				 }
+					 
+		  });
+	  },
+	  error:function(XMLHttpRequest,textStatus, errorThrown) { 
+           alert("加载导航栏下拉框信息失败");
+       }
+  });	
 }
-);
+function loadAsso(){
+	var d = {"str":"你多大"};
+	  var str= JSON.stringify(d);
+	  $("#typeAsso").empty();  //清空原有select内的数据
+	  $("#typeAsso").css({"height":"500px","overflow-y":"auto"}); 
+  $.ajax({
+	  url:"${ctx}/stuman/getAssoList",
+	  type:"POST",
+	  contentType: 'application/json;charset=UTF-8', 
+	  dataType:"json",
+	  data:str,  // 以json字符串方式传递
+	  success:function(data){
+		  var jsonArry=eval(data); //将json类型字符串转换为json对象
+		  console.log(jsonArry);
+		  console.log("------------------------");
+		  $.each(jsonArry,function(index,item){
+			    var id=item.id;          
+				var tname=item.tname;
+				 $("#typeAsso").append("<li><a href='getListByAssoId?id="+id+"'>"+tname +"</a></li>");
+				 if(index%5==0&&index!=0){
+					$("#typeAsso").append("<li role='separator' class='divider'></li>");
+				 }
+					 
+		  });
+	  },
+	  error:function(XMLHttpRequest,textStatus, errorThrown) { 
+           alert("加载导航栏下拉框信息失败");
+       }
+  });	
+}
 </script> 
     
 <!-- 

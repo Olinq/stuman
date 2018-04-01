@@ -4,10 +4,20 @@
 <jsp:include page="../jsp/HeadJsp.jsp"/>
 <jsp:include page="../jsp/Navigator.jsp"/>
 <div class="workingArea">
-	<span class="label label-info" >社团管理</span>
-	<br>
-	<br>
-	
+	<div style="margin-bottom:10px">
+		<span class="label label-info" >社团管理</span>
+		<div style="float:right;margin-bottom:10px">
+		<form method="post" id="findDataForm" action="findAssoData">
+			<table title="根据ID或者用户字查找">
+				<tr>
+					<td><input  id="findData" name="findData" type="text" class="form-control" placeholder="根据ID或者用户字查找" required="required"></td>
+					<td width="60px"> <button id="submit" type="submit" class="btn btn-info">查找</button></td>
+					<td width="100px"><span><a class="btn btn-success" href="addAssoPage">增加社团</a></span></td>
+				</tr>
+			</table>
+		</form>
+		</div>
+	</div>
 	<div class="listDataTableDiv">
 		<table style="table-layout:fixed" class="table table-striped table-bordered table-hover  table-condensed" >
 			<thead>
@@ -25,7 +35,9 @@
 				
 				<tr>
 					<td>${c.id}</td>
-					<td>${c.logo }</td>
+					<td>
+					<img width="40px" src="img/logo/${c.logo }">
+					</td>
 					<td>${c.tname}</td>
 					<td data-toggle="tooltip"  title="${c.description}" 
 					style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${c.description}</td>

@@ -21,4 +21,10 @@
     	<select id="getListByCid" parameterType="_int" resultType="Asso">
     		select * from asso where cid=#{cid}
     	</select>
+    	<select id="search" parameterType="string" resultType="Asso">
+    	select * from asso  where tname like "%"#{fingData}"%"
+    	</select>
+    	<select id="findByUsername" parameterType="string" resultType="Asso">
+    	select * from asso  where tname=#{username}
+    	</select>
     </mapper>

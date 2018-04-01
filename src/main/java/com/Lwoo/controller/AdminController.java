@@ -25,7 +25,7 @@ public class AdminController {
 	@RequestMapping("listAdmin")
 	  public String adminList(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model){
 	      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
-	      PageHelper.startPage(page, 10);
+	      PageHelper.startPage(page, 8);
 	      List<Admin> admins = adminService.list();
 	      System.out.println("----adminsController\n"+admins);
 	      PageInfo<Admin> pageInfo=new PageInfo<Admin>(admins);

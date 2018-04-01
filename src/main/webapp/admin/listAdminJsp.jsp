@@ -11,7 +11,7 @@
 		<form method="post" id="findDataForm" action="findAdminData">
 			<table title="根据ID或者用户字查找">
 				<tr>
-					<td><input  id="findData" name="findData" type="text" class="form-control" placeholder="根据ID或者用户字查找" ></td>
+					<td><input  id="findData" name="findData" type="text" class="form-control" placeholder="根据ID或者用户字查找" required="required"></td>
 					<td> <button id="submit" type="submit" class="btn btn-info">查找</button></td>
 				</tr>
 			</table>

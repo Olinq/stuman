@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Lwoo.pojo.Admin;
+import com.Lwoo.pojo.Asso;
 import com.Lwoo.pojo.Category;
+import com.Lwoo.pojo.User;
 import com.Lwoo.service.AdminService;
+import com.Lwoo.service.AssoService;
 import com.Lwoo.service.CategoryService;
 import com.Lwoo.service.UserService;
 
@@ -25,6 +28,8 @@ public class CheckNameController {
 	CategoryService categoryService;
 	@Autowired
 	AdminService adminService;
+	@Autowired
+	AssoService assoService;
 	//检查数据库是否存在同名
 	@RequestMapping(value="checkAdminUsername",method = RequestMethod.POST)
 	@ResponseBody
@@ -34,6 +39,21 @@ public class CheckNameController {
 		Admin admin=adminService.findByUsername(validData);
 		String result="true";
 		if(admin!=null){
+			result="false";
+		}
+		Map<String,String> rel=new HashMap<String,String>();
+		rel.put("result", result);
+		System.out.println(rel);
+		return rel;
+	}
+	@RequestMapping(value="checkUserUsername",method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> checkUserUsername(@RequestBody Map<String, String> map){
+		String validData=map.get("username");
+		System.out.println("checkUsername----"+validData);
+		User user=userService.findByUsername(validData);
+		String result="true";
+		if(user!=null){
 			result="false";
 		}
 		Map<String,String> rel=new HashMap<String,String>();
@@ -72,6 +92,34 @@ public class CheckNameController {
 		System.out.println(rel);
 		return rel;
 	}
-	
-	
+	@RequestMapping(value="checkUseremail",method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> checkUseremail(@RequestBody Map<String, String> map){
+		String validData=map.get("email");
+		System.out.println("checkUserEmail----"+validData);
+		User user=userService.findByEmail(validData);
+		String result="true";
+		if(user!=null){
+			result="false";
+		}
+		Map<String,String> rel=new HashMap<String,String>();
+		rel.put("result", result);
+		System.out.println(rel);
+		return rel;
+	}
+	@RequestMapping(value="checkAssoname",method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> checkAssoname(@RequestBody Map<String, String> map){
+		String validData=map.get("tname");
+		System.out.println("checkAssoname----"+validData);
+		Asso asso=assoService.findByUsername(validData);
+		String result="true";
+		if(asso!=null){
+			result="false";
+		}
+		Map<String,String> rel=new HashMap<String,String>();
+		rel.put("result", result);
+		System.out.println(rel);
+		return rel;
+	}
 }
