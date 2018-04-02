@@ -22,30 +22,6 @@ function loginInputrule(){
 		 password: {
 			required: "请输入密码"
 		}
-	 },submitHandler: function(form) { //通过之后回调
-		//进行ajax传值
-		 if($("#username").val()=="")return;
-		  $.ajax({
-	         	url : "checkAdminLogin",
-	         	type : "post",
-	         	contentType: "application/json; charset=utf-8", 
-	         	dataType : "json",
-	         	data: JSON.stringify({username: $("#username").val(),
-	         						   password:$("#password").val()}),
-	        	success : function(msg) {
-	        		var jsonArry=eval(msg); //将json类型字符串转换为json对象
-	      		 	console.log(jsonArry);
-	         		//要执行的代码
-		         	if("true"==jsonArry.result+""){
-		         		alert("success");
-		         		window.location="listCategory";
-		         	}else{
-		         		$("#errorMsg").html("用户名或者密码错误");
-		         		return false;
-		         	}
-	        }
-	        });
 	 },
-		 invalidHandler: function(form, validator) {return false;}
 });
 }

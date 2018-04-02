@@ -20,6 +20,35 @@ function rulesValid(){
 		 }
 	 },
  });
+	 
+	 $("#addNewsForm").validate({
+		 onsubmit:true,// 是否在提交时验证
+		 onfocusout:false,// 是否在获取焦点时验证
+		 onkeyup :false,// 是否在敲击键盘时验证
+		
+	 rules: {//规则
+		 title: {//要对应相对应的input中的name属性
+		 required: true,
+		 },
+		 content:{
+			 required:true
+		 },
+		 author:{
+			 required:true
+		 }
+	 },
+	 messages:{//验证错误信息
+		 title: {
+		 required: "标题不能为空",
+		 },
+		 content:{
+			required:"内容不能为空"
+		 },
+		 author:{
+			 required:"作者不能为空"
+		 }
+	 },
+ });
 	 $("#addAdminForm").validate({
 		 onsubmit:true,// 是否在提交时验证
 		 onfocusout:false,// 是否在获取焦点时验证

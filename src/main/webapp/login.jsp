@@ -24,7 +24,7 @@
                 <div class="panel-body">
          <h3 class="text-center">
                         管理员登录<br/><br/></h3> 
-                        <span id="errorMsg" style="color:red"></span>
+                        <span id="errorMsg" style="color:red">${login}</span>
         <div class="form-group">                
         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>

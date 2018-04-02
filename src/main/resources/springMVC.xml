@@ -16,8 +16,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.spring
     <context:annotation-config/>
      <!-- 处理静态资源 -->
     <mvc:default-servlet-handler />
-    <!-- 映射静态资源 -->
+    <!-- 映射静态资源  -->
     <mvc:resources location="/" mapping="/**" />
+   <mvc:resources location="/img/" mapping="/img/**" cache-period="360000"/>
  	<!-- 自动扫描的包 -->
     <context:component-scan base-package="com.Lwoo.controller">
           <context:include-filter type="annotation"

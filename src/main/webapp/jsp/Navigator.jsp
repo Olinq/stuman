@@ -31,7 +31,8 @@
                 <li><a href="#">Settings</a></li>
               </ul>
             </li>
-          </ul>
+             <li><a href="listNews">活动信息管理</a></li>
+            </ul>
          
           <div class="nav navbar-brand navbar-right" style="margin-right:30px">
               <a href="#" style="color:white" role="button">

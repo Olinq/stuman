@@ -7,7 +7,20 @@ public class Admin {
 	private String username;
 	private String password;
 	private String email;
-	List<Asso> assos;
+	private int assoId;
+	private int lock;
+	public int getLock() {
+		return lock;
+	}
+	public void setLock(int lock) {
+		this.lock = lock;
+	}
+	public int getAssoId() {
+		return assoId;
+	}
+	public void setAssoId(int assoId) {
+		this.assoId = assoId;
+	}
 	public int getId() {
 		return id;
 	}
@@ -26,21 +39,16 @@ public class Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<Asso> getAssos() {
-		return assos;
-	}
-	public void setAssos(List<Asso> assos) {
-		this.assos = assos;
-	}
-	@Override
-	public String toString() {
-		return "Admin [id=" + id + ", username=" + username + ", password=" + password + ", assos=" + assos + "]";
-	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	@Override
+	public String toString() {
+		return "Admin [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", assoId=" + assoId + "]";
 	}
 	
 }
