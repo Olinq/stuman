@@ -1,3 +1,3 @@
 <% 
-	response.sendRedirect("./listAdmin");
+	//response.sendRedirect("./login.jsp");
 %>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="./listUsualAdminHead.jsp">
+<jsp:include page="./listUsualAdminHead.jsp"/>
 <div class="listDataTableDiv">
 		<table style="table-layout:fixed" class="table table-striped table-bordered table-hover  table-condensed" >
 			<thead>
@@ -16,7 +16,7 @@
 			<tbody>
 				<tr>
 					<td>${asso.id }</td>
-					<td><img src="/img/logo/${asso.logo}"></td>
+					<td><img width="40px" src="img/logo/${c.logo}"></td>
 					<td>${asso.tname }</td>
 					<td>${asso.description}</td>
 					<td><a href="editAsso?id=${asso.id}"><span class="glyphicon glyphicon-edit"></span></a></td>

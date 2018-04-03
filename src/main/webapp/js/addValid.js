@@ -60,7 +60,7 @@ function rulesValid(){
 		 },
 		 password: {//要对应相对应的input中的name属性
 			 required: true,
-			 minlength:6
+			 minlength:3
 		 },
 		 twoPassword:{
 			 required: true,
@@ -99,7 +99,7 @@ function rulesValid(){
 	 },
 	 password: {//要对应相对应的input中的name属性
 		 required: true,
-		 minlength:6
+		 minlength:3
 	 },
 	 twoPassword:{
 		 required: true,
@@ -172,10 +172,10 @@ function msgError(tishiId,validName,typeName){//输入框验证失败
 }
 //验证字符长度
 function lengthValid(a,typeName){
-	if(""==a||a.length<6)
+	if(""==a||a.length<3)
 	{	$("#tishi").removeClass("blue");
 		$("#tishi").addClass("error");
-		$("#tishi").html("字符长度不小于6");
+		$("#tishi").html("字符长度不小于3");
 		$("#submit"+typeName).addClass("disabled");//设置提交按钮不可用
 		return false;
 	}

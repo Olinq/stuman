@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.Lwoo.pojo.Admin;
 import com.Lwoo.pojo.Category;
 import com.Lwoo.service.CategoryService;
 import com.github.pagehelper.PageHelper;
@@ -26,7 +28,7 @@ public class CategoryController {
 	CategoryService categoryService;
 	
 	@RequestMapping("listCategory")
-	  public String categorysList(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model){
+	  public String categorysList(@RequestParam(required=true,defaultValue="1") Integer page,Model model,HttpSession httpSession){
 	      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
 //		   for (Category c : categorys) {
 //	            System.out.println(c);
@@ -35,6 +37,8 @@ public class CategoryController {
 //	                System.out.println("\t"+p);
 //	            }
 //	        }
+		Admin admin=(Admin) httpSession.getAttribute("admin");
+		httpSession.setAttribute("admin", admin);//将用户登录信息存到session中
 		 PageHelper.startPage(page, 5);
 	      List<Category> categorys = categoryService.list();
 	      System.out.println("----categorysController\n"+categorys);
@@ -45,22 +49,24 @@ public class CategoryController {
 	  }
 	//增加社团类型
 	@RequestMapping("addCategory")
-	public ModelAndView addCategory(Category category){
+	public ModelAndView addCategory(Category category,HttpSession httpSession){
+		Admin admin=(Admin) httpSession.getAttribute("admin");
+		httpSession.setAttribute("admin", admin);//将用户登录信息存到session中
 		System.out.println("=---addCategory"+category);
 		categoryService.add(category);
 		ModelAndView mav = new ModelAndView("redirect:/listCategory");
 	    return mav;
 	}	
-	 //删除管理员
+	 //删除社团类型
 		@RequestMapping("deleteCategoryById")
 		public ModelAndView deleteAdmin(Category category){
 			categoryService.delete(category);
 			ModelAndView mav = new ModelAndView("redirect:/listCategory");
 			return mav;
 		}
-		//编辑管理员
+		//编辑社团类型
 		@RequestMapping("editCategory")
-		public ModelAndView editAdmin(Category category1){
+		public ModelAndView editAdmin(Category category1,HttpSession httpSession){
 			Category category= categoryService.get(category1.getId());
 			System.out.println("editCategory------\n"+category);
 			ModelAndView mav = new ModelAndView("admin/editCategory");
@@ -68,7 +74,9 @@ public class CategoryController {
 			return mav;
 		}
 		@RequestMapping("updateCategory")
-		public ModelAndView updateAdmin(Category category){
+		public ModelAndView updateAdmin(Category category,HttpSession httpSession){
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			httpSession.setAttribute("admin", admin);//将用户登录信息存到session中
 			System.out.println("updateCategory----\n"+category);
 			categoryService.update(category);
 			ModelAndView mav = new ModelAndView("redirect:/listCategory");
