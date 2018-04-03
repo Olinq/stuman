@@ -1,8 +1,11 @@
 package com.Lwoo.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -73,7 +76,7 @@ public class FindController {
 	}
 	//查找用户
 	@RequestMapping("findUserData")
-	public ModelAndView findUserData(String findData){
+	public ModelAndView findUserData(String findData,HttpSession httpSession){
 		System.out.println("======"+findData);
 		List<User> users=new ArrayList<User>();
 		if(isInteger(findData)){//根据ID查找
@@ -84,10 +87,29 @@ public class FindController {
 				users.add(user);
 			}
 		}
+		
+		Admin admin=(Admin) httpSession.getAttribute("admin");
+		if(!users.isEmpty()&&users.get(0).getAssoId()!=admin.getAssoId()&&1!=admin.getLock()){
+			users.remove(0);
+		}
 		if(users.isEmpty()){//如果Id找不到则根据名称找
 			System.out.println("======"+2222);
 			users=userService.search(findData);
 		}
+		//判断社团管理员登录后只能获取到本社团的会员
+		if(1!=admin.getLock()){
+			
+			for(Iterator it=users.iterator();it.hasNext();){
+				User user=(User) it.next();
+				if(user.getAssoId()!=admin.getAssoId()){
+					it.remove();
+				}
+			}
+			ModelAndView mav = new ModelAndView("usualAdmin/listSomeUser");
+			mav.addObject("users",users);
+			return mav;
+		}
+		
 		System.out.println(users);
 		ModelAndView mav = new ModelAndView("admin/listUser");
 		mav.addObject("users",users);

@@ -37,14 +37,9 @@
 							</select>
 						</td>
 	    			</tr>
-	    			<tr>
-	    				<td>所属社团</td>
-	    					<td>
-	    						<input text="text" disabled="disabled" value="${sessionScop.admin.assId}"/>
-							</td>
-	    			</tr>
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="center">
+	    				<input name="assoId" type="hidden" value="${sessionScope.admin.assoId}"/>
 	    					<input type="hidden" name="id" value="${user.id}">
 	    					<button type="submit" class="btn btn-success">提 交</button>
 	    				</td>

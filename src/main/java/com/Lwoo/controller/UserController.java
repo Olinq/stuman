@@ -89,10 +89,10 @@ public class UserController {
 			System.out.println("Method---listSomeUser");
 		      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
 			  Admin admin=(Admin) httpSession.getAttribute("admin");
-			  
+			  httpSession.setAttribute("admin", admin);
+			  System.out.println("=-=-=-=-=-"+admin);
 		      PageHelper.startPage(page, 10);
 		      List<User> users = userService.getListByAssoId(admin.getAssoId());
-		      System.out.println("----assosController\n"+users);
 		      PageInfo<User> pageInfo=new PageInfo<User>(users);
 		      model.addAttribute("pageInfo",pageInfo);
 		      model.addAttribute("users",users);
@@ -100,7 +100,8 @@ public class UserController {
 		  }
 		//编辑管理员
 		@RequestMapping("editSomeUser")
-		public ModelAndView editSomeUser(User user1){
+		public ModelAndView editSomeUser(HttpSession httpSession,User user1){
+			System.out.println("editSomeUser=="+httpSession.getAttribute("admin"));
 			User user= userService.get(user1.getId());
 			System.out.println("editUser------\n"+user);
 			ModelAndView mav = new ModelAndView("usualAdmin/editSomeUser");
@@ -108,7 +109,9 @@ public class UserController {
 			return mav;
 		}
 		@RequestMapping("updateSomeUser")
-		public ModelAndView updateSomeUser(User user){
+		public ModelAndView updateSomeUser(User user,HttpSession httpSession){
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			httpSession.setAttribute("admin", admin);
 			System.out.println("updateUser----\n"+user);
 			userService.update(user);
 			ModelAndView mav = new ModelAndView("redirect:/listSomeUser");
@@ -116,14 +119,25 @@ public class UserController {
 		}
 		 //删除通过ID社团的会员
 		@RequestMapping("deleteSomeUserById")
-		public ModelAndView deleteSomeUserById(User user){
+		public ModelAndView deleteSomeUserById(User user,HttpSession httpSession){
 			userService.delete(user);
 			ModelAndView mav = new ModelAndView("redirect:/listSomeUser");
 			return mav;
 		}
 		//跳转添加页面
 		@RequestMapping("addSomePage")
-		public String addSomePage(){
-		    return "usualAdmin/listSomeUser";
+		public String addSomePage(HttpSession httpSession){
+			System.out.println("addSomePage"+httpSession.getAttribute("admin"));
+		    return "usualAdmin/addSomeUser";
 		}
+		//增加社团类型
+		@RequestMapping("addSomeUser")
+		public ModelAndView addSomeUser(User user,HttpSession httpSession){
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			  httpSession.setAttribute("admin", admin);
+			System.out.println("=---addSomeUser"+user+"\n"+admin);
+			userService.add(user);
+			ModelAndView mav = new ModelAndView("redirect:/listSomeUser");
+		    return mav;
+		}	
 }

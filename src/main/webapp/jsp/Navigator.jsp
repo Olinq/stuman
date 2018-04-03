@@ -34,12 +34,22 @@
             </li>
              <li><a href="listNews">活动信息管理</a></li>
             </ul>
-          <div class="nav navbar-brand navbar-right" style="margin-right:30px">
-                <a href="#">${sessionScope.admin.username}</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="logout" style="color:white" role="button">
-             	注销 
-              </a>
-          </div>
+         <ul class="nav navbar-nav navbar-right" style="margin-right:30px">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="color:#1E90FF">
+                    ${sessionScope.admin.username}
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" style="text-align:center">
+                    <li><a href="editAdmin">修改信息</a></li>
+                </ul>
+            </li>
+            <li></li>
+            <li><a href="logout" >
+	             	注销
+				</a>
+			</li>
+        </ul>
         </div>
     </nav>
 <script>

@@ -19,8 +19,8 @@
 					<td><img width="40px" src="img/logo/${asso.logo}"></td>
 					<td>${asso.tname }</td>
 					<td>${asso.description}</td>
-					<td><a href="editAsso?id=${asso.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
-					<td><a deleteLink="true" href="deleteAssoById?id=${asso.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<td><a href="editSomeAsso?id=${asso.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
+					<td><a deleteLink="true" href="deleteSomeAssoById?id=${asso.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 			</tbody>
 		</table>
