@@ -17,10 +17,21 @@
             </ul>
          
           <div class="nav navbar-brand navbar-right" style="margin-right:30px">
-			 <a href="#">${sessionScope.admin.username}</a>&nbsp;&nbsp;&nbsp;
-             <a href="logout" style="color:white" role="button">
-             	注销 
-              </a>
+			 <ul class="nav navbar-nav">
+			 <li  class="dropdown">
+			 	<a href="#">${sessionScope.admin.username}</a>&nbsp;&nbsp;&nbsp;
+			 	 	<ul class="dropdown-menu" id="typeId">
+                		<li><a href="#">Test</a></li>
+              		</ul>
+			 </li>
+			 <li>
+				 <a href="logout" style="color:white" role="button">
+	             	注销 
+	              </a>
+              </li>
+			 </ul>
+			 
+             
           </div>
         </div>
     </nav>
