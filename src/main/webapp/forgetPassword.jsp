@@ -6,9 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>忘记密码</title>
 </head>
+
 <body>
-			<div style="width:600px;height:600px;margin:auto 300px auto auto;">
-				asa
+			<div>
+				<a href="login.jsp">返回登录页面</a>
 			</div>
+			<div style="width:600px;height:600px;margin:auto auto auto auto;color:red">
+				请联系管理员电子邮件：${admin.email}
+			</div>
+			
 </body>
 </html>

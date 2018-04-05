@@ -67,4 +67,10 @@ public class AdminServiceImpl implements AdminService{
 		// TODO Auto-generated method stub
 		return adminMapper.findByEmail(email);
 	}
+
+	@Override
+	public Admin getLock(int lock) {
+		// TODO Auto-generated method stub
+		return adminMapper.Lock(lock);
+	}
 }

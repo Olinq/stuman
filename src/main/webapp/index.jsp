@@ -2,30 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
-	
-	<title>精彩，青春，活力</title>
-
-	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
-	
-	<!-- Bootstrap -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
-	<!-- Icons -->
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-	<!-- Fonts -->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
-	<!-- Custom styles -->
-	<link rel="stylesheet" href="${ctx}/assets/css/styles.css">
-
-	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
-</head>
-<body class="home">
-
+<jsp:include page="./assets/jsp/assetsHeader.jsp"/>
 <header id="header">
 	<div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
@@ -154,37 +131,4 @@
 	</div>	<!-- /container -->
 
 </main>
-
-<footer id="footer">
-	<div class="container" >
-		<div class="row">
-			<div class="col-md-6 widget">
-				<h3 class="widget-title">Contact</h3>
-				<div class="widget-body">
-					<p>+234 23 9873237<br>
-						<a href="mailto:#">some.email@somewhere.com</a><br>
-					广东省广州市花都区新华街道学府路1号华南理工大学广州学院<br>
-					Copyright &copy; 2018, One awesome name here &nbsp;&nbsp;&nbsp;
-					Design: <a href="http://www.gettemplate.com" rel="designer">Initio by GetTemplate</a> 
-					</p>
-				</div>
-			</div>
-
-			<div class="col-md-6 widget">
-				<h3 class="widget-title">Follow me</h3>
-					<p class="follow-me-icons">
-						<a href=""><i class="fa fa-twitter fa-2"></i></a>
-						<a href=""><i class="fa fa-dribbble fa-2"></i></a>
-						<a href=""><i class="fa fa-github fa-2"></i></a>
-						<a href=""><i class="fa fa-facebook fa-2"></i></a>
-					</p>
-			</div>
-		</div> <!-- /row of widgets -->
-	</div>
-</footer>
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="${ctx}/webjars/jquery/3.1.1/jquery.min.js"></script>
-<script src="${ctx}/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-<script src="${ctx}/assets/js/template.js"></script>
-</body>
-</html>
+<jsp:include page="./assets/jsp/assetsFooter.jsp"/>

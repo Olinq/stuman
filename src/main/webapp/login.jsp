@@ -14,8 +14,9 @@
     <script src="./js/jQueryValidate/jquery.validate.min.js"></script>
     <script src="./js/jQueryValidate/messages_zh.js"></script>
 </head>
-<body style="">
+<body >
 <div id="fullscreen_bg" class="fullscreen_bg">
+<a href="index.jsp" style="color:white;margin-left:30px">前台</a>
  <form id="form-signin" class="form-signin" action="checkAdminLogin" method="post">
 <div class="container">
     <div class="row">
@@ -37,7 +38,7 @@
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                             <input id="password" name="password" type="password" class="form-control" placeholder="Password" />
                         </div>
-                         <a href="forgetPassword" style="color:red;margin-left:250px">忘记密码</a>
+                         <a href="forgetPassword" style="color:blue;margin-left:250px">忘记密码</a>
                     </div>
 						
 		<button id="login" class="btn btn-lg btn-primary btn-block" type="submit">

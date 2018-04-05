@@ -31,4 +31,7 @@
     	<select id="search" parameterType="string" resultType="Admin">
     	select * from admin  where username like "%"#{fingData}"%"
     	</select>
+    	<select id="Lock" parameterType="_int" resultType="Admin">
+    		select * from admin where `lock`=#{lock}
+    	</select>
     </mapper>
