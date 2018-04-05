@@ -51,7 +51,7 @@ public class LoginController {
 	@RequestMapping(value="listSomeAsso")
 	public String loginUsualAsso(HttpServletRequest request,HttpSession httpSession){
 		Admin admin=(Admin) httpSession.getAttribute("admin");
-		System.out.println("===loginUsualAsso"+admin);
+		System.out.println("===loginUsualAsso  "+admin);
 		Asso asso= assoService.get(admin.getAssoId());
 		httpSession.setAttribute("admin", admin);
 		request.getSession().setAttribute("asso", asso);

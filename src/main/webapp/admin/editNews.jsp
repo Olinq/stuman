@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="../jsp/HeadJsp.jsp"/>
-<jsp:include page="../jsp/Navigator.jsp"/>
+<c:choose> 
+    <c:when test="${1==admin.lock}">    <!--如果 --> 
+		<jsp:include page="../jsp/HeadJsp.jsp"/>
+		<jsp:include page="../jsp/Navigator.jsp"/>
+ 	</c:when>      
+   	<c:otherwise>  <!--否则 -->    
+		<jsp:include page="../usualAdmin/listUsualAdminHead.jsp"/>
+  	</c:otherwise> 
+</c:choose>
 <div class="workingArea">
 	<div class="panel panel-warning editDiv">
 	  <div class="panel-heading">编辑管理员</div>

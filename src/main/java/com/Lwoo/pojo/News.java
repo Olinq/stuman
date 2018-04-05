@@ -72,4 +72,11 @@ public class News {
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
     }
+
+	@Override
+	public String toString() {
+		return "News [id=" + id + ", aid=" + aid + ", title=" + title + ", author=" + author + ", time=" + time
+				+ ", click=" + click + ", content=" + content + "]";
+	}
+    
 }

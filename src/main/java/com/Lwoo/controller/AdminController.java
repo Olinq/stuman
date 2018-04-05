@@ -3,6 +3,7 @@ package com.Lwoo.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,9 +58,16 @@ public class AdminController {
 		return mav;
 	}
 	@RequestMapping("updateAdmin")
-	public ModelAndView updateAdmin(Admin admin){
+	public ModelAndView updateAdmin(Admin admin,HttpSession httpSession){
 		System.out.println("updateAdmin----"+admin);
 		adminService.update(admin);
+		admin=adminService.get(admin.getId());
+		httpSession.setAttribute("admin", admin);
+		
+		if(1!=admin.getLock()){//普通管理员
+			ModelAndView mav = new ModelAndView("redirect:/listSomeAsso");
+			return mav;
+		}
 		ModelAndView mav = new ModelAndView("redirect:/listAdmin");
 		return mav;
 	}

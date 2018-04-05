@@ -42,6 +42,10 @@
                 </a>
                 <ul class="dropdown-menu" style="text-align:center">
                     <li><a href="editAdmin">修改信息</a></li>
+                    <li><hr/></li>
+                    <li><a href="#">用户名： ${sessionScope.admin.username}</a></li>
+                    <li><a href="#"> 密码：${sessionScope.admin.password}</a></li>
+                    <li><a href="#">Email： ${sessionScope.admin.email}</a></li>
                 </ul>
             </li>
             <li></li>

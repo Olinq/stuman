@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.Lwoo.pojo.Admin;
 import com.Lwoo.pojo.Asso;
 import com.Lwoo.service.AssoService;
 import com.github.pagehelper.PageHelper;
@@ -75,22 +77,30 @@ public class AssoController {
 	
 	 //删除社团
 	@RequestMapping("deleteAssoById")
-	public ModelAndView deleteAsso(Asso asso){
+	public ModelAndView deleteAsso(Asso asso,HttpSession httpSession){
 		assoService.delete(asso);
 		ModelAndView mav = new ModelAndView("redirect:/listAsso");
 		return mav;
 	}
 	//编辑社团
 	@RequestMapping("editAsso")
-	public ModelAndView editAsso(Asso ad){
+	public ModelAndView editAsso(Asso ad,HttpSession httpSession){
 		Asso asso= assoService.get(ad.getId());
 		System.out.println("editAsso------\n"+asso);
+		Admin admin=(Admin)httpSession.getAttribute("admin");
+		
+		if(1!=admin.getLock()){//普通管理员页面
+			ModelAndView mav = new ModelAndView("usualAdmin/editSomeAsso");
+			mav.addObject("asso", asso);
+			return mav;
+		}
 		ModelAndView mav = new ModelAndView("admin/editAsso");
 		mav.addObject("asso", asso);
 		return mav;
 	}
 	@RequestMapping("updateAsso")
-	public ModelAndView updateAsso(Asso asso,MultipartFile file,HttpServletRequest request){
+	public ModelAndView updateAsso(Asso asso,MultipartFile file,HttpServletRequest request,HttpSession httpSession){
+		Admin admin=(Admin)httpSession.getAttribute("admin");
 		String pojoPath =request.getServletContext().getRealPath("/img/logo");//保存图片的路径
 		if(""!=file.getOriginalFilename()){
 			System.out.println("===更改图片---------");
@@ -122,6 +132,11 @@ public class AssoController {
 		}
 		System.out.println("updateAsso----\n"+asso);
 		assoService.update(asso);
+		
+		if(1!=admin.getLock()){//如果不是超级管路 则跳转社团管理员
+			ModelAndView mav = new ModelAndView("redirect:/listSomeAsso");
+			return mav;
+		}
 		ModelAndView mav = new ModelAndView("redirect:/listAsso");
 		return mav;
 	}

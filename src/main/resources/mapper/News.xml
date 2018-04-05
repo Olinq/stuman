@@ -19,6 +19,13 @@
     	select * from news order by time desc
     	</select>
     	<select id="search" parameterType="string" resultType="News">
-    		select * from news where title like "%"#{fingData}"%"
+    		select * from news where title like "%"#{findData}"%"
+    	</select>
+    	
+    	<select id="searchByAid"  resultType="News">
+    		select * from news where title like "%"#{findData}"%" and aid=#{aid}
+    	</select>
+    	<select id="listByAid" parameterType="int" resultType="News">
+    	select * from news where aid=#{id} order by time desc
     	</select>
     </mapper>

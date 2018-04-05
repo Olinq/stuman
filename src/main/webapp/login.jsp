@@ -36,9 +36,10 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                             <input id="password" name="password" type="password" class="form-control" placeholder="Password" />
-                        </div>   
                         </div>
-
+                         <a href="forgetPassword" style="color:red;margin-left:250px">忘记密码</a>
+                    </div>
+						
 		<button id="login" class="btn btn-lg btn-primary btn-block" type="submit">
             Login
 		</button>

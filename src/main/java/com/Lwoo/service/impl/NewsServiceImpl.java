@@ -52,7 +52,19 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public List<News> search(String fingData) {
 		// TODO Auto-generated method stub
-		return null;
+		return newsMapper.search(fingData);
+	}
+
+	@Override
+	public List<News> listByAid(int id) {
+		// TODO Auto-generated method stub
+		return newsMapper.listByAid(id);
+	}
+
+	@Override
+	public List<News> searchByAid(String findData, int aid) {
+		// TODO Auto-generated method stub
+		return newsMapper.searchByAid(findData, aid);
 	}
 
 }
