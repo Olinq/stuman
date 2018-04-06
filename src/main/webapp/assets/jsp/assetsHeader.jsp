@@ -15,7 +15,6 @@
 	<link href="${ctx}/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="${ctx}/assets/css/styles.css">
-
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
 <body class="home">

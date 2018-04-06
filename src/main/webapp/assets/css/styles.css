@@ -222,10 +222,9 @@ a:hover {
 
                                 HEADER
 
-
+ background: #f4f4f4 url(../images/bg1.jpg) top center;
 **********************************************************************/
 #head {
-  background: #f4f4f4 url(../images/bg_head.jpg) top center;
   background-size: cover;
   color: #7C7C7C;
   padding: 30px 0 35px 0;
@@ -242,6 +241,7 @@ a:hover {
   font-family: Alice, Georgia, serif;
   font-size: 49px;
   font-size: 3.0625rem;
+  color:white;
 }
 #head .title a {
   text-decoration: none;
@@ -407,7 +407,7 @@ img {
   display: block;
   width: 100%;
   overflow: hidden;
-  height: 180px;
+  height: 255px;
   margin: 0 0 20px;
   position: relative;
 }
@@ -422,7 +422,7 @@ img {
   display: block;
   opacity: 0;
   width: 100%;
-  height: 180px;
+  height: 255px;
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -796,4 +796,8 @@ footer.entry-meta .meta-in {
   .container {
     max-width: 1080px;
   }
+}
+.phelper{
+	text-indent:2em;
+	line-height;1.5em;
 }

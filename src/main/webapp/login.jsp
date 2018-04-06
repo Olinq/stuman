@@ -16,7 +16,7 @@
 </head>
 <body >
 <div id="fullscreen_bg" class="fullscreen_bg">
-<a href="index.jsp" style="color:white;margin-left:30px">前台</a>
+<a href="/stuman/" style="color:white;margin-left:30px">前台</a>
  <form id="form-signin" class="form-signin" action="checkAdminLogin" method="post">
 <div class="container">
     <div class="row">

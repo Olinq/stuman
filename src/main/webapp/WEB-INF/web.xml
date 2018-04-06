@@ -2,10 +2,9 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
 		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-	<welcome-file-list>  
-        <welcome-file>index.jsp</welcome-file>  
-	</welcome-file-list> 
-	
+		<welcome-file-list>  
+		   <welcome-file>/</welcome-file>  
+		</welcome-file-list>
 	<!-- 配置拦截路径 -->
     <servlet-mapping>
      <servlet-name >default </servlet-name >         
@@ -76,15 +75,6 @@
     <param-name>log4jConfigLocation</param-name>
     <param-value>classpath:log4j.properties</param-value>
   </context-param>
-    <!-- 错误页 -->  
-    <error-page>  
-        <error-code>404</error-code>  
-        <location>/rest/page/404</location>  
-    </error-page>  
-    <error-page>  
-        <error-code>500</error-code>  
-        <location>/rest/page/500</location>  
-    </error-page> 
     <!-- 项目绝对路径 -->
     <context-param>    
         <param-name>webAppRootKey</param-name>     

@@ -3,13 +3,13 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<footer id="footer" style="height:100px">
-	<div class="container" >
+<footer id="footer" style="height:60px;padding:20px 20px;margin-bottom:0px">
+	<div class="container">
 		<div class="row" style="text-align:center;height:30px" >
-			<div class="col-md-12">
+			<div class="col-md-12"">
 					<p>电话:&nbsp;+234 23 9873237&nbsp;&nbsp;&nbsp;
 						邮箱:&nbsp;<a href="mailto:#">some.email@somewhere.com</a>&nbsp;&nbsp;&nbsp;
-					地址:&nbsp;广东省广州市花都区新华街道学府路1号华南理工大学广州学院<br>
+					地址:&nbsp;广东省广州市花都区新华街道学府路1号华南理工大学广州学院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Copyright &copy; 2018, One awesome name here &nbsp;&nbsp;&nbsp;
 					 <a href="login.jsp" rel="designer">后台登录</a> 
 					</p>
