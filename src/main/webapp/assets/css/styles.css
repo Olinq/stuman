@@ -26,7 +26,6 @@ body {
   -moz-background-clip: padding;
   border-radius: 0;
   background-clip: padding-box;
-  width: 100%;
 }
 .navbar.stick {
   position: fixed;
@@ -46,9 +45,8 @@ body {
   text-transform: uppercase;
 }
 .navbar-collapse .navbar-nav {
-  float: none;
   margin: 0 auto;
-  text-align: center;
+  text-align: right;
 }
 .navbar-collapse .navbar-nav > li {
   float: none;
@@ -232,7 +230,7 @@ a:hover {
 #head img.img-circle {
   display: block;
   width: 140px;
-  height: 140px;
+  height: 100px;
   overflow: hidden;
   border: 9px solid rgba(0, 0, 0, 0.05);
   margin: 0 auto;
@@ -252,7 +250,7 @@ a:hover {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.2em;
-  color: #7C7C7C;
+  color: white;
   margin: 5px 0 0;
 }
 #head .tagline b {
