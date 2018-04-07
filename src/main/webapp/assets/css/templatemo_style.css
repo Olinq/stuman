@@ -1,0 +1,47 @@
+/*
+Credit: http://www.templatemo.com
+*/
+
+/* 
+Zine Blue Template 
+http://www.templatemo.com/preview/templatemo_220_zine_blue 
+*/
+
+h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+		
+.post_section a:link,.post_section a:visited { color: #033772; text-decoration: none; font-weight: normal; } 
+.post_section a:active,.post_section a:hover { color: #ffffff; text-decoration: underline; }
+
+p { margin: 0px; padding: 0px; }
+
+.post_section {
+	margin-bottom: 10px;
+}
+
+.post_section h5 {
+	color: #a42500;
+	font-size: 30px;
+	line-height: 30px;
+	font-weight: normal;
+	padding: 10px 0 10px 0;
+}
+
+.post_section p {
+	margin-bottom: 20px;
+}
+
+.post_section img {
+	margin: 20px 0;
+}
+.content p{ 
+        width:100%; 
+         margin:20px auto;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient: vertical;
+}
+.post_section span{
+	color:#033772;
+}

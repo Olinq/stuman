@@ -1,5 +1,6 @@
 package com.Lwoo.pojo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class News {
@@ -49,8 +50,12 @@ public class News {
         this.author = author == null ? null : author.trim();
     }
 
-    public Date getTime() {
-        return time;
+    public String getTime() {
+    	//转换数据库时间格式
+    	 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+         String formatDate = df.format(time);  
+         
+        return formatDate;
     }
 
     public void setTime(Date time) {

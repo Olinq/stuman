@@ -40,10 +40,11 @@ function setBackground(){
 		<div class="container-fluid">
 			<div class="navbar-collapse collapse">
 				
-				<ul class="nav navbar-nav" style="width:900px">
+				<ul class="nav navbar-nav" style="width:1000px">
 					<li  style="width:100px"></li>
-					<li class="active"><a href="/stuman/">主页</a></li>
-					<li><a href="about.jsp">社团活动</a></li>
+					<li class="active"><a href="/stuman/">首页</a></li>
+					<li class="active"><a href="/stuman/team">社团</a></li>
+					<li><a href="${ctx }/active">活动预告</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -52,11 +53,12 @@ function setBackground(){
 							<li><a href="single.jsp">Blog Post</a></li>
 						</ul>
 					</li>
-					<li><a href="blog.jsp">Blog</a></li>
+					<li><a href="${ctx }/about?id=1">关于我们</a></li>
+					<li ><a href="#">留言板</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							登录<span class="caret"></span>
 						</a>
 						<div class="dropdown-menu" style="width:300px" id="formLogin">
