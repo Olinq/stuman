@@ -99,4 +99,24 @@ public class StartController {
 		System.out.println(news);
 		return mav;
 	}
+	@RequestMapping("/team/findData")
+	public ModelAndView findData(String findData){
+		System.out.println("----/team/findData---");
+		ModelAndView mav=new ModelAndView("team");
+		List<Category> categorys=categoryService.list();
+		List<Asso> assos=assoService.search(findData);
+		mav.addObject("categorys", categorys);
+		mav.addObject("assos", assos);
+		System.out.println(assos);
+		return mav;
+	}
+	@RequestMapping("/active/findData")
+	public ModelAndView activefindData(String findData){
+		System.out.println("----/active/findData---");
+		ModelAndView mav=new ModelAndView("active");
+		List<News> news=newsService.search(findData);
+		mav.addObject("news", news);
+		System.out.println(news);
+		return mav;
+	}
 }

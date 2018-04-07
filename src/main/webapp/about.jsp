@@ -6,7 +6,7 @@
 <jsp:include page="./assets/jsp/header.jsp"/>
 <main id="main">
 
-	<div class="container">
+	<div class="container" style="margin-bottom:200px">
 
 		<div class="row topspace">
 			
@@ -19,10 +19,10 @@
 			<!-- Article main content -->
 			<article class="col-sm-8 maincontent">
 				<h3>${asso.tname}</h3>
-				<p></p>
-				<p></p>
+				<br/><br/>
 				<p><img src="${ctx }/img/logo/${asso.logo}" alt="" class="" width="100%" height="600px"></p>
-				<h5>社团介绍</h5>
+				<br/><br/>
+				<h5>社团介绍</h5><br/>
 				<p class="phelper">${asso.description}</p>
 				<div style="height:200px"></div>
 			</article>

@@ -19,8 +19,8 @@ setInterval("showTime()",1000);
 
 <main id="main">
 
-	<div class="container">
-		
+	<div class="container" >
+					
 		<div class="row topspace">
 			<div class="col-sm-9 col-sm-offset-2">
 															
@@ -28,6 +28,21 @@ setInterval("showTime()",1000);
 					<header class="entry-header">
  						<div class="entry-meta"> 
  							<span class="posted-on"><time class="entry-date published" id="mytime"></time></span>			
+ 							<div id="respond">
+						<form action="${ctx }/active/findData">
+							<div class="row">
+							<div class="col-md-6"></div>
+								<div class="col-md-4 text-right" style="line-height: 40px;">
+									<div class="form-group">
+										<input type="text" name="findData" class="form-control" style="margin-left: 25;height: 40px;" required="required" placeholder="根据标题查找">
+									</div>
+								</div>
+								<div class="col-md-1 text-left"  style="line-height: 40px;">
+  									<button type="submit" class="btn btn-action" style="height: 40px;">查找</button>
+								</div>
+							</div>
+						</form>
+					</div> <!-- /respond -->
  						</div> 
 					</header> 
 					<div class="entry-content"> 

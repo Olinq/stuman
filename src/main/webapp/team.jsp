@@ -6,23 +6,23 @@
 <jsp:include page="./assets/jsp/header.jsp"/>
 
 <main id="main">
-					<div id="respond">
-						<form action="" method="post" id="commentform" class="">
-							<div class="row">
-							<div class="col-md-7"></div>
-								<div class="col-md-3 text-right" style="line-height: 40px;">
-									<div class="form-group">
-										<input type="text" class="form-control"  placeholder="社团名称">
-									</div>
-								</div>
-								<div class="col-md-1 text-left"  style="line-height: 40px;">
-  									<button type="submit" class="btn btn-action" style="height: 40px;">Submit</button>
-								</div>
+					
+<div class="container" style="margin-bottom:200px">
+		   <div id="respond">
+				<form action="${ctx }/team/findData">
+					<div class="row">
+					<div class="col-md-7"></div>
+						<div class="col-md-3 text-right" style="line-height: 40px;">
+							<div class="form-group">
+								<input type="text" name="findData" class="form-control" style="margin-left: 25;height: 40px;" required="required" placeholder="社团名称">
 							</div>
-						</form>
-					</div> <!-- /respond -->
-<div class="container">
-				   
+						</div>
+						<div class="col-md-1 text-left"  style="line-height: 40px;">
+									<button type="submit" class="btn btn-action" style="height: 40px;">查找</button>
+						</div>
+					</div>
+				</form>
+			</div> <!-- /respond -->
 		<div class="row topspace">
 			
 			<!-- Sidebar -->
