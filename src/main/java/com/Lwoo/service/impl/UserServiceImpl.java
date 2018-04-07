@@ -67,4 +67,10 @@ public class UserServiceImpl implements UserService{
 		return userMapper.getListByAssoId(assoId);
 	}
 
+	@Override
+	public User checkLogin(String username, String password) {
+		// TODO Auto-generated method stub
+		return userMapper.checkLogin(username, password);
+	}
+
 }

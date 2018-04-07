@@ -1,5 +1,8 @@
 package com.Lwoo.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -7,15 +10,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.Lwoo.pojo.Admin;
 import com.Lwoo.pojo.Asso;
+import com.Lwoo.pojo.User;
 import com.Lwoo.service.AdminService;
 import com.Lwoo.service.AssoService;
+import com.Lwoo.service.UserService;
 
 @Controller
 @RequestMapping("")
@@ -24,6 +30,9 @@ public class LoginController {
 	AdminService adminService;
 	@Autowired
 	AssoService assoService;
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping(value="checkAdminLogin")
 	public ModelAndView loginIn(HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
 		String username = request.getParameter("username");
@@ -64,5 +73,20 @@ public class LoginController {
 		request.getSession().setAttribute("login", "");
 		return mav;
 	}
-	
+ 	@ResponseBody
+    @RequestMapping(value="user/userLoginIn", method = RequestMethod.POST)
+     public Map<String,String> getUser(@RequestBody Map<String,String> usermap,HttpSession httpSession){
+ 		String username=usermap.get("username");
+ 		String password=usermap.get("password");
+ 		User user=userService.checkLogin(username, password);
+		System.out.println("------------------------------"+user);
+		String result="false";
+		if(user!=null){
+			result="true";
+			httpSession.setAttribute("user", user);//重定向传值
+		}
+		Map<String,String> rel=new HashMap<String,String>();
+		rel.put("result", result);
+     return rel;
+    }
 }

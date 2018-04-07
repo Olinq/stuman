@@ -27,6 +27,32 @@ function setBackground(){
         setBackground();
     },5000);
 }
+//两秒后清除提示
+function clear(){
+	$("#log").html("");
+}
+setInterval("clear()",2000);
+
+function checkUser(){
+        $.ajax({
+         	url : "${ctx }/user/userLoginIn",
+         	type : "post",
+         	contentType: 'application/json;charset=UTF-8', 
+         	dataType : "json",
+         	data: JSON.stringify({username: $("#username").val(),password:$("#password").val()}),
+        	success : function(msg) {
+        		var jsonArry=eval(msg); //将json类型字符串转换为json对象
+      		 	console.log(jsonArry);
+         		//要执行的代码
+	         	if("true"==jsonArry.result+""){
+	         		alert("1");
+	         	}else{
+	         		alert("0");
+	         		
+	         	}
+        }
+        });
+}
 </script>
 <header id="header">
 	<div id="head" class="parallax" parallax-speed="1">
@@ -45,7 +71,7 @@ function setBackground(){
 					<li class="active"><a href="/stuman/">首页</a></li>
 					<li class="active"><a href="/stuman/team">社团</a></li>
 					<li><a href="${ctx }/active">活动预告</a></li>
-					<li class="dropdown">
+			<!--	<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="sidebar-left.jsp">Left Sidebar</a></li>
@@ -53,6 +79,7 @@ function setBackground(){
 							<li><a href="single.jsp">Blog Post</a></li>
 						</ul>
 					</li>
+			-->
 					<li><a href="${ctx }/about?id=1">关于我们</a></li>
 					<li ><a href="#">留言板</a></li>
 				</ul>
@@ -74,7 +101,7 @@ function setBackground(){
 											<input class="form-control" name="password" id="password" type="password"><br>
 											<a href="#" style="margin-left:200px">忘记密码</a>
 										</div>
-										<button type="submit" id="btnLogin" class="btn btn-primary btn-lg btn-block">登录</button>
+										<button type="submit" id="btnLogin" onclick="checkUser()" class="btn btn-primary btn-lg btn-block">登录</button>
 									</form>
 								</div>
 							
@@ -86,3 +113,10 @@ function setBackground(){
 		</div>	
 	</nav>
 </header>
+<article class="post">
+					<header class="entry-header">
+ 						<div class="entry-meta"> 
+ 							<span class="posted-on"><time class="entry-date published" id="mytime"></time></span>
+ 						</div>
+ 					</header>
+</article>

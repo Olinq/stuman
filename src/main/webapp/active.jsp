@@ -4,19 +4,6 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <jsp:include page="./assets/jsp/assetsHeader.jsp"/>
 <jsp:include page="./assets/jsp/header.jsp"/>
-<script type="text/javascript">
-function showTime(){
-    nowtime=new Date();
-    year=nowtime.getFullYear();
-    month=nowtime.getMonth()+1;
-    date=nowtime.getDate();
-    document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
-}
-
-setInterval("showTime()",1000);
-
-</script>
-
 <main id="main">
 
 	<div class="container" >
@@ -27,7 +14,6 @@ setInterval("showTime()",1000);
  				<article class="post">
 					<header class="entry-header">
  						<div class="entry-meta"> 
- 							<span class="posted-on"><time class="entry-date published" id="mytime"></time></span>			
  							<div id="respond">
 						<form action="${ctx }/active/findData">
 							<div class="row">

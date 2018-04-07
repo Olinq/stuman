@@ -19,3 +19,16 @@
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
 <body class="home">
+<script type="text/javascript">
+function showTime(){
+    nowtime=new Date();
+    year=nowtime.getFullYear();
+    month=nowtime.getMonth()+1;
+    date=nowtime.getDate();
+    document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+}
+
+setInterval("showTime()",1000);
+
+</script>
+
