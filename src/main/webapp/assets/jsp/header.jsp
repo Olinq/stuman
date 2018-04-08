@@ -6,6 +6,7 @@
 <script>
 $(function(){
 	setBackground();
+	$("user").hide();
 });
 var t = 0;
 function setBackground(){
@@ -84,21 +85,9 @@ function checkUser(){
 					<li><a href="${ctx }/about?id=1">关于我们</a></li>
 					<li ><a href="#">留言板</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-				<c:choose> 
-					<c:when test="${null!=user}">    <!--如果 --> 
-				 		<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#a42500">
-							${user.username}<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" style="text-align:center">
-		                    <li><a href="personMsg.jsp">修改信息</a></li>
-		                    <li><hr/></li>
-		                    <li><a href="#">个人信息</a></li>
-                		</ul>
-				 	</c:when>      
-				   	<c:otherwise>  <!--否则 -->
-				   	   <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="login">
+				<ul class="nav navbar-nav navbar-right"  id="login">
+					<li class="dropdown" id="login">
+				   	   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							登录<span class="caret"></span>
 						</a>
 						<div class="dropdown-menu" style="width:300px" id="formLogin">
@@ -117,11 +106,22 @@ function checkUser(){
 										<button type="button" id="btnLogin" onclick="checkUser()" class="btn btn-primary btn-lg btn-block">登录</button>
 									</form>
 								</div>
-						</div> 
-				  	</c:otherwise> 
-				</c:choose>
+							</div>
 					</li>
 					<li><a href="#" data-toggle="modal" data-target='#modalRegister'>注册</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right"  id="user">
+				<li class="dropdown" id="user" display="none">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#a42500">
+							${user.username}<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" style="text-align:center">
+		                    <li><a href="personMsg.jsp">修改信息</a></li>
+		                    <li><hr/></li>
+		                    <li><a href="#">个人信息</a></li>
+                		</ul>
+					</li>
+					<li><a href="#" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->			
 		</div>	
