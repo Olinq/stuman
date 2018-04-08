@@ -78,6 +78,7 @@ public class LoginController {
      public Map<String,String> getUser(@RequestBody Map<String,String> usermap,HttpSession httpSession){
  		String username=usermap.get("username");
  		String password=usermap.get("password");
+ 		System.out.println("checkAdminLogin----"+username+":"+password);
  		User user=userService.checkLogin(username, password);
 		System.out.println("------------------------------"+user);
 		String result="false";
@@ -88,5 +89,15 @@ public class LoginController {
 		Map<String,String> rel=new HashMap<String,String>();
 		rel.put("result", result);
      return rel;
+    }
+ 	//用户注销
+	@ResponseBody
+    @RequestMapping(value="user/logout", method = RequestMethod.POST)
+     public Map<String,String> logout(HttpSession httpSession){
+		httpSession.setAttribute("user", null);
+		System.out.println("user/logout");
+		Map<String,String> rel=new HashMap<String,String>();
+		rel.put("result", "注销成功");
+		return rel;
     }
 }

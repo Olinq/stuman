@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTf-8"
+<%@ page language="java" import="com.Lwoo.pojo.User" contentType="text/html; charset=UTf-8"
     pageEncoding="UTf-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
@@ -6,7 +6,16 @@
 <script>
 $(function(){
 	setBackground();
-	$("user").hide();
+	 var user = '<%= session.getAttribute("user")%>';
+     console.log("user:::" + user);
+     if(user!='null'){
+    	 $("#login").css("display","none");
+  		 $("#user").css("display","");
+     }else{
+    	 $("#user").css("display","none");
+  		 $("#login").css("display","");
+     }
+
 });
 var t = 0;
 function setBackground(){
@@ -28,11 +37,6 @@ function setBackground(){
         setBackground();
     },5000);
 }
-//两秒后清除提示
-function clear(){
-	$("#log").html("");
-}
-setInterval("clear()",2000);
 
 function checkUser(){
         $.ajax({
@@ -46,7 +50,12 @@ function checkUser(){
       		 	console.log(jsonArry);
          		//要执行的代码
 	         	if("true"==jsonArry.result+""){
-	         		console("登录成功");
+	         		$("#login").css("display","none");
+	         		$("#user").css("display","");
+	         		console.log("登录成功");
+	         		 window.location.reload();//刷新当前页面.
+	         		$("#username").val("");
+	         		$("#password").val("");
 	         	}else{
 	         		$("#username").val("");
 	         		$("#password").val("");
@@ -54,6 +63,22 @@ function checkUser(){
 	         	}
         }
         });
+}
+
+function checkLogout(){
+    $.ajax({
+     	url : "${ctx }/user/logout",
+     	type : "post",
+     	contentType: 'application/json;charset=UTF-8', 
+     	dataType : "json",
+    	success : function(msg) {
+    		var jsonArry=eval(msg); //将json类型字符串转换为json对象
+  		 	console.log(jsonArry);
+       		console.log("注销成功");
+       		$("#user").css("display","none");
+       		 $("#login").css("display","");
+    }
+    });
 }
 </script>
 <header id="header">
@@ -110,10 +135,10 @@ function checkUser(){
 					</li>
 					<li><a href="#" data-toggle="modal" data-target='#modalRegister'>注册</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right"  id="user">
-				<li class="dropdown" id="user" display="none">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#a42500">
-							${user.username}<span class="caret"></span>
+				<ul class="nav navbar-nav navbar-right" style="display:none;" id="user">
+				<li class="dropdown">
+						<a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="color:#a42500">
+							${user.username }<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" style="text-align:center">
 		                    <li><a href="personMsg.jsp">修改信息</a></li>
@@ -121,7 +146,7 @@ function checkUser(){
 		                    <li><a href="#">个人信息</a></li>
                 		</ul>
 					</li>
-					<li><a href="#" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
+					<li><a href="#" onclick="checkLogout()" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->			
 		</div>	

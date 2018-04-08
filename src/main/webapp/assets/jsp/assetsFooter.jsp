@@ -4,7 +4,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <footer id="footer" style="height:60px;padding:20px 20px;margin-bottom:0px">
-	<div class="container">
+	<div>
 		<div class="row" style="text-align:center;height:30px" >
 			<div class="col-md-12"">
 					<p>电话:&nbsp;+234 23 9873237&nbsp;&nbsp;&nbsp;
