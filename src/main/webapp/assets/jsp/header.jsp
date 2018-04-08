@@ -45,10 +45,11 @@ function checkUser(){
       		 	console.log(jsonArry);
          		//要执行的代码
 	         	if("true"==jsonArry.result+""){
-	         		alert("1");
+	         		console("登录成功");
 	         	}else{
-	         		alert("0");
-	         		
+	         		$("#username").val("");
+	         		$("#password").val("");
+	         		mizhu.alert('提示信息', '账户名或者密码错误');
 	         	}
         }
         });
@@ -85,13 +86,25 @@ function checkUser(){
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<c:choose> 
+					<c:when test="${null!=user}">    <!--如果 --> 
+				 		<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#a42500">
+							${user.username}<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" style="text-align:center">
+		                    <li><a href="personMsg.jsp">修改信息</a></li>
+		                    <li><hr/></li>
+		                    <li><a href="#">个人信息</a></li>
+                		</ul>
+				 	</c:when>      
+				   	<c:otherwise>  <!--否则 -->
+				   	   <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="login">
 							登录<span class="caret"></span>
 						</a>
 						<div class="dropdown-menu" style="width:300px" id="formLogin">
 							
 								<div class="container-fluid">
-									<form>
+									<form action="${ctx }/user/userLoginIn">
 										<div class="form-group">
 											<label>用户名</label>
 											<input class="form-control" name="username" id="username" type="text">
@@ -101,11 +114,12 @@ function checkUser(){
 											<input class="form-control" name="password" id="password" type="password"><br>
 											<a href="#" style="margin-left:200px">忘记密码</a>
 										</div>
-										<button type="submit" id="btnLogin" onclick="checkUser()" class="btn btn-primary btn-lg btn-block">登录</button>
+										<button type="button" id="btnLogin" onclick="checkUser()" class="btn btn-primary btn-lg btn-block">登录</button>
 									</form>
 								</div>
-							
-						</div>
+						</div> 
+				  	</c:otherwise> 
+				</c:choose>
 					</li>
 					<li><a href="#" data-toggle="modal" data-target='#modalRegister'>注册</a></li>
 				</ul>

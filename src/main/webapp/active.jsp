@@ -35,7 +35,7 @@
 					<c:forEach items="${news }" var="n">
 						 <div class="post_section">
             
-				                <h5>${n.title}</h5>
+				               <a href="${ctx }/active/content?id=${n.id}"> <h5>${n.title}</h5></a>
 				
 				               ${n.time}&nbsp;&nbsp;&nbsp;
 				               <span class=""> 文章作者</span>： <span href="#">${n.author}</span>
