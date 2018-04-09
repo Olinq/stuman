@@ -32,15 +32,12 @@ public class StartController {
 	UserService userService;
 	
 	@RequestMapping("/")
-	public ModelAndView startUp(@RequestParam(required=true,defaultValue="12") Integer total){
+	public ModelAndView startUp(){
 		System.out.println("----startUp---");
-		PageHelper.startPage(1, total);//进入主页显示12个社团
 		ModelAndView mav=new ModelAndView("index");
-		List<Asso> assos=assoService.list();
-		PageInfo<Asso> pageInfo=new PageInfo<Asso>(assos);
-		mav.addObject("pageInfo",pageInfo);
-		mav.addObject("assos", assos);
-		System.out.println(assos);
+		List<Category> categorys=categoryService.list();
+		mav.addObject("categorys", categorys);
+		System.out.println(categorys);
 		return mav;
 	}
 	@RequestMapping("team")
