@@ -82,12 +82,16 @@ public class LoginController {
  		User user=userService.checkLogin(username, password);
 		System.out.println("------------------------------"+user);
 		String result="false";
+		String statu="0";
 		if(user!=null){
 			result="true";
+			statu=user.getStatu().toString();
 			httpSession.setAttribute("user", user);//重定向传值
+			
 		}
 		Map<String,String> rel=new HashMap<String,String>();
 		rel.put("result", result);
+		rel.put("statu",statu );//用户是否是正式会员
      return rel;
     }
  	//用户注销

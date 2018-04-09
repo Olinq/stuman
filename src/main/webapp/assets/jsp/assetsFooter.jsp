@@ -22,5 +22,15 @@
 <script src="${ctx}/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 <script src="${ctx}/assets/js/template.js"></script>
 <script src="${ctx}/assets/js/ui.js"></script>
+<!-- bootstrap-select 插件 -->
+<script src="${ctx}/js/bootstrap-select/bootstrap-select.min.js"></script>
+<link href="${ctx}/js/bootstrap-select/bootstrap-select.min.css"  rel="stylesheet">
+<!-- 组件中文化 -->
+<script src="${ctx}/js/bootstrap-select/defaults-zh_CN.min.js"></script>
+<!-- jQueryValidate -->
+<script src="${ctx}/js/jQueryValidate/jquery.validate.min.js"></script>
+<script src="${ctx}/js/jQueryValidate/messages_zh.js"></script>
+ <link href="${ctx}/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">	
+ <script src="${ctx}/assets/js/validAdd.js"></script>
 </body>
 </html>

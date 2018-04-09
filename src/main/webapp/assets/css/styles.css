@@ -846,3 +846,9 @@ footer.entry-meta .meta-in {
 .window-panel .w-btn { display: inline-block; width: 60px; height: 26px; line-height: 26px; background-color: #DE5923; color: white; cursor: pointer; text-align: center; border-radius: 2px; text-decoration: none; margin: 0 10px 0px 10px; border: none; }
 .window-panel .w-btn:hover { background-color: #DA3E00; }
 .window-panel .w-btn:focus { outline: 0 none; }
+
+form label.error {
+    width: 200px;
+    margin-left: 8px;
+    color: Red;
+}

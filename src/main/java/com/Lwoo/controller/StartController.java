@@ -11,9 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.Lwoo.pojo.Asso;
 import com.Lwoo.pojo.Category;
 import com.Lwoo.pojo.News;
+import com.Lwoo.pojo.User;
 import com.Lwoo.service.AssoService;
 import com.Lwoo.service.CategoryService;
 import com.Lwoo.service.NewsService;
+import com.Lwoo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -26,6 +28,8 @@ public class StartController {
 	CategoryService categoryService;
 	@Autowired
 	NewsService newsService;
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping("/")
 	public ModelAndView startUp(@RequestParam(required=true,defaultValue="12") Integer total){
@@ -118,5 +122,15 @@ public class StartController {
 		mav.addObject("news", news);
 		System.out.println(news);
 		return mav;
+	}
+	@RequestMapping("/user/AssertUserform")
+	public ModelAndView AssertUserform(User user){
+		System.out.println("----/active/findData---");
+		System.out.println("=---addUser"+user);
+		userService.add(user);
+		User user1=userService.findByUsername(user.getUsername());
+		ModelAndView mav = new ModelAndView("successRegister");
+		mav.addObject(user1);
+	    return mav;
 	}
 }

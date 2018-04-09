@@ -15,7 +15,11 @@ $(function(){
     	 $("#user").css("display","none");
   		 $("#login").css("display","");
      }
-
+     $("#username").val("");
+     $("#password").val("");
+     $("#email").val("");
+     $("#assoId").val("");
+     $("#sex").val("");
 });
 var t = 0;
 function setBackground(){
@@ -48,19 +52,23 @@ function checkUser(){
         	success : function(msg) {
         		var jsonArry=eval(msg); //将json类型字符串转换为json对象
       		 	console.log(jsonArry);
-         		//要执行的代码
-	         	if("true"==jsonArry.result+""){
-	         		$("#login").css("display","none");
-	         		$("#user").css("display","");
-	         		console.log("登录成功");
-	         		 window.location.reload();//刷新当前页面.
-	         		$("#username").val("");
-	         		$("#password").val("");
-	         	}else{
-	         		$("#username").val("");
-	         		$("#password").val("");
-	         		mizhu.alert('提示信息', '账户名或者密码错误');
-	         	}
+        		if("1"!=jsonArry.statu+""){
+        			mizhu.alert('提示信息', '尚未通过审核，请耐心等待');
+        		}else{
+	         		//要执行的代码
+		         	if("true"==jsonArry.result+""){
+		         		$("#login").css("display","none");
+		         		$("#user").css("display","");
+		         		console.log("登录成功");
+		         		 window.location.reload();//刷新当前页面.
+		         		$("#username").val("");
+		         		$("#password").val("");
+		         	}else{
+		         		$("#username").val("");
+		         		$("#password").val("");
+		         		mizhu.alert('提示信息', '账户名或者密码错误');
+		         	}
+        		}
         }
         });
 }
@@ -95,8 +103,8 @@ function checkLogout(){
 				
 				<ul class="nav navbar-nav" style="width:1000px">
 					<li  style="width:100px"></li>
-					<li class="active"><a href="/stuman/">首页</a></li>
-					<li class="active"><a href="/stuman/team">社团</a></li>
+					<li ><a href="/stuman/">首页</a></li>
+					<li ><a href="/stuman/team">社团</a></li>
 					<li><a href="${ctx }/active">活动预告</a></li>
 			<!--	<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
@@ -133,7 +141,7 @@ function checkLogout(){
 								</div>
 							</div>
 					</li>
-					<li><a href="#" data-toggle="modal" data-target='#modalRegister'>注册</a></li>
+					<li><a href="${ctx }/userAdd.jsp"  data-target='#modalRegister'>注册</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" style="display:none;" id="user">
 				<li class="dropdown">
