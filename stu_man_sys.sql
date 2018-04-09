@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql_Lwoo1
+Source Server         : mysql
 Source Server Version : 50721
 Source Host           : localhost:3306
 Source Database       : stu_man_sys
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-04-08 01:03:42
+Date: 2018-04-09 17:25:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -112,7 +112,7 @@ CREATE TABLE `category_` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of category_
@@ -123,6 +123,30 @@ INSERT INTO `category_` VALUES ('3', '社会公益类社团');
 INSERT INTO `category_` VALUES ('4', '学术科技类社团');
 INSERT INTO `category_` VALUES ('5', '文化艺术类社团');
 INSERT INTO `category_` VALUES ('55', '人文社会类社团');
+
+-- ----------------------------
+-- Table structure for comment
+-- ----------------------------
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `comment` text,
+  `time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fk_ucid` (`uid`),
+  CONSTRAINT `fk_ucid` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+INSERT INTO `comment` VALUES ('1', '1', '社团是干什么的', null);
+INSERT INTO `comment` VALUES ('2', '3', '社团有啥用', null);
+INSERT INTO `comment` VALUES ('5', '4', '回复1', null);
+INSERT INTO `comment` VALUES ('6', '5', '回复2', null);
+INSERT INTO `comment` VALUES ('7', '6', '回复3', null);
+INSERT INTO `comment` VALUES ('8', '7', '回复3', '2018-04-09 16:48:25');
 
 -- ----------------------------
 -- Table structure for news
@@ -180,7 +204,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   KEY `f_k` (`assoId`),
   CONSTRAINT `f_k` FOREIGN KEY (`assoId`) REFERENCES `asso` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -199,4 +223,11 @@ INSERT INTO `user` VALUES ('13', '2222', '222222', '男', '228@gd.com', '1', '13
 INSERT INTO `user` VALUES ('15', '123321', '123321', '女', '123321@qq.com', '1', '13');
 INSERT INTO `user` VALUES ('16', '1233', '1233', '女', '12333@qq.com', '1', '13');
 INSERT INTO `user` VALUES ('17', '1244', '1244', '男', '1244@qq.com', '1', '13');
+INSERT INTO `user` VALUES ('18', '124', '124', '男', '124@qq.com', '0', '32');
+INSERT INTO `user` VALUES ('19', '123456', '123456', '女', '12345678@qq.com', '0', '23');
+INSERT INTO `user` VALUES ('21', '网', '111', '男', '11111@qq.com', '0', '28');
+INSERT INTO `user` VALUES ('22', '2瓦', '1111', '男', '11@qq.com', '0', '30');
+INSERT INTO `user` VALUES ('23', '147', '147', '男', 'fd@qq.com', '1', '13');
+INSERT INTO `user` VALUES ('24', '22222', '22222', '男', '22222@oo.com', '0', '13');
+INSERT INTO `user` VALUES ('26', '33333', '33333', '男', '33333@qq.com', '0', '13');
 SET FOREIGN_KEY_CHECKS=1;
