@@ -96,7 +96,7 @@ public class LoginController {
     }
  	//用户注销
 	@ResponseBody
-    @RequestMapping(value="user/logout", method = RequestMethod.POST)
+    @RequestMapping(value="user/logoutUser", method = RequestMethod.POST)
      public Map<String,String> logout(HttpSession httpSession){
 		httpSession.setAttribute("user", null);
 		System.out.println("user/logout");

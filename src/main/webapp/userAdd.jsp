@@ -36,15 +36,15 @@
 									<option value="女">女</option>
 								</select>
 							</div>
-							<div class="form-group">
+							<div class="form-group" id="select">
 								<label for="inputWeb">申请社团</label><span id="tishiselectAsso" style="color:red"></span><br>
-								<select name="assoId" id="selectAsso" >
+								<select name="assoId" id="selectAsso">
 								</select>
 							</div>
 							<div class="row">
 								<div class="col-md-8 text-right">
 									<input type="hidden" class="form-control" id="statu" name="statu" value="0" >
-  									<button type="submit" class="btn btn-action">申请会员</button>
+  									<button type="submit" class="btn btn-info">申请会员</button>
 								</div>
 							</div>
 				</form>
@@ -63,7 +63,7 @@ function setAssoSelect(){
 	 var d = {"str":"setAssoSelect"};
 	  var str= JSON.stringify(d);
 	  $("#selectAsso").empty();  //清空原有select内的数据
-	  $("#selectAsso").css({"size":"8"});
+	  $("#selectAsso").css("height","100px");//清空原有select内的数据
 	  $("#selectAsso").append("<option value='0'>--请选择--</option>");
       $.ajax({
     	  url:"${ctx}/getAssoList",

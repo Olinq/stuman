@@ -16,7 +16,7 @@ text-align:center;
 </style>
 </head>
 <body>
-<div style="margin:80px auto;width:500px; text-align:center"><img src="img/success1.png" alt="图片">恭喜您完成注册！<br><br><span style="color:red">未审核不可登陆</span></div>
+<div style="margin:80px auto;width:500px; text-align:center"><img src="${ctx }/img/success1.png" alt="图片">恭喜您完成注册！<br><br><span style="color:red">未审核不可登陆</span></div>
 <table style="border-collapse:collapse;margin:100px auto" border="1" bordercolor="#a0c6e5">
 			<thead>
 				<tr>

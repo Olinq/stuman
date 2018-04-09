@@ -33,6 +33,7 @@
               </ul>
             </li>
              <li><a href="listNews">活动信息管理</a></li>
+              <li><a href="listComment">留言管理</a></li>
             </ul>
          <ul class="nav navbar-nav navbar-right" style="margin-right:30px">
             <li class="dropdown">

@@ -139,5 +139,37 @@ public class UserController {
 			userService.add(user);
 			ModelAndView mav = new ModelAndView("redirect:/listSomeUser");
 		    return mav;
-		}	
+		}
+		//未审核会员
+		@RequestMapping("userRegister")
+		public String userRegister(HttpSession httpSession,Model model){
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			  httpSession.setAttribute("admin", admin);
+			  List<User> users = userService.getListNostatu(admin.getAssoId(), 0);
+			  System.out.println("userRegister=-=-=-=-=-"+admin+"\n"+users);
+		      model.addAttribute("users", users);
+			  return "usualAdmin/listRegisterUser";
+		}
+		//通过会员
+		@RequestMapping("RegUpdate")
+		public ModelAndView RegUpdate(int id,HttpSession httpSession,Model model){
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			  httpSession.setAttribute("admin", admin);
+			  User user=userService.get(id);
+			  user.setStatu(1);
+			  System.out.println("RegUpdate=-=-=-=-=-"+admin+"\n"+user);
+			  userService.update(user);
+			  ModelAndView mav = new ModelAndView("redirect:/userRegister");
+			  return mav;
+		}
+		//不通过会员
+		@RequestMapping("RegDelete")
+		public ModelAndView RegDelete(User user,HttpSession httpSession,Model model){
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			  httpSession.setAttribute("admin", admin);
+			  userService.delete(user);
+			  System.out.println("RegDelete=-=-=-=-=-"+admin+"\n"+user);
+			  ModelAndView mav = new ModelAndView("redirect:/userRegister");
+			  return mav;
+		}
 }
