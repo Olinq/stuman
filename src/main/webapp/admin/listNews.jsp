@@ -33,11 +33,9 @@
 					<th>ID</th>
 					<th>发布的管理员ID</th>
 					<th>标题</th>
-					<th>内容 </th>
 					<th>作者</th>
 					<th>时间 </th>
 					<th>点击量</th>
-					<th>编辑</th>
 					<th>删除</th>
 				</tr>
 			</thead>
@@ -47,12 +45,10 @@
 				<tr>
 					<td>${c.id}</td>
 					<td>${c.aid}</td>
-					<td>${c.title}</td>
-					<td data-toggle="tooltip" title="${c.content }" style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${c.content }</td>
+					<td><a href="editNews?id=${c.id}">${c.title}</a></td>
 					<td>${c.author }</td>
 					<td title="${c.time }">${c.time }</td>
 					<td>${c.click }</td>
-					<td><a href="editNews?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
 					<td><a deleteLink="true" href="deleteNewsById?id=${c.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 				</c:forEach>

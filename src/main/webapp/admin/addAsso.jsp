@@ -50,7 +50,6 @@ function setAssoType(){
 	var d = {"str":"setAssoSelect"};
 	  var str= JSON.stringify(d);
 	  $("#AssoType").empty();  //清空原有select内的数据
-	  $("#AssoType").css({"size":"8"});
 	  $("#AssoType").append("<option value='-1'>--请选择--</option>");
     $.ajax({
   	  url:"${ctx}/stuman/getCatagoryList",
@@ -61,7 +60,7 @@ function setAssoType(){
   	  success:function(data){
   		  var jsonArry=eval(data); //将json类型字符串转换为json对象
   		  console.log(jsonArry);
-  		  console.log("------------------------");
+  		  console.log("--------addUser----------------");
   		  $.each(jsonArry,function(index,item){
   			    var id=item.id;          
   				var category=item.category

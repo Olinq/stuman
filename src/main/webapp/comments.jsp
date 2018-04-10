@@ -7,7 +7,7 @@
 
 <main id="main">
 					
-<div class="container" style="margin-bottom:200px">
+<div class="container">
 		   <div id="respond">
 		   <h3 id="reply-title">留言</h3>
 				<form  action="" method="post" id="commentform" class="">

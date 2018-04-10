@@ -4,46 +4,22 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <jsp:include page="./assets/jsp/assetsHeader.jsp"/>
 <jsp:include page="./assets/jsp/header.jsp"/>
-<script type="text/javascript">
-function showTime(){
-    nowtime=new Date();
-    year=nowtime.getFullYear();
-    month=nowtime.getMonth()+1;
-    date=nowtime.getDate();
-    document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
-}
-
-setInterval("showTime()",1000);
-
-</script>
 
 <main id="main">
 
-	<div class="container" style="margin-bottom:400px">
+	<div class="container">
 		
 		<div class="row topspace">
-			<div class="col-sm-9 col-sm-offset-2">
+			<div class="col-sm-14 col-sm-offset-2" style="margin:0px 0px">
 															
  				<article class="post">
-					<header class="entry-header">
- 						<div class="entry-meta"> 
- 							<span class="posted-on"><time class="entry-date published" id="mytime"></time></span>			
- 						</div> 
-					</header> 
-					<div class="entry-content"> 
-						 <div class="post_section">
-            
-				                <h5>${news.title}</h5>
-								<br/>
-								<br/>
-				               	<p class="phelper">${news.content}</p>
+            <h1 class="entry-title"> ${news.title}</h1>
+				               <div style="text-align:center;margin-bottom:30px">${news.time}&nbsp;&nbsp;&nbsp;<span class=""> 文章作者</span>： <span href="#">${news.author}</span></div>
+				               <hr/>
+				               ${news.content}
 				               	<br/>
-				               	<br/>
-				               ${news.time}&nbsp;&nbsp;&nbsp;
-				               <span class=""> 文章作者</span>： <span href="#">${news.author}</span>
-    							<hr/>
-            			</div>
-            		</div> 
+				               
+    								<hr/>
 				</article><!-- #post-## -->
 			</div> 
 		</div> <!-- /row post  -->

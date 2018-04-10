@@ -40,11 +40,11 @@
 				               ${n.time}&nbsp;&nbsp;&nbsp;
 				               <span class=""> 文章作者</span>： <span href="#">${n.author}</span>
 				                <div class="content">
-				               	 	<p>${n.content}</p>
+				               	 	<p id="content">${n.contentText}</p>
 				                 </div>       
-								<a href="${ctx }/active/content?id=${n.id}" class="more">Reading more...</a> | <a href="#" class="comment">Comments (225)</a>
-    							<hr/>
             			</div>
+            		<a href="${ctx }/active/content?id=${n.id}" class="more">Reading more...</a>
+    							<hr/>
             		</c:forEach>
             		</div> 
            			<div style="text-align:right;margin:50px 50px">

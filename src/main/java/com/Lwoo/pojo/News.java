@@ -17,8 +17,17 @@ public class News {
     private Integer click;
 
     private String content;
+    private String contentText;
 
-    public Integer getId() {
+    public String getContentText() {
+		return contentText;
+	}
+
+	public void setContentText(String contentText) {
+		this.contentText = contentText;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -81,7 +90,7 @@ public class News {
 	@Override
 	public String toString() {
 		return "News [id=" + id + ", aid=" + aid + ", title=" + title + ", author=" + author + ", time=" + time
-				+ ", click=" + click + ", content=" + content + "]";
+				+ ", click=" + click + ", content=" + content + ", contentText=" + contentText + "]";
 	}
     
 }

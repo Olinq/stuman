@@ -70,6 +70,9 @@ function rulesValid(){
 			 required: true,
 			 email: true
 		 },
+		 assoId:{
+			 min:1
+		 }
 	 },
 	 messages:{//验证错误信息
 		 username: {
@@ -85,6 +88,9 @@ function rulesValid(){
 		 email: {
 			 required: "请输入电子邮件",
 			 email:   "请输入正确邮箱"
+		 },
+		 assoId:{
+			 min:"请选择社团"
 		 }
 	 },
  });
@@ -109,10 +115,13 @@ function rulesValid(){
 		 required: true,
 		 email: true
 	 },
+	 assoId:{
+		 min:1
+	 }
  },
  messages:{//验证错误信息
 	 username: {
-		 required: "请输入类型名",
+		 required: "请输入用户名",
 	 },
 	 password: {
 		 required: "请输入密码",
@@ -124,6 +133,9 @@ function rulesValid(){
 	 email: {
 		 required: "请输入电子邮件",
 		 email:   "请输入正确邮箱"
+	 },
+	 assoId:{
+		 min:"请选择社团"
 	 }
  },
 });
@@ -141,7 +153,7 @@ function rulesValid(){
 		 minlength:30
 	 },
 	 cid:{
-		 required:true
+		 min:1
 	 }
  },
  messages:{//验证错误信息
@@ -153,7 +165,7 @@ function rulesValid(){
 		 minlength:"社团描述不少于30个字符"
 	 },
 	 cid:{
-		 required:"请选择社团类型"
+		 min:"请选择社团类型"
 	 }
  },
 });

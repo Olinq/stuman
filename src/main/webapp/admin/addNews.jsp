@@ -47,29 +47,48 @@
 	}
 	</script>
 </c:if>
-<div class="panel panel-warning addDiv" style="margin-top:100px">
+<div class="panel panel-warning addDivEditor" style="margin-top:100px">
 	  <div class="panel-heading">新增活动信息</div>
 	  <div class="panel-body">
-	    	<form method="post" id="addNewsForm" action="addNews">
+	    	<form method="post" id="addNewsForm" action="addNews" onsubmit="return uptext()">
 	    		<table class="addTable">
 	    			<tr>
-	    				<td>标题</td>
-	    				<td><input  id="title" name="title"  type="text" class="form-control">
+	    				<td>标题<input  id="title" name="title"  type="text" class="form-control">
 	    				</td>
 	    			</tr>
 	    			<tr>
 	    				<td>内容</td>
-	    				<td><textarea id="content" name="content" class="form-control" rows="3"></textarea></td>
 	    			</tr>
 	    			<tr>
-	    				<td>作者</td>
-	    				<td><input  id="author" name="author" type="author" class="form-control"></td>
+	    				<td colspan="2" >
+	    				    <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+	    				    <script type="text/javascript">
+
+							    //实例化编辑器
+							    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+							    var ue = UE.getEditor('editor');
+							    function uptext(){
+							        if (!UE.getEditor('editor').hasContents()){
+							        	alert('请先填写内容!');
+							        	return false;
+							        }else{
+							        	$("#content").val(UE.getEditor('editor').getContent());
+							        	$("#contentText").val(UE.getEditor('editor').getContentTxt());
+							        	return true
+							        }
+							      }
+	    				    </script>
+	    					<input id="content" name="content"  type="hidden" class="form-control"></input>
+	    					<input id="contentText" name="contentText"  type="hidden" class="form-control"></input>
+	    				</td>
+	    			</tr>
+	    			<tr>
+	    				<td>作者<input  id="author" name="author" type="author" class="form-control"></td>
 	    			</tr>
 	    			<c:choose> 
 					    <c:when test="${1==admin.lock}">    <!--如果 --> 
 							<tr>
-			    				<td>发布管理员</td>
-			    				<td>
+			    				<td>发布管理员&nbsp;&nbsp;&nbsp;
 									<select name="aid" id="aid" class="selectpicker">
 									</select>
 								</td>

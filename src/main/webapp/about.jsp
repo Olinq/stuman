@@ -6,7 +6,7 @@
 <jsp:include page="./assets/jsp/header.jsp"/>
 <main id="main">
 
-	<div class="container" style="margin-bottom:200px">
+	<div class="container">
 
 		<div class="row topspace">
 			

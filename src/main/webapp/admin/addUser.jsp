@@ -47,16 +47,16 @@ function setAssoSelect(){
 	    		<table class="addTable">
 	    			<tr>
 	    				<td>用户名</td>
-	    				<td><input  id="Userusername" name="username"  type="text" class="form-control" placeholder="用户名长度不小于6">
+	    				<td><input  id="Userusername" name="username"  type="text" class="form-control" placeholder="用户名长度不小于3">
 	    				<span id="tishi"></span></td>
 	    			</tr>
 	    			<tr>
 	    				<td>密&nbsp;码</td>
-	    				<td><input  id="password" name="password" type="password" class="form-control" placeholder="密码长度不小于6"></td>
+	    				<td><input  id="password" name="password" type="password" class="form-control" placeholder="密码长度不小于3"></td>
 	    			</tr>
 	    			<tr>
 	    				<td>再次输入密码</td>
-	    				<td><input  id="twoPassword" name="twoPassword" type="password" class="form-control" placeholder="密码长度不小于6"></td>
+	    				<td><input  id="twoPassword" name="twoPassword" type="password" class="form-control" placeholder="密码长度不小于3"></td>
 	    			</tr>
 	    			<tr>
 	    				<td>性&nbsp;别</td>

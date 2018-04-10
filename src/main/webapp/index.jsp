@@ -16,12 +16,12 @@
 						<li><a href="${ctx }/team?cid=${ca.id}">${ca.category}</a></li>
 				</c:forEach>
             </ul>
-            <a href="#" class="read_more"></a>
+            <a href="${ctx }/team/all" class="read_more" style="margin-top: 2;margin-bottom:20px"></a>
 		</div>
 		
 		<div class="cleaner"></div>        
-        <a href="#" class="sb_ads"><img src="./assets/images/templatemo_ad_1.jpg" alt="image 1" /></a>
-        <a href="#" class="sb_ads"><img src="./assets/images/templatemo_ad_2.jpg" alt="image 2" /></a>
+        <a href="http://www.gcu.edu.cn/" class="sb_ads"><img src="./assets/images/templatemo_ad_2.jpg" alt="image 2"  style="box-shadow:0 0 20px 0 #000000;"/></a>
+        <a href="#" class="sb_ads"><img src="./assets/images/templatemo_ad_1.jpg" alt="image 1" style="box-shadow:0 0 20px 0 #000000;"/></a><br>
     
     </div> <!-- end of left sidebar -->
     

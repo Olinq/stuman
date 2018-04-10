@@ -3,7 +3,6 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<div class="clear"></div>
 <div id="templatemo_footer_wrapper">
     <div id="templatemo_footer" class="row">
 		    <div class="col-md-14" id="copyright">
@@ -13,7 +12,7 @@
 						邮箱:&nbsp;<a href="mailto:#">some.email@somewhere.com</a>&nbsp;&nbsp;&nbsp;
 					地址:&nbsp;广东省广州市花都区新华街道学府路1号华南理工大学广州学院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Copyright &copy; 2018, One awesome name here &nbsp;&nbsp;&nbsp;
-					 <a href="login.jsp" rel="designer">后台登录</a> 
+					 <a href="${ctx }/login.jsp" rel="designer">后台登录</a> 
 					</p>
 				</li>
 				</ul>

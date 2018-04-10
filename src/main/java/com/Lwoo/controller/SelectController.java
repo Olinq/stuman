@@ -40,7 +40,7 @@ public class SelectController {
 	public List<Category> getCatagoryList(@RequestBody Map<String, String> mapj){
 		System.out.println("-----getCatagoryList");
 		List<Category> categorys=categoryService.getCatagoryList();
-	
+		System.out.println(categorys);
 		return categorys;
 	}
 	@RequestMapping(value="getAdminList",method = RequestMethod.POST)
