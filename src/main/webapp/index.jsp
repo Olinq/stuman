@@ -49,31 +49,35 @@
     </div> <!-- end of content -->
     
     <div id="templatemo_right_sidebar">
-    	<div class="content_title"><span></span>Latest News</div>
+    	<div class="content_title"><span></span>最新资讯</div>
         <div class="news_box">
-        	<h3>Aliquam vehicula sapien</h3>
-            Duis at ipsum eu lectus tempor gravida. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.
-			<a href="#" class="more">more</a>
+        	<c:forEach items="${newss}" var="news">
+        	<p><a href="${ctx }/active/content?id=${news.id}" style="color:#033772">${news.title}</a></p>
+            </c:forEach>
+			<a href="${ctx }/active" class="more">more</a>
             <div class="cleaner"></div>
 		</div>
-        <div class="news_box">
-        	<h3>Duis rhoncus ultricies feugiat</h3>
-            Morbi libero orci, tristique nec luctus vitae, fermentum ac urna. Vivamus et velit neque. Duis et lectus elit. Nam ac ligula purus, ac tempus diam. In sit amet metus tellus.
-			<a href="#" class="more">more</a>
-            <div class="cleaner"></div>
-		</div>
+       
         <div id="special_box">
-        	<h3>Special Offer</h3>
-            <img src="./assets/images/templatemo_image_04.png" alt="Christmas Gift" />
-            <div class="sb_text">
-                <h4>Lorem Ipsum Dolor</h4>
-                Elitnec pharetra um dictum, di am purus pellentesque.
-	            <a href="#" class="more">more</a>
-                <div class="cleaner"></div>
-			</div>
+            <img src="${ctx }/img/logo/社联.jpg"  style="box-shadow:0 0 1px 0 #000000;"/>
             <div class="cleaner"></div>
         </div>	
     </div> <!-- end of right sidebar -->
-    
+	<div class="scrolllist" id="s1" style="clear:both"> 
+		<a class="abtn aleft" href="#left" title="左移"></a>
+		  <div class="imglist_w">
+		    <ul class="imglist" style="left: -293.424px;">
+			    <c:forEach items="${assos }" var="asso">
+			      <li> <a href="${ctx }/about?id=${asso.id}"><img width="150" height="150" src="${ctx }/img/logo/${asso.logo}"></a>
+			        <p><a href="#">${asso.tname}</a></p>
+			      </li>
+			     </c:forEach>
+		    </ul>
+		    <!--imglist end--> 
+		  </div>
+		  <a class="abtn aright" href="#right" title="右移"></a> 
+	</div>
+		<!--scrolllist end-->
+	
 </div> <!-- end of wrapper -->
 <jsp:include page="./assets/jsp/assetsFooter.jsp"/>

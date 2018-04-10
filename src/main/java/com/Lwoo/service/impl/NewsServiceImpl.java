@@ -67,4 +67,10 @@ public class NewsServiceImpl implements NewsService {
 		return newsMapper.searchByAid(findData, aid);
 	}
 
+	@Override
+	public List<News> listNewer(int limit) {
+		// TODO Auto-generated method stub
+		return newsMapper.listNewer(limit);
+	}
+
 }

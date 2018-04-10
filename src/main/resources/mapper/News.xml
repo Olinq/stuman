@@ -28,4 +28,7 @@
     	<select id="listByAid" parameterType="int" resultType="News">
     	select * from news where aid=#{id} order by time desc
     	</select>
+    	<select id="listNewer" parameterType="int" resultType="News">
+    	select * from news order by time desc limit 0,#{limit}
+    	</select>
     </mapper>

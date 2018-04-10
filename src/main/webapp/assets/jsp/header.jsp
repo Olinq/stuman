@@ -101,7 +101,7 @@ function checkLogout(){
 		<div class="container-fluid">
 			<div class="navbar-collapse collapse">
 				
-				<ul class="nav navbar-nav" style="width:1000px">
+				<ul class="nav navbar-nav" style="width:900px">
 					<li  style="width:100px"></li>
 					<li ><a href="/stuman/">首页</a></li>
 					<li ><a href="/stuman/team">社团</a></li>

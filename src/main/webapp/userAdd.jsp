@@ -12,8 +12,8 @@
 			<div class="col-sm-9 col-sm-offset-2">
 	    	<form action="${ctx}/user/AssertUserform" method="post" id="AssertUserform">
 							<div class="form-group">
-								<label for="inputName">Name</label>
-								<input type="text" class="form-control" name="username" id="inputName">
+								<label for="inputName">用户名</label>
+								<input type="text" class="form-control" name="username" id="inputName" placeholder="请用学号注册">
 								<span id="tishiinputName" style="color:red"></span>
 							</div>
 							<div class="form-group">

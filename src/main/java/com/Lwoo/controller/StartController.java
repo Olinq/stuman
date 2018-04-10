@@ -36,7 +36,11 @@ public class StartController {
 		System.out.println("----startUp---");
 		ModelAndView mav=new ModelAndView("index");
 		List<Category> categorys=categoryService.list();
+		List<Asso> assos=assoService.list();
+		List<News> newss=newsService.listNewer(8);
 		mav.addObject("categorys", categorys);
+		mav.addObject("assos", assos);
+		mav.addObject("newss", newss);
 		System.out.println(categorys);
 		return mav;
 	}

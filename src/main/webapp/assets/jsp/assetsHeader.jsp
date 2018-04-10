@@ -29,6 +29,9 @@ function showTime(){
 }
 
 setInterval("showTime()",1000);
-
+function stops(){
+   return false;
+}
+document.oncontextmenu=stops;
 </script>
 
