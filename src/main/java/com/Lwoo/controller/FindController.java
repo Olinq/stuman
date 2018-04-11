@@ -15,11 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.Lwoo.pojo.Admin;
 import com.Lwoo.pojo.Asso;
 import com.Lwoo.pojo.Category;
+import com.Lwoo.pojo.Comment;
 import com.Lwoo.pojo.News;
 import com.Lwoo.pojo.User;
 import com.Lwoo.service.AdminService;
 import com.Lwoo.service.AssoService;
 import com.Lwoo.service.CategoryService;
+import com.Lwoo.service.CommentService;
 import com.Lwoo.service.NewsService;
 import com.Lwoo.service.UserService;
 @Controller
@@ -35,6 +37,8 @@ public class FindController {
 	AssoService assoService;
 	@Autowired
 	NewsService newsService;
+	@Autowired
+	CommentService commentService;
 	//查找社团类型名
 	@RequestMapping("findCatagoryData")
 	public ModelAndView findCatagoryData(String findData){
@@ -170,6 +174,29 @@ public class FindController {
 			System.out.println(newss);
 			ModelAndView mav = new ModelAndView("admin/listNews");
 			mav.addObject("newss",newss);
+			return mav;
+		}
+		//查找活动信息
+		@RequestMapping("findCommentData")
+		public ModelAndView findCommentData(String findData,HttpSession httpSession){
+			System.out.println("======"+findData);
+			List<Comment> comments=new ArrayList<Comment>();
+			if(isInteger(findData)){//根据ID查找
+				Integer id=Integer.parseInt(findData);
+				System.out.println(id);
+				Comment comment=commentService.get(id);
+				if(comment!=null){
+					comments.add(comment);
+				}
+			}
+			System.out.println("getId"+comments);
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			if(comments.isEmpty()){//如果Id找不到则根据名称找
+				comments=commentService.search(findData);
+			}
+			System.out.println(comments);
+			ModelAndView mav = new ModelAndView("admin/listComment");
+			mav.addObject("comments",comments);
 			return mav;
 		}
 	//判断字符串是否为数字

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql_Lwoo1
+Source Server         : mysql
 Source Server Version : 50721
 Source Host           : localhost:3306
 Source Database       : stu_man_sys
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-04-11 00:08:33
+Date: 2018-04-11 17:26:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` VALUES ('23', 'admin', 'admin', '1126@qq.com', null, '01');
 INSERT INTO `admin` VALUES ('27', '113', '113', '1131@qq.com', null, null);
 INSERT INTO `admin` VALUES ('28', '114', '114', '114@qq.com', null, null);
-INSERT INTO `admin` VALUES ('29', '1111', '1111', '1111@qq.com', '1', null);
+INSERT INTO `admin` VALUES ('29', '11112', '11112', '11112@qq.com', '1', null);
 INSERT INTO `admin` VALUES ('30', '1112', '1112', '1112@qq.com', '2', null);
 INSERT INTO `admin` VALUES ('31', '1113', '1113', '1113@qq.com', '3', null);
 INSERT INTO `admin` VALUES ('32', '1114', '1114', '1114@qq.com', '4', null);
@@ -152,17 +152,15 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`id`),
   KEY `fk_ucid` (`uid`),
   CONSTRAINT `fk_ucid` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
-INSERT INTO `comment` VALUES ('1', '1', '社团是干什么的', null);
-INSERT INTO `comment` VALUES ('2', '3', '社团有啥用', null);
-INSERT INTO `comment` VALUES ('5', '4', '回复1', null);
-INSERT INTO `comment` VALUES ('6', '5', '回复2', null);
-INSERT INTO `comment` VALUES ('7', '6', '回复3', null);
-INSERT INTO `comment` VALUES ('8', '7', '回复3', '2018-04-09 16:48:25');
+INSERT INTO `comment` VALUES ('5', '4', '留言1', '2018-04-11 09:49:02');
+INSERT INTO `comment` VALUES ('6', '5', '留言2', '2018-04-11 09:49:16');
+INSERT INTO `comment` VALUES ('7', '6', ' 留言3', '2018-04-11 09:49:27');
+INSERT INTO `comment` VALUES ('8', '7', '留言4', '2018-04-11 09:49:31');
 
 -- ----------------------------
 -- Table structure for news
@@ -202,21 +200,30 @@ INSERT INTO `news` VALUES ('47', '53', '关于中秋节、国庆节期间学生�
 -- ----------------------------
 DROP TABLE IF EXISTS `replay`;
 CREATE TABLE `replay` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
+  `rid` int(11) NOT NULL AUTO_INCREMENT,
+  `ruid` int(11) NOT NULL,
   `commId` int(11) NOT NULL,
   `replay` text NOT NULL,
   `time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `fk1` (`uid`),
+  PRIMARY KEY (`rid`),
+  KEY `fk1` (`ruid`),
   KEY `fk2` (`commId`),
-  CONSTRAINT `fk1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk1` FOREIGN KEY (`ruid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk2` FOREIGN KEY (`commId`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of replay
 -- ----------------------------
+INSERT INTO `replay` VALUES ('2', '3', '6', '回复2', '2018-04-11 09:46:50');
+INSERT INTO `replay` VALUES ('3', '4', '7', '回复3', '2018-04-11 09:47:01');
+INSERT INTO `replay` VALUES ('4', '5', '8', '回复4', '2018-04-11 09:47:07');
+INSERT INTO `replay` VALUES ('5', '6', '5', '回复5', '2018-04-11 09:47:50');
+INSERT INTO `replay` VALUES ('7', '8', '7', '回复7', '2018-04-11 09:48:10');
+INSERT INTO `replay` VALUES ('8', '23', '7', '123213213213213213', '2018-04-11 16:44:54');
+INSERT INTO `replay` VALUES ('10', '23', '5', '125', '2018-04-11 16:52:16');
+INSERT INTO `replay` VALUES ('11', '23', '8', '2222222', '2018-04-11 16:52:43');
+INSERT INTO `replay` VALUES ('12', '23', '5', '252525525252', '2018-04-11 16:55:09');
 
 -- ----------------------------
 -- Table structure for user
@@ -256,7 +263,7 @@ INSERT INTO `user` VALUES ('18', '124', '124', '男', '124@qq.com', '0', '32');
 INSERT INTO `user` VALUES ('19', '123456', '123456', '女', '12345678@qq.com', '0', '23');
 INSERT INTO `user` VALUES ('21', '网', '111', '男', '11111@qq.com', '0', '28');
 INSERT INTO `user` VALUES ('22', '2瓦', '1111', '男', '11@qq.com', '0', '30');
-INSERT INTO `user` VALUES ('23', '147', '147', '男', 'fd@qq.com', '1', '13');
+INSERT INTO `user` VALUES ('23', 'admin', 'admin', '男', 'fd@qq.com', '1', null);
 INSERT INTO `user` VALUES ('24', '22222', '22222', '男', '22222@oo.com', '0', '13');
 INSERT INTO `user` VALUES ('26', '33333', '33333', '男', '33333@qq.com', '0', '13');
 INSERT INTO `user` VALUES ('27', '112', '112', '男', '1222@qq.com', '1', '23');
