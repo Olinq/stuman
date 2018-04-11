@@ -10,10 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Lwoo.pojo.Asso;
 import com.Lwoo.pojo.Category;
+import com.Lwoo.pojo.Comment;
 import com.Lwoo.pojo.News;
 import com.Lwoo.pojo.User;
 import com.Lwoo.service.AssoService;
 import com.Lwoo.service.CategoryService;
+import com.Lwoo.service.CommentService;
 import com.Lwoo.service.NewsService;
 import com.Lwoo.service.UserService;
 import com.github.pagehelper.PageHelper;
@@ -30,7 +32,8 @@ public class StartController {
 	NewsService newsService;
 	@Autowired
 	UserService userService;
-	
+	@Autowired
+	CommentService commentService;
 	@RequestMapping("/")
 	public ModelAndView startUp(){
 		System.out.println("----startUp---");
@@ -133,5 +136,19 @@ public class StartController {
 		ModelAndView mav = new ModelAndView("successRegister");
 		mav.addObject(user1);
 	    return mav;
+	}
+	
+	
+	@RequestMapping("user/comment")
+	public ModelAndView comment(@RequestParam(required=true,defaultValue="10") Integer total){
+		System.out.println("----comment---");
+		ModelAndView mav=new ModelAndView("comments");
+		PageHelper.startPage(1, total);//进入主页显示10条消息
+		List<Comment> comments=commentService.list();
+		System.out.println(comments);
+		PageInfo<Comment> pageInfo=new PageInfo<Comment>(comments);
+		mav.addObject("pageInfo",pageInfo);
+		mav.addObject("comments", comments);
+		return mav;
 	}
 }

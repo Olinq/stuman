@@ -10,13 +10,13 @@ public class Comment {
 	private String comment;
 	private Date time;
 	private User user;
+	private List<Replay> replays;
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
-	private List<Replay> replays;
 
 	public List<Replay> getReplays() {
 		return replays;

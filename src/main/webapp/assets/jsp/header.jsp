@@ -116,7 +116,7 @@ function checkLogout(){
 					</li>
 			-->
 					<li><a href="${ctx }/about?id=1">关于我们</a></li>
-					<li ><a href="${ctx }/comments.jsp">留言板</a></li>
+					<li ><a href="${ctx }/user/comment">留言板</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right"  id="login">
 					<li class="dropdown" id="login">
