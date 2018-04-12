@@ -39,9 +39,9 @@ public class ReplayServiceImpl implements ReplayService {
 	}
 
 	@Override
-	public void add(Replay t) {
+	public int add(Replay t) {
 		// TODO Auto-generated method stub
-		replayMapper.add(t);
+		return replayMapper.add(t);
 	}
 
 	@Override

@@ -33,9 +33,9 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public void add(Admin admin) {
+	public int add(Admin admin) {
 		// TODO Auto-generated method stub
-		adminMapper.add(admin);
+		return adminMapper.add(admin);
 	}
 
 	@Override

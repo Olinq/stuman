@@ -38,9 +38,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void add(User t) {
+	public int add(User t) {
 		// TODO Auto-generated method stub
-		userMapper.add(t);
+		return userMapper.add(t);
 	}
 
 	@Override

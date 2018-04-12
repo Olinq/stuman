@@ -38,9 +38,9 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
-	public void add(News t) {
+	public int add(News t) {
 		// TODO Auto-generated method stub
-		newsMapper.add(t);
+		return newsMapper.add(t);
 	}
 
 	@Override

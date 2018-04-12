@@ -35,7 +35,7 @@
             select c.*, a.* from comment c left join replay a on c.id = a.commId order by c.time desc
         </select>
         <select id="listNewer" parameterType="int" resultMap="commentBean">
-    	select c.*, a.* from comment c left join replay a on c.id = a.commId order by c.time desc limit 0,#{limit}
+    	select c.*, a.* from comment c left join replay a on c.id = a.commId order by c.time desc
     	</select>
          <select id="selectUser" parameterType="_int" resultType="User">  
        		 select * from user where id = #{id}  

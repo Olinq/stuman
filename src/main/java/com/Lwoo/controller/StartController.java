@@ -151,12 +151,14 @@ public class StartController {
 	
 	
 	@RequestMapping("user/comment")
-	public ModelAndView comment(){
+	public ModelAndView comment(@RequestParam(required=true,defaultValue="10") Integer total){
 		System.out.println("----comment---");
-		ModelAndView mav=new ModelAndView("comments");
-		List<Comment> lists=commentService.listNewer(9);
-		
+		List<Comment> lists=commentService.list();
 		System.out.println(lists);
+		PageHelper.startPage(1, total);
+		ModelAndView mav=new ModelAndView("comments");
+		PageInfo<Comment> pageInfo=new PageInfo<Comment>();
+		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("lists", lists);
 		return mav;
 	}
@@ -190,10 +192,9 @@ public class StartController {
 		repla.setUid(Integer.parseInt(replay.get("uid")));
 		repla.setReplay(replay.get("replay"));
 		System.out.println(repla);
-		replayService.add(repla);
 		String result="true";
-		if(replayService.getByReplay(repla.getReplay())==null){
-			result="false";
+		if(replayService.add(repla)!=1){
+			 result="false";
 		}
 		System.out.println(result);
 		Map<String,String> rel=new HashMap<String,String>();

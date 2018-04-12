@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-04-11 17:26:37
+Date: 2018-04-12 17:32:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -83,7 +83,7 @@ CREATE TABLE `asso` (
   PRIMARY KEY (`id`),
   KEY `fk_c` (`cid`),
   CONSTRAINT `fk_c` FOREIGN KEY (`cid`) REFERENCES `category_` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of asso
@@ -152,7 +152,7 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`id`),
   KEY `fk_ucid` (`uid`),
   CONSTRAINT `fk_ucid` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
@@ -161,6 +161,8 @@ INSERT INTO `comment` VALUES ('5', '4', '留言1', '2018-04-11 09:49:02');
 INSERT INTO `comment` VALUES ('6', '5', '留言2', '2018-04-11 09:49:16');
 INSERT INTO `comment` VALUES ('7', '6', ' 留言3', '2018-04-11 09:49:27');
 INSERT INTO `comment` VALUES ('8', '7', '留言4', '2018-04-11 09:49:31');
+INSERT INTO `comment` VALUES ('9', '9', '456123', '2018-04-12 11:10:49');
+INSERT INTO `comment` VALUES ('10', '9', 'dddddd', '2018-04-12 11:11:22');
 
 -- ----------------------------
 -- Table structure for news
@@ -204,13 +206,13 @@ CREATE TABLE `replay` (
   `ruid` int(11) NOT NULL,
   `commId` int(11) NOT NULL,
   `replay` text NOT NULL,
-  `time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `rtime` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`rid`),
   KEY `fk1` (`ruid`),
   KEY `fk2` (`commId`),
   CONSTRAINT `fk1` FOREIGN KEY (`ruid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk2` FOREIGN KEY (`commId`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of replay
@@ -224,6 +226,12 @@ INSERT INTO `replay` VALUES ('8', '23', '7', '123213213213213213', '2018-04-11 1
 INSERT INTO `replay` VALUES ('10', '23', '5', '125', '2018-04-11 16:52:16');
 INSERT INTO `replay` VALUES ('11', '23', '8', '2222222', '2018-04-11 16:52:43');
 INSERT INTO `replay` VALUES ('12', '23', '5', '252525525252', '2018-04-11 16:55:09');
+INSERT INTO `replay` VALUES ('13', '9', '8', '在w3school，你可以找到你所需要的所有的网站建设教程。\n						', '2018-04-12 14:24:32');
+INSERT INTO `replay` VALUES ('14', '9', '7', '			dsaaaaaaaaaa事发地点多多多多多多多多多多\n						', '2018-04-12 14:35:54');
+INSERT INTO `replay` VALUES ('16', '9', '9', '125854775244', '2018-04-12 17:18:08');
+INSERT INTO `replay` VALUES ('17', '5', '10', '123456478', '2018-04-12 17:23:54');
+INSERT INTO `replay` VALUES ('18', '5', '10', '12354', '2018-04-12 17:26:13');
+INSERT INTO `replay` VALUES ('19', '5', '9', '11111111111', '2018-04-12 17:31:36');
 
 -- ----------------------------
 -- Table structure for user

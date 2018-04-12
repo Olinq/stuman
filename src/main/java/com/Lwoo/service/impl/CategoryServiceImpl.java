@@ -40,9 +40,9 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public void add(Category t) {
+	public int add(Category t) {
 		// TODO Auto-generated method stub
-		categoryMapper.add(t);
+		return categoryMapper.add(t);
 	}
 
 	@Override

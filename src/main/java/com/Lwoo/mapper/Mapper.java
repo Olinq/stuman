@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface Mapper<T> {
-	public void add(T t);
+	public int add(T t);
 	public void delete(int id);
 	public T get(int id);
 	public void update(T t);

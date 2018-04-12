@@ -40,9 +40,9 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void add(Comment t) {
+	public int add(Comment t) {
 		// TODO Auto-generated method stub
-		commentMapper.add(t);
+		return commentMapper.add(t);
 	}
 
 	@Override

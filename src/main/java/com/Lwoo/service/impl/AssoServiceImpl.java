@@ -39,9 +39,9 @@ public class AssoServiceImpl implements AssoService {
 	}
 
 	@Override
-	public void add(Asso t) {
+	public int add(Asso t) {
 		// TODO Auto-generated method stub
-		assoMapper.add(t);
+		return assoMapper.add(t);
 	}
 
 	@Override
