@@ -13,6 +13,9 @@
     	<select id="get" parameterType="_int" resultType="Replay">
     		select * from replay where rid=#{id}
     	</select>
+    	<select id="getByReplay" parameterType="_int" resultType="Replay">
+    		select * from replay where replay=#{replay}
+    	</select>
     	<select id="list" resultType="Replay">
     		select * from replay order by id desc
     	</select>

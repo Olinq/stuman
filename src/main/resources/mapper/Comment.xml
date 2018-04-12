@@ -25,7 +25,7 @@
                 <result column="ruid" property="uid" />
                 <result column="commId" property="commId"/>
                 <result column="replay" property="replay" />
-                <result column="time" property="time" />
+                <result column="rtime" property="time" />
                 <association property="user" select="replaySelectUser" column="ruid" javaType="User">
              </association>
             </collection>

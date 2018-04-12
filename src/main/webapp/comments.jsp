@@ -16,26 +16,26 @@
 				<br>
 				
 				<ol class="comments-list">
-				<c:forEach items="${lists}" var="list">
+				<c:forEach items="${lists}" var="list" >
 					<li class="comment">
 						<div>
 							<div class="comment-meta">
 								<span class="author"><a href="#">${list.user.username}</a></span> <span
 									class="date"><a href="#">${list.time }</a></span>
-									<span class="reply"><a href="#" style="color:blue" onclick="see(${list.id})">查看留言(${list.totalReplay})</a></span>
-								<span class="reply"><a href="#" style="color:blue">回复</a></span>
+									<span class="reply" id="location${list.id}"><a href="#location${list.id+2}" style="color:blue" onclick="see(${list.id})">查看留言(${list.totalReplay})</a></span>
+								<span class="reply"><a href="#" style="color:blue" data-toggle="modal" data-target="#myModal" onclick="reply(${list.id})">回复</a></span>
 							</div>
 
 							<div class="comment-body">${list.comment}</div>
 						</div>
-						<div id="replay${list.id}">
-							<c:forEach items="${list.replays }" var="replay">
+						<div id="replay${list.id}" style="display:none">
+							<c:forEach items="${list.replays }" var="replay" varStatus="status">
 						<ul class="children">
 							<li class="comment">
 								<div>
 									<div class="comment-meta-children">
 										<span class="author"><a href="#">${replay.user.username }</a></span> <span
-											class="date"><a href="#">${replay.time}</a></span> 
+											class="date"><a href="#">${replay.time}</a></span><span>#楼层#<a>${status.index + 1}</a></span> 
 									</div>
 									<!-- .comment-meta -->
 
@@ -50,10 +50,38 @@
 					</li>
 					</c:forEach>
 				</ol>
-
-				<div class="clearfix"></div>
+						
+				<div class="clearfix"><div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  
+    <div class="modal-dialog">  
+        <div class="modal-content">  
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">  
+                    ×  
+                </button>  
+                <h4 class="modal-title" id="myModalLabel">  
+                   	回复 
+                </h4>  
+            </div>  
+            <form id="form_data">  
+            <div class="modal-body">  
+                	回复内容;<br><textarea rows="3" cols="85" name="comm" id="comm" required="required">
+						在w3school，你可以找到你所需要的所有的网站建设教程。
+						</textarea>
+                <input type="hidden" id="uid" value="${user.id }" name="uid"/>
+                <input type="hidden" id="commId" name="commId">  
+            </div>  
+            <div class="modal-footer"> 
+            	<button type="button" id="close" class="btn btn-default" data-dismiss="modal">关闭  
+                </button>  
+                <button type="button" onclick="add_replay()" class="btn btn-primary">  
+                   		 回复 
+                </button>  
+            </div>  
+            </form>  
+        </div><!-- /.modal-content -->  
+    </div><!-- /.modal -->  </div>
 				<div id="respond">
-					<h4 id="reply-title">留言</h4>
+					<h4 id="reply-title">发帖</h4>
 					<form action="${ctx }/user/comment/add" method="post" id="commentform" onsubmit="return mySubmit()">
 						<div class="form-group">
 							<label for="inputComment">Comment</label>
@@ -74,15 +102,13 @@
 	</div>
 </div>
 <script>
-//控制评论的显示隐藏
-$(function(){
-	for(int item=0;i<parseInt('${lists.size()}');i++){
-		$("#replay"+i).toggle();
+	function reply(item){
+		$("#commId").val(item);
 	}
-	
-});
+	//设置toggle事件
 	function see(item){
 		$("#replay"+item).toggle();
+	
 	}
 	function mySubmit(){
 		var user = '<%= session.getAttribute("user")%>';
@@ -92,6 +118,32 @@ $(function(){
 	    	return false;
 	     }
 		return true;
+	}
+	//提交回复
+	function add_replay(){
+		 var user = '<%= session.getAttribute("user")%>';
+	     console.log("user:::" + user);
+		  if(user=='null'){
+		    	 mizhu.alert('提示信息', '请先登录');
+		    	return;
+		     }
+		 $.ajax({
+	         	url : "${ctx }/user/replay/add",
+	         	type : "post",
+	         	contentType: 'application/json;charset=UTF-8', 
+	         	dataType : "json",
+	         	data: JSON.stringify({uid: $("#uid").val(),commId:$("#commId").val(),replay:$("#comm").val()}),
+	        	success : function(msg) {
+	        		var jsonArry=eval(msg); //将json类型字符串转换为json对象
+	      		 	console.log(jsonArry);
+	        		if("true"!=jsonArry.result+""){
+	        			mizhu.alert('提示信息', '回复成功');
+	        		}else{
+	        			mizhu.alert('提示信息', '回复失败,请重试');
+	        			$("#close").trigger("click");
+	        		}
+	        }
+	        });
 	}
 </script>
 <!-- /container --> </main>

@@ -56,4 +56,10 @@ public class ReplayServiceImpl implements ReplayService {
 		return replayMapper.search(findData);
 	}
 
+	@Override
+	public Replay getByReplay(String replay) {
+		// TODO Auto-generated method stub
+		return replayMapper.getByReplay(replay);
+	}
+
 }

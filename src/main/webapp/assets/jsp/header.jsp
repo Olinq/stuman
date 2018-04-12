@@ -53,7 +53,7 @@ function checkUser(){
         		var jsonArry=eval(msg); //将json类型字符串转换为json对象
       		 	console.log(jsonArry);
         		if("true"!=jsonArry.result+""){
-        			mizhu.alert('提示信息', '请先注册');
+        			mizhu.alert('提示信息', '未注册或者账户名密码错误');
         		}else if("1"!=jsonArry.statu+""){
         			mizhu.alert('提示信息', '尚未通过审核，请耐心等待');
         		}else{

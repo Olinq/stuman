@@ -20,9 +20,6 @@ public class Comment {
 	}
 
 	public List<Replay> getReplays() {
-		if(replays.get(0).getId()==0){
-			return null;
-		}
 		return replays;
 	}
 	public void setReplays(List<Replay> replays) {

@@ -1,22 +1,31 @@
 package com.Lwoo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Lwoo.pojo.Asso;
 import com.Lwoo.pojo.Category;
 import com.Lwoo.pojo.Comment;
 import com.Lwoo.pojo.News;
+import com.Lwoo.pojo.Replay;
 import com.Lwoo.pojo.User;
 import com.Lwoo.service.AssoService;
 import com.Lwoo.service.CategoryService;
 import com.Lwoo.service.CommentService;
 import com.Lwoo.service.NewsService;
+import com.Lwoo.service.ReplayService;
 import com.Lwoo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -34,6 +43,8 @@ public class StartController {
 	UserService userService;
 	@Autowired
 	CommentService commentService;
+	@Autowired
+	ReplayService replayService;
 	@RequestMapping("/")
 	public ModelAndView startUp(){
 		System.out.println("----startUp---");
@@ -168,4 +179,26 @@ public class StartController {
 		mav.addObject("lists", lists);
 		return mav;
 	}
+	//用户回复
+	@ResponseBody
+    @RequestMapping(value="user/replay/add", method = RequestMethod.POST)
+     public Map<String,String> replayadd(@RequestBody Map<String,String> replay,HttpSession httpSession){
+		System.out.println("user/replay/add");
+		Replay repla=new Replay();
+		System.out.println(replay.get("replay"));
+		repla.setCommId(Integer.parseInt(replay.get("commId")));
+		repla.setUid(Integer.parseInt(replay.get("uid")));
+		repla.setReplay(replay.get("replay"));
+		System.out.println(repla);
+		replayService.add(repla);
+		String result="true";
+		if(replayService.getByReplay(repla.getReplay())==null){
+			result="false";
+		}
+		System.out.println(result);
+		Map<String,String> rel=new HashMap<String,String>();
+		rel.put("result", result);
+		return rel;
+    }
+	
 }
