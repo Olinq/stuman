@@ -10,6 +10,7 @@ public class Comment {
 	private String comment;
 	private Date time;
 	private User user;
+	private int totalReplay;
 	private List<Replay> replays;
 	public User getUser() {
 		return user;
@@ -19,10 +20,17 @@ public class Comment {
 	}
 
 	public List<Replay> getReplays() {
+		if(replays.get(0).getId()==0){
+			return null;
+		}
 		return replays;
 	}
 	public void setReplays(List<Replay> replays) {
 		this.replays = replays;
+	}
+	public int getTotalReplay() {
+		totalReplay=replays.size();
+		return totalReplay;
 	}
 	public int getId() {
 		return id;

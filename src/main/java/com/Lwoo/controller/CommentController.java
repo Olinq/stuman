@@ -64,7 +64,7 @@ public class CommentController {
 				 model.addAttribute("comment",comment);
 				  return "admin/listReplay";
 			}
-			 //添加留言
+			 //留言页
 			@RequestMapping("addReplayPage")
 			public String addReplayPage(int id,HttpSession httpSession,Model model){
 				System.out.println("---addReplayPage----"+id);

@@ -10,7 +10,7 @@
     		delete from comment where id=#{id}
     	</delete>
     	<select id="get" parameterType="_int" resultMap="commentBean">
-    		select c.*, a.* from comment c left join replay a on c.id = a.commId  where c.id=#{id} order by a.time desc
+    		select c.*, a.* from comment c left join replay a on c.id = a.commId  where c.id=#{id} order by c.time desc
     	</select>
     	<resultMap type="Comment" id="commentBean">
             <id column="id" property="id" />
@@ -32,8 +32,11 @@
         </resultMap>
          <!-- 关联查询分类和社团表 -->
         <select id="list" resultMap="commentBean">
-            select c.*, a.* from comment c left join replay a on c.id = a.commId order by a.time desc
+            select c.*, a.* from comment c left join replay a on c.id = a.commId order by c.time desc
         </select>
+        <select id="listNewer" parameterType="int" resultMap="commentBean">
+    	select c.*, a.* from comment c left join replay a on c.id = a.commId order by c.time desc limit 0,#{limit}
+    	</select>
          <select id="selectUser" parameterType="_int" resultType="User">  
        		 select * from user where id = #{id}  
     	</select> 

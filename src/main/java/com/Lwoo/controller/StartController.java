@@ -140,15 +140,32 @@ public class StartController {
 	
 	
 	@RequestMapping("user/comment")
-	public ModelAndView comment(@RequestParam(required=true,defaultValue="10") Integer total){
+	public ModelAndView comment(){
 		System.out.println("----comment---");
 		ModelAndView mav=new ModelAndView("comments");
-		PageHelper.startPage(1, total);//进入主页显示10条消息
-		List<Comment> comments=commentService.list();
-		System.out.println(comments);
-		PageInfo<Comment> pageInfo=new PageInfo<Comment>(comments);
-		mav.addObject("pageInfo",pageInfo);
-		mav.addObject("comments", comments);
+		List<Comment> lists=commentService.listNewer(9);
+		
+		System.out.println(lists);
+		mav.addObject("lists", lists);
+		return mav;
+	}
+	@RequestMapping("user/comment/all")
+	public ModelAndView commentAll(){
+		System.out.println("----comment---");
+		ModelAndView mav=new ModelAndView("comments");
+		List<Comment> lists=commentService.list();
+		System.out.println(lists);
+		mav.addObject("lists", lists);
+		return mav;
+	}
+	@RequestMapping("user/comment/add")
+	public ModelAndView commentAdd(Comment comment){
+		System.out.println("----comment---");
+		commentService.add(comment);
+		ModelAndView mav=new ModelAndView("comments");
+		List<Comment> lists=commentService.list();
+		System.out.println(lists);
+		mav.addObject("lists", lists);
 		return mav;
 	}
 }

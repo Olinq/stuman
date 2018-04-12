@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Lwoo.mapper.CommentMapper;
 import com.Lwoo.pojo.Comment;
+import com.Lwoo.pojo.News;
 import com.Lwoo.service.CommentService;
 
 @Service
@@ -54,6 +55,12 @@ public class CommentServiceImpl implements CommentService {
 	public List<Comment> search(String fingData) {
 		// TODO Auto-generated method stub
 		return commentMapper.search(fingData);
+	}
+
+	@Override
+	public List<Comment> listNewer(int limit) {
+		// TODO Auto-generated method stub
+		return commentMapper.listNewer(limit);
 	}
 
 }

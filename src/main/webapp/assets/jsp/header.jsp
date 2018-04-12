@@ -52,7 +52,9 @@ function checkUser(){
         	success : function(msg) {
         		var jsonArry=eval(msg); //将json类型字符串转换为json对象
       		 	console.log(jsonArry);
-        		if("1"!=jsonArry.statu+""){
+        		if("true"!=jsonArry.result+""){
+        			mizhu.alert('提示信息', '请先注册');
+        		}else if("1"!=jsonArry.statu+""){
         			mizhu.alert('提示信息', '尚未通过审核，请耐心等待');
         		}else{
 	         		//要执行的代码

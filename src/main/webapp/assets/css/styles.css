@@ -680,7 +680,10 @@ footer.entry-meta .meta-in {
   margin: 0 0 0 	30px;
 }
 #comments .comment-meta {
-  margin: 0 0 0 90px;
+  margin: 0 0 0 70px;
+}
+#comments .comment-meta-children {
+  margin: 0 0 0 80px;
 }
 #comments .comment-meta a {
   color: #333333;
@@ -700,9 +703,15 @@ footer.entry-meta .meta-in {
 }
 #comments .comment-meta .reply {
   float: right;
+  margin-right:20px
+}
+#comments .comment-body-children {
+  margin: 0 0 35px 80px;
+  color:#327de2;
 }
 #comments .comment-body {
-  margin: 0 0 35px 90px;
+  margin: 0 0 35px 70px;
+  font-size:20px;
 }
 .comment-navigation {
   width: 100%;
