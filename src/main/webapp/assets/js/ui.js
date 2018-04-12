@@ -9,6 +9,7 @@
 			$('.win iframe').remove();
 			$('.win').remove();
 		}, 200);
+		 window.location.reload();
 	};
 
 	this.open = function(width, height, title, url, closed) {

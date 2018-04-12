@@ -20,7 +20,7 @@
 						<li class="comment">
 							<div>
 								<div class="comment-meta">
-									<span class="author"><a href="#">${list.user.username}</a></span>
+									<span class="author" id="comment${list.id}"><a href="#">#楼主#${list.user.username}</a></span>
 									<span class="date"><a href="#">${list.time }</a></span> <span
 										class="reply" id="location${list.id}"><a
 										href="#location${list.id+2}" style="color: blue"
@@ -35,7 +35,7 @@
 							<div id="replay${list.id}" style="display: none">
 								<c:forEach items="${list.replays }" var="replay"
 									varStatus="status">
-									<ul class="children">
+									<ul class="children" id="children${list.id}">
 										<li class="comment">
 											<div>
 												<div class="comment-meta-children">
@@ -54,7 +54,7 @@
 						</li>
 					</c:forEach>
 				</ol>
-
+					<div><a href="${ctx }/user/comment/all">查看全部</a></div>
 				<div class="clearfix">
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true">
@@ -111,6 +111,7 @@
 <script>
 	function reply(item){
 		$("#commId").val(item);
+		
 	}
 	//设置toggle事件
 	function see(item){
@@ -143,22 +144,12 @@
 	        	success : function(msg) {
 	        		var jsonArry=eval(msg); //将json类型字符串转换为json对象
 	      		 	console.log(jsonArry);
-	        		if("true"!=jsonArry.result+""){
-	        			//mizhu.alert('提示信息', '请先注册');
+	        		if("true"==jsonArry.result+""){
+	        			$("#close").trigger("click");
+	        			mizhu.alert('提示信息', '回复成功');
 	        		}else{
-		         		//要执行的代码
-			         	if("true"==jsonArry.result+""){
-			         		$("#login").css("display","none");
-			         		$("#user").css("display","");
-			         		console.log("登录成功");
-			         		 window.location.reload();//刷新当前页面.
-			         		$("#username").val("");
-			         		$("#password").val("");
-			         	}else{
-			         		$("#username").val("");
-			         		$("#password").val("");
-			         		mizhu.alert('提示信息', '账户名或者密码错误');
-			         	}
+	        			$("#close").trigger("click");
+	        			mizhu.alert('提示信息', '回复失败，请重试');
 	        		}
 	        }
 	        });

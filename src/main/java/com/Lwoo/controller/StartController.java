@@ -151,14 +151,12 @@ public class StartController {
 	
 	
 	@RequestMapping("user/comment")
-	public ModelAndView comment(@RequestParam(required=true,defaultValue="10") Integer total){
+	public ModelAndView comment(){
 		System.out.println("----comment---");
-		List<Comment> lists=commentService.list();
-		System.out.println(lists);
-		PageHelper.startPage(1, total);
+		List<Comment> comments=commentService.list();
 		ModelAndView mav=new ModelAndView("comments");
-		PageInfo<Comment> pageInfo=new PageInfo<Comment>();
-		mav.addObject("pageInfo", pageInfo);
+		//显示前面八条数据
+		List<Comment> lists=comments.subList(0, 8);
 		mav.addObject("lists", lists);
 		return mav;
 	}

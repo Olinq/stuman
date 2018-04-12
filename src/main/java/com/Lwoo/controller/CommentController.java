@@ -27,13 +27,9 @@ public class CommentController {
 	@Autowired
 	ReplayService replayService;
 	  @RequestMapping("listComment")
-	  public String commentList(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model){
+	  public String commentList(HttpServletRequest request,Model model){
 		  //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
 		  List<Comment> comments = commentService.list();
-		  System.out.println("----commentsController\n"+comments);
-		  PageHelper.startPage(page,10);
-		  PageInfo<Comment> pageInfo=new PageInfo<Comment>(comments);
-		  model.addAttribute("pageInfo",pageInfo);
 		  model.addAttribute("comments",comments);
 		  return "admin/listComment";
 	  }
