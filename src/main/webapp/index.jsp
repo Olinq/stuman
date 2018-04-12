@@ -26,7 +26,7 @@
     </div> <!-- end of left sidebar -->
     
     <div id="templatemo_content">
-    	<div class="content_title"><span></span>Welcome to  Gift Red Template</div>
+    	<div class="content_title"><span></span>欢迎来到学生社团联合会</div>
         <div class="p_box">
         	<h2>Donec consequat scelerisque nunc</h2>
           <div class="image_frame"><a href="#"><img src="./assets/images/templatemo_image_01.jpg" alt="image 3" /></a></div>
@@ -49,7 +49,7 @@
     </div> <!-- end of content -->
     
     <div id="templatemo_right_sidebar">
-    	<div class="content_title"><span></span>最新资讯</div>
+    	<div class="content_title"><span></span>社团新闻</div>
         <div class="news_box">
         	<c:forEach items="${newss}" var="news">
         	<p><a href="${ctx }/active/content?id=${news.id}" style="color:#033772">${news.title}</a></p>

@@ -94,8 +94,7 @@ function checkLogout(){
 <header id="header">
 	<div id="head" class="parallax" parallax-speed="1">
 		<h2 style="text-align:center;margin-top:10px">
-			<span class="title">学生社团联合</span>
-			<span class="tagline">华南理工大学广州学院<br>
+			<img src="${ctx }/assets/images/stuman.png"  style="margin-top:-120px;margin-bottom:-180px;"/>
 		</h2>
 	</div>
 

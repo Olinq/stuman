@@ -33,9 +33,9 @@ public class NewsController {
 	      
 	      if(1!=admin.getLock()){//普通管理员
 	    	  System.out.println("普通管理员-listNews"+admin);
-	    	  newss=newsService.listByAid(admin.getId());
+	    	  newss=newsService.listByAid(admin.getId(),0);
 	      }else{
-	    	  newss = newsService.list();
+	    	  newss = newsService.list(0);
 	      }
 	      System.out.println("----newssController\n"+newss);
 	      PageInfo<News> pageInfo=new PageInfo<News>(newss);
@@ -46,7 +46,7 @@ public class NewsController {
 	 //删除社团
 	@RequestMapping("deleteNewsById")
 	public ModelAndView deleteAsso(News news){
-		newsService.delete(news);
+		newsService.delete(news.getId());
 		ModelAndView mav = new ModelAndView("redirect:/listNews");
 		return mav;
 	}

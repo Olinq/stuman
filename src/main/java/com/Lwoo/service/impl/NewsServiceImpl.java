@@ -13,10 +13,17 @@ public class NewsServiceImpl implements NewsService {
 	
 	@Autowired
 	NewsMapper newsMapper;
+
 	@Override
-	public List<News> list() {
+	public int add(News t) {
 		// TODO Auto-generated method stub
-		return newsMapper.list();
+		return newsMapper.add(t);
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		newsMapper.delete(id);
 	}
 
 	@Override
@@ -32,45 +39,33 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
-	public void delete(News t) {
+	public List<News> list(int isannou) {
 		// TODO Auto-generated method stub
-		newsMapper.delete(t.getId());
+		return newsMapper.list(isannou);
 	}
 
 	@Override
-	public int add(News t) {
+	public List<News> search(String findData, int isannou) {
 		// TODO Auto-generated method stub
-		return newsMapper.add(t);
+		return newsMapper.search(findData, isannou);
 	}
 
 	@Override
-	public News findByUsername(String username) {
+	public List<News> listByAid(int id, int isannou) {
 		// TODO Auto-generated method stub
-		return newsMapper.findByUsername(username);
+		return newsMapper.listByAid(id, isannou);
 	}
 
 	@Override
-	public List<News> search(String fingData) {
+	public List<News> searchByAid(String findData, int aid, int isannou) {
 		// TODO Auto-generated method stub
-		return newsMapper.search(fingData);
+		return newsMapper.searchByAid(findData, aid, isannou);
 	}
 
 	@Override
-	public List<News> listByAid(int id) {
+	public List<News> listNewer(int total, int isannou) {
 		// TODO Auto-generated method stub
-		return newsMapper.listByAid(id);
-	}
-
-	@Override
-	public List<News> searchByAid(String findData, int aid) {
-		// TODO Auto-generated method stub
-		return newsMapper.searchByAid(findData, aid);
-	}
-
-	@Override
-	public List<News> listNewer(int limit) {
-		// TODO Auto-generated method stub
-		return newsMapper.listNewer(limit);
+		return newsMapper.listNewer(total, isannou);
 	}
 
 }

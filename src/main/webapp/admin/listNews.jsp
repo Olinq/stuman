@@ -35,7 +35,6 @@
 					<th>标题</th>
 					<th>作者</th>
 					<th>时间 </th>
-					<th>点击量</th>
 					<th>删除</th>
 				</tr>
 			</thead>
@@ -48,7 +47,6 @@
 					<td><a href="editNews?id=${c.id}">${c.title}</a></td>
 					<td>${c.author }</td>
 					<td title="${c.time }">${c.time }</td>
-					<td>${c.click }</td>
 					<td><a deleteLink="true" href="deleteNewsById?id=${c.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 				</c:forEach>
