@@ -34,18 +34,14 @@
           <div class="cleaner"></div>
 		</div>
         <div class="p_box">
-        	<h2>Sed volutpat consectetur vehicula</h2>
-          <div class="image_frame"><a href="#"><img src="./assets/images/templatemo_image_01.jpg" alt="image 4" /></a></div>
-          Vivamus tempor tortor ac est convallis iaculis in sed tortor. Etiam luctus quam in arcu adipiscing auctor. Sed quis justo id magna pretium elementum vitae.<a href="#" class="read_more"></a>
+        	<h2>通知</h2>
+          <div class="image_frame"><a href="#"><img src="./assets/images/timg.gif" alt="image 4" /></a></div>
+          <c:forEach items="${ annous}" var="annou">
+         	<p><a href="${ctx }/active/content?id=${annou.id}" class="">${annou.title}</a></p>
+          </c:forEach>
+          <a href="#" class="read_more"></a>
           <div class="cleaner"></div>
 		</div>
-        <div class="p_box">
-        	<h2>Cras dapibus ullamcorper est</h2>
-          <div class="image_frame"><a href="#"><img src="./assets/images/templatemo_image_02.jpg" alt="Gift Red" /></a></div>
-          Pellentesque non augue eu nibh gravida blandit. In non velit a justo blandit mollis in in erat. Duis dignissim risus in lorem bibendum sed suscipit metus.<a href="#" class="read_more"></a>
-          <div class="cleaner"></div>
-		</div>   	
-    
     </div> <!-- end of content -->
     
     <div id="templatemo_right_sidebar">

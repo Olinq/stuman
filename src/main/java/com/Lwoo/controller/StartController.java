@@ -52,9 +52,12 @@ public class StartController {
 		List<Category> categorys=categoryService.list();
 		List<Asso> assos=assoService.list();
 		List<News> newss=newsService.listNewer(8,0);
+		List<News> annous=newsService.listNewer(8,1);
+		System.out.println(annous);
 		mav.addObject("categorys", categorys);
 		mav.addObject("assos", assos);
 		mav.addObject("newss", newss);
+		mav.addObject("annous", annous);
 		System.out.println(categorys);
 		return mav;
 	}
@@ -101,7 +104,7 @@ public class StartController {
 		System.out.println("----active---");
 		ModelAndView mav=new ModelAndView("active");
 		PageHelper.startPage(1, total);//进入主页显示10条消息
-		List<News> news=newsService.list(0);
+		List<News> news=newsService.list();
 		PageInfo<News> pageInfo=new PageInfo<News>(news);
 		mav.addObject("pageInfo",pageInfo);
 		mav.addObject("news", news);
@@ -133,7 +136,7 @@ public class StartController {
 	public ModelAndView activefindData(String findData){
 		System.out.println("----/active/findData---");
 		ModelAndView mav=new ModelAndView("active");
-		List<News> news=newsService.search(findData,0);
+		List<News> news=newsService.search(findData);
 		mav.addObject("news", news);
 		System.out.println(news);
 		return mav;

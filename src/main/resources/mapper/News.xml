@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.Lwoo.mapper.NewsMapper">
     	<insert id="add" parameterType="News">
-    		insert into news(aid,title,content,author,contentText,isannou) values(#{aid},#{title},#{content},#{author},#{contentText},#{isannou})
+    		insert into news(aid,title,content,author,contentText) values(#{aid},#{title},#{content},#{author},#{contentText})
     	</insert>
     	<delete id="delete" parameterType="News">
     		delete from news where id=#{id}
@@ -13,22 +13,22 @@
     		select * from news where id=#{id}
     	</select>
     	<update id="update" parameterType="News">
-    		update news set title=#{title},content=#{content},contentText=#{contentText},isannou=#{isannou} where id=#{id}
+    		update news set title=#{title},content=#{content},contentText=#{contentText} where id=#{id}
     	</update>
-    	<select id="list" parameterType="_int" resultType="News">
-    	select * from news where isannou=#{isannou} order by time desc
+    	<select id="list" resultType="News">
+    	select * from news order by time desc
     	</select>
-    	<select id="search" resultType="News">
-    		select * from news where isannou=#{isannou} and title like "%"#{findData}"%"
+    	<select id="search" parameterType="string" resultType="News">
+    		select * from news where title like "%"#{findData}"%"
     	</select>
     	
     	<select id="searchByAid"  resultType="News">
-    		select * from news where isannou=#{isannou} and  title like "%"#{findData}"%" and aid=#{aid}
+    		select * from news where title like "%"#{findData}"%" and aid=#{aid}
     	</select>
     	<select id="listByAid" parameterType="int" resultType="News">
-    	select * from news where  isannou=#{isannou} and aid=#{id} order by time desc
+    	select * from news where aid=#{id} order by time desc
     	</select>
     	<select id="listNewer" resultType="News">
-    	select * from news where isannou=#{isannou}  order by time desc limit 0,#{total}
+    	select * from news where isannou=#{isannou} order by time desc limit 0,#{limit}
     	</select>
     </mapper>

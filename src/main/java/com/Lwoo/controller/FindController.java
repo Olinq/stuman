@@ -166,9 +166,9 @@ public class FindController {
 			if(newss.isEmpty()){//如果Id找不到则根据名称找
 				System.out.println("======"+2222);
 				if(1==admin.getLock()){
-					newss=newsService.search(findData,0);
+					newss=newsService.search(findData);
 				}else{
-					newss=newsService.searchByAid(findData,admin.getId(),0);
+					newss=newsService.searchByAid(findData,admin.getId());
 				}
 			}
 			System.out.println(newss);

@@ -1,3 +1,4 @@
+
 package com.Lwoo.service.impl;
 
 import java.util.List;
@@ -13,17 +14,10 @@ public class NewsServiceImpl implements NewsService {
 	
 	@Autowired
 	NewsMapper newsMapper;
-
 	@Override
-	public int add(News t) {
+	public List<News> list() {
 		// TODO Auto-generated method stub
-		return newsMapper.add(t);
-	}
-
-	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		newsMapper.delete(id);
+		return newsMapper.list();
 	}
 
 	@Override
@@ -39,33 +33,45 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
-	public List<News> list(int isannou) {
+	public void delete(News t) {
 		// TODO Auto-generated method stub
-		return newsMapper.list(isannou);
+		newsMapper.delete(t.getId());
 	}
 
 	@Override
-	public List<News> search(String findData, int isannou) {
+	public int add(News t) {
 		// TODO Auto-generated method stub
-		return newsMapper.search(findData, isannou);
+		return newsMapper.add(t);
 	}
 
 	@Override
-	public List<News> listByAid(int id, int isannou) {
+	public News findByUsername(String username) {
 		// TODO Auto-generated method stub
-		return newsMapper.listByAid(id, isannou);
+		return newsMapper.findByUsername(username);
 	}
 
 	@Override
-	public List<News> searchByAid(String findData, int aid, int isannou) {
+	public List<News> search(String fingData) {
 		// TODO Auto-generated method stub
-		return newsMapper.searchByAid(findData, aid, isannou);
+		return newsMapper.search(fingData);
 	}
 
 	@Override
-	public List<News> listNewer(int total, int isannou) {
+	public List<News> listByAid(int id) {
 		// TODO Auto-generated method stub
-		return newsMapper.listNewer(total, isannou);
+		return newsMapper.listByAid(id);
+	}
+
+	@Override
+	public List<News> searchByAid(String findData, int aid) {
+		// TODO Auto-generated method stub
+		return newsMapper.searchByAid(findData, aid);
+	}
+
+	@Override
+	public List<News> listNewer(int limit,int isannou) {
+		// TODO Auto-generated method stub
+		return newsMapper.listNewer(limit,isannou);
 	}
 
 }
