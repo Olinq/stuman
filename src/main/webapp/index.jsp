@@ -33,13 +33,13 @@
             Gift Red is free website template by templatemo.com for everyone. Feel free to edit and use this template for any purpose. Lorem ipsum dolor sit amet, consect esttur sadipiscing elitnec.<a href="#" class="read_more"></a>
           <div class="cleaner"></div>
 		</div>
-        <div class="p_box">
-        	<h2>通知</h2>
+        <div class="p_box ">
+        	<h2 style="background-color: #e2cece;">通知</h2>
           <div class="image_frame"><a href="#"><img src="./assets/images/timg.gif" alt="image 4" /></a></div>
           <c:forEach items="${ annous}" var="annou">
          	<p><a href="${ctx }/active/content?id=${annou.id}" class="">${annou.title}</a></p>
           </c:forEach>
-          <a href="#" class="read_more"></a>
+          <a href="${ctx }/active/isannou" class="read_more"></a>
           <div class="cleaner"></div>
 		</div>
     </div> <!-- end of content -->

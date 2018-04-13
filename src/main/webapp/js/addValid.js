@@ -35,7 +35,10 @@ function rulesValid(){
 		 },
 		 author:{
 			 required:true
-		 }
+		 },
+	 	aid:{
+	   			min:1
+	   	 }
 	 },
 	 messages:{//验证错误信息
 		 title: {
@@ -46,7 +49,10 @@ function rulesValid(){
 		 },
 		 author:{
 			 required:"作者不能为空"
-		 }
+		 },
+	 		aid:{
+	   			min:"请选择发布者"
+	   	 }
 	 },
  });
 	 $("#addAdminForm").validate({

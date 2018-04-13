@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.Lwoo.mapper.NewsMapper">
     	<insert id="add" parameterType="News">
-    		insert into news(aid,title,content,author,contentText) values(#{aid},#{title},#{content},#{author},#{contentText})
+    		insert into news(aid,title,content,author,contentText,isannou) values(#{aid},#{title},#{content},#{author},#{contentText},#{isannou})
     	</insert>
     	<delete id="delete" parameterType="News">
     		delete from news where id=#{id}
@@ -18,10 +18,15 @@
     	<select id="list" resultType="News">
     	select * from news order by time desc
     	</select>
+    	<select id="listType" parameterType="_int" resultType="News">
+    	select * from news where isannou=#{isannou} order by time desc
+    	</select>
     	<select id="search" parameterType="string" resultType="News">
     		select * from news where title like "%"#{findData}"%"
     	</select>
-    	
+    	<select id="searchType" resultType="News">
+    		select * from news where isannou=#{isannou} and title like "%"#{findData}"%"
+    	</select>
     	<select id="searchByAid"  resultType="News">
     		select * from news where title like "%"#{findData}"%" and aid=#{aid}
     	</select>

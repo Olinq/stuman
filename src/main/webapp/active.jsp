@@ -24,7 +24,8 @@
 									</div>
 								</div>
 								<div class="col-md-1 text-left"  style="line-height: 40px;">
-  									<button type="submit" class="btn btn-action" style="height: 40px;">查找</button>
+									<input type="hidden" name="isannou" value="${isannou}">
+  									<button type="submit" class="btn btn-info" style="height: 40px;">查找</button>
 								</div>
 							</div>
 						</form>
@@ -50,7 +51,15 @@
            			<div style="text-align:right;margin:50px 50px">
 							<span aria-hidden="true">
 									<c:if test="${pageInfo.pageSize!=pageInfo.total}">
-									<h5><a href="${ctx }/active?total=${pageInfo.total}" style="color:blue">查看更多&raquo;&raquo;&raquo;&raquo;</a></h5>
+									<c:choose> 
+									    <c:when test="${1==isannou}">    <!--如果 --> 
+											<h5><a href="${ctx }/active/isannou?total=${pageInfo.total}" style="color:blue">查看更多&raquo;&raquo;&raquo;&raquo;</a></h5>
+									 	</c:when>      
+									   	<c:otherwise>  <!--否则 -->    
+											<h5><a href="${ctx }/active?total=${pageInfo.total}" style="color:blue">查看更多&raquo;&raquo;&raquo;&raquo;</a></h5>
+									  	</c:otherwise> 
+									</c:choose>
+									
 									</c:if>
 							</span>
 					</div>

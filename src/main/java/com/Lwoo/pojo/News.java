@@ -14,9 +14,16 @@ public class News {
 
     private Date time;
 
-    private Integer click;
+    private Integer isannou;
+    public Integer getIsannou() {
+		return isannou;
+	}
 
-    private String content;
+	public void setIsannou(Integer isannou) {
+		this.isannou = isannou;
+	}
+
+	private String content;
     private String contentText;
 
     public String getContentText() {
@@ -71,14 +78,6 @@ public class News {
         this.time = time;
     }
 
-    public Integer getClick() {
-        return click;
-    }
-
-    public void setClick(Integer click) {
-        this.click = click;
-    }
-
     public String getContent() {
         return content;
     }
@@ -90,7 +89,7 @@ public class News {
 	@Override
 	public String toString() {
 		return "News [id=" + id + ", aid=" + aid + ", title=" + title + ", author=" + author + ", time=" + time
-				+ ", click=" + click + ", content=" + content + ", contentText=" + contentText + "]";
+				+ ", isannou=" + isannou + ", content=" + content + ", contentText=" + contentText + "]";
 	}
     
 }

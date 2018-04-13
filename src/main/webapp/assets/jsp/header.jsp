@@ -106,16 +106,14 @@ function checkLogout(){
 					<li  style="width:100px"></li>
 					<li ><a href="/stuman/">首页</a></li>
 					<li ><a href="/stuman/team">社团</a></li>
-					<li><a href="${ctx }/active">活动预告</a></li>
-			<!--	<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+					<li class="dropdown">
+						<a href="#"  class="dropdown-toggle" data-toggle="dropdown">活动预告<b class="caret"></a></b>
 						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.jsp">Left Sidebar</a></li>
-							<li><a href="sidebar-right.jsp">Right Sidebar</a></li>
+							<li><a href="${ctx }/active">社团新闻</a></li>
+							<li><a href="${ctx }/active/isannou">通知</a></li>
 							<li><a href="single.jsp">Blog Post</a></li>
 						</ul>
 					</li>
-			-->
 					<li><a href="${ctx }/about?id=1">关于我们</a></li>
 					<li ><a href="${ctx }/user/comment">留言板</a></li>
 				</ul>

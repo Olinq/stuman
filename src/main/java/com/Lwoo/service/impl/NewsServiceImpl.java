@@ -74,4 +74,16 @@ public class NewsServiceImpl implements NewsService {
 		return newsMapper.listNewer(limit,isannou);
 	}
 
+	@Override
+	public List<News> list(int isannou) {
+		// TODO Auto-generated method stub
+		return newsMapper.listType(isannou);
+	}
+
+	@Override
+	public List<News> searchType(String findData, int isannou) {
+		// TODO Auto-generated method stub
+		return newsMapper.searchType(findData, isannou);
+	}
+
 }

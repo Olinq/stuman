@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-
+<div style="clear:both"></div>
 <div id="templatemo_footer_wrapper">
     <div id="templatemo_footer" class="row">
 		    <div class="col-md-14" id="copyright">

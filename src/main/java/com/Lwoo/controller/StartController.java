@@ -104,14 +104,28 @@ public class StartController {
 		System.out.println("----active---");
 		ModelAndView mav=new ModelAndView("active");
 		PageHelper.startPage(1, total);//进入主页显示10条消息
-		List<News> news=newsService.list();
+		List<News> news=newsService.list(0);
 		PageInfo<News> pageInfo=new PageInfo<News>(news);
 		mav.addObject("pageInfo",pageInfo);
 		mav.addObject("news", news);
+		mav.addObject("isannou", 0);
 		System.out.println(news);
 		return mav;
 	}
-	
+	//公告
+	@RequestMapping("active/isannou")
+	public ModelAndView activeisannou(@RequestParam(required=true,defaultValue="10") Integer total){
+		System.out.println("----active---");
+		ModelAndView mav=new ModelAndView("active");
+		PageHelper.startPage(1, total);//进入主页显示10条消息
+		List<News> news=newsService.list(1);
+		PageInfo<News> pageInfo=new PageInfo<News>(news);
+		mav.addObject("pageInfo",pageInfo);
+		mav.addObject("news", news);
+		mav.addObject("isannou", 1);
+		System.out.println(news);
+		return mav;
+	}
 	@RequestMapping("/active/content")
 	public ModelAndView content(int id){
 		System.out.println("----/active/content---");
@@ -133,10 +147,10 @@ public class StartController {
 		return mav;
 	}
 	@RequestMapping("/active/findData")
-	public ModelAndView activefindData(String findData){
-		System.out.println("----/active/findData---");
+	public ModelAndView activefindData(String findData,int isannou){
+		System.out.println("----/active/findData---"+isannou);
 		ModelAndView mav=new ModelAndView("active");
-		List<News> news=newsService.search(findData);
+		List<News> news=newsService.searchType(findData,isannou);
 		mav.addObject("news", news);
 		System.out.println(news);
 		return mav;

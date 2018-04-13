@@ -37,8 +37,6 @@
 	    			//  console.log(id);
 	    				$("#aid").append('<option value="'+id+'">'+username+'</option>');
 	    		  });
-	    		  $('#aid').selectpicker('refresh');  
-	    	      $('#aid').selectpicker('render');//强制使用该render方法重新渲染bootstrap-select ui 
 	    	  },
 	    	  error:function(XMLHttpRequest,textStatus, errorThrown) { 
 	               alert("加载社团信息失败");
@@ -52,6 +50,14 @@
 	  <div class="panel-body">
 	    	<form method="post" id="addNewsForm" action="addNews" onsubmit="return uptext()">
 	    		<table class="addTable">
+	    			<tr>
+	    				<td>
+	    				<select name="isannou" id="isannou" class="selectpicker">
+							<option value="0" selected>活动新闻</option>
+							<option value="1">通知</option>
+						</select>
+							</td>
+	    			</tr>
 	    			<tr>
 	    				<td>标题<input  id="title" name="title"  type="text" class="form-control">
 	    				</td>
@@ -89,7 +95,7 @@
 					    <c:when test="${1==admin.lock}">    <!--如果 --> 
 							<tr>
 			    				<td>发布管理员&nbsp;&nbsp;&nbsp;
-									<select name="aid" id="aid" class="selectpicker">
+									<select name="aid" id="aid">
 									</select>
 								</td>
 		    				</tr>
