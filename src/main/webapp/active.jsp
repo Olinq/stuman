@@ -51,15 +51,15 @@
            			<div style="text-align:right;margin:50px 50px">
 							<span aria-hidden="true">
 									<c:if test="${pageInfo.pageSize!=pageInfo.total}">
-									<c:choose> 
-									    <c:when test="${1==isannou}">    <!--如果 --> 
+									    <c:if test="${1==isannou}">    <!--如果 --> 
 											<h5><a href="${ctx }/active/isannou?total=${pageInfo.total}" style="color:blue">查看更多&raquo;&raquo;&raquo;&raquo;</a></h5>
-									 	</c:when>      
-									   	<c:otherwise>  <!--否则 -->    
+									 	</c:if>
+									 	<c:if test="${1==isannou}">     
 											<h5><a href="${ctx }/active?total=${pageInfo.total}" style="color:blue">查看更多&raquo;&raquo;&raquo;&raquo;</a></h5>
-									  	</c:otherwise> 
-									</c:choose>
-									
+										</c:if>
+										<c:if test="${2==isannou }">
+											<h5><a href="${ctx }/active/school?total=${pageInfo.total}" style="color:blue">查看更多&raquo;&raquo;&raquo;&raquo;</a></h5>
+										</c:if>
 									</c:if>
 							</span>
 					</div>

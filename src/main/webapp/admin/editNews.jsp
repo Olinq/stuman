@@ -16,6 +16,14 @@
 	  <div class="panel-body">
 	    	<form method="post" id="addNewsForm" action="updateNews" onsubmit="return uptext()">
 	    		<table class="editTable">
+	    			<tr><td>
+	    				<select name="isannou" id="isannou" class="selectpicker">
+							<option value="0" <c:if test="${news.isannou==0}">selected</c:if>>社团新闻</option>
+							<option value="2" <c:if test="${news.isannou==2}">selected</c:if>>学校新闻</option>
+							<option value="1" <c:if test="${news.isannou==1}">selected</c:if>>通知</option>
+						</select>
+						</td>
+					</tr>
 	    			<tr>
 	    				<td>标题:<input  id="title" name="title" value="${news.title}" type="text" class="form-control" placeholder="密码长度不小于6"></td>
 	    			</tr>	

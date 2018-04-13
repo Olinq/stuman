@@ -102,7 +102,7 @@ function checkLogout(){
 		<div class="container-fluid">
 			<div class="navbar-collapse collapse">
 				
-				<ul class="nav navbar-nav" style="width:900px">
+				<ul class="nav navbar-nav navbar-center" style="width:1000px">
 					<li  style="width:100px"></li>
 					<li ><a href="/stuman/">首页</a></li>
 					<li ><a href="/stuman/team">社团</a></li>
@@ -110,8 +110,8 @@ function checkLogout(){
 						<a href="#"  class="dropdown-toggle" data-toggle="dropdown">活动预告<b class="caret"></a></b>
 						<ul class="dropdown-menu">
 							<li><a href="${ctx }/active">社团新闻</a></li>
+							<li><a href="${ ctx}/active/school">学校新闻</a></li>
 							<li><a href="${ctx }/active/isannou">通知</a></li>
-							<li><a href="single.jsp">Blog Post</a></li>
 						</ul>
 					</li>
 					<li><a href="${ctx }/about?id=1">关于我们</a></li>

@@ -53,11 +53,13 @@ public class StartController {
 		List<Asso> assos=assoService.list();
 		List<News> newss=newsService.listNewer(8,0);
 		List<News> annous=newsService.listNewer(8,1);
+		List<News> school=newsService.listNewer(5, 0);
 		System.out.println(annous);
 		mav.addObject("categorys", categorys);
 		mav.addObject("assos", assos);
 		mav.addObject("newss", newss);
 		mav.addObject("annous", annous);
+		mav.addObject("schools", school);
 		System.out.println(categorys);
 		return mav;
 	}
@@ -109,6 +111,20 @@ public class StartController {
 		mav.addObject("pageInfo",pageInfo);
 		mav.addObject("news", news);
 		mav.addObject("isannou", 0);
+		System.out.println(news);
+		return mav;
+	}
+	
+	@RequestMapping("active/school")
+	public ModelAndView activeschool(@RequestParam(required=true,defaultValue="10") Integer total){
+		System.out.println("----active---");
+		ModelAndView mav=new ModelAndView("active");
+		PageHelper.startPage(1, total);//进入主页显示10条消息
+		List<News> news=newsService.list(2);
+		PageInfo<News> pageInfo=new PageInfo<News>(news);
+		mav.addObject("pageInfo",pageInfo);
+		mav.addObject("news", news);
+		mav.addObject("isannou", 2);
 		System.out.println(news);
 		return mav;
 	}
@@ -172,8 +188,13 @@ public class StartController {
 		System.out.println("----comment---");
 		List<Comment> comments=commentService.list();
 		ModelAndView mav=new ModelAndView("comments");
+		List<Comment> lists=null;
+		if(comments.size()>=8){
 		//显示前面八条数据
-		List<Comment> lists=comments.subList(0, 8);
+			lists=comments.subList(0, 8);
+		}else{
+			lists=comments;
+		}
 		mav.addObject("lists", lists);
 		return mav;
 	}

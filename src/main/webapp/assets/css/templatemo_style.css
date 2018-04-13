@@ -120,8 +120,8 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	float: right;
 }
 
-.p_box { padding: 30px; border-bottom: 1px dotted #ccc }
-.p_box h2 { font-size: 18px; margin-bottom: 15px }
+.p_box { padding: 30px; border-bottom: 1px dotted #ccc;padding-top: 1px; }
+.p_box h2 { font-size: 18px; margin-bottom: 15px; }
 .image_frame { display: inline-block; float: right; margin-right: 20px; width: 124px; height: 127px; background: url(../images/templatemo_image_frame.png) no-repeat }
 .image_frame img { padding: 18px 0 0 19px; }
 a.read_more { display: block; margin-top: 40px; float: right; width: 118px; height: 40px; background: url(../images/templatemo_read_more.png) no-repeat }

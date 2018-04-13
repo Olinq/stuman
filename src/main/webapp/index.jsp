@@ -28,16 +28,19 @@
     <div id="templatemo_content">
     	<div class="content_title"><span></span>欢迎来到学生社团联合会</div>
         <div class="p_box">
-        	<h2>Donec consequat scelerisque nunc</h2>
+        	<h2 style="background-color: #e2cece;">学校新闻</h2>
           <div class="image_frame"><a href="#"><img src="./assets/images/templatemo_image_01.jpg" alt="image 3" /></a></div>
-            Gift Red is free website template by templatemo.com for everyone. Feel free to edit and use this template for any purpose. Lorem ipsum dolor sit amet, consect esttur sadipiscing elitnec.<a href="#" class="read_more"></a>
+           <c:forEach items="${ schools}" var="school">
+         	<p><a href="${ctx }/active/content?id=${school.id}" class="">${school.time}-${school.title}</a></p>
+          </c:forEach>
+           <a href="#" class="read_more"></a>
           <div class="cleaner"></div>
 		</div>
         <div class="p_box ">
         	<h2 style="background-color: #e2cece;">通知</h2>
           <div class="image_frame"><a href="#"><img src="./assets/images/timg.gif" alt="image 4" /></a></div>
           <c:forEach items="${ annous}" var="annou">
-         	<p><a href="${ctx }/active/content?id=${annou.id}" class="">${annou.title}</a></p>
+         	<p><a href="${ctx }/active/content?id=${annou.id}" class="">${annou.time}-${annou.title}</a></p>
           </c:forEach>
           <a href="${ctx }/active/isannou" class="read_more"></a>
           <div class="cleaner"></div>
@@ -48,7 +51,7 @@
     	<div class="content_title"><span></span>社团新闻</div>
         <div class="news_box">
         	<c:forEach items="${newss}" var="news">
-        	<p><a href="${ctx }/active/content?id=${news.id}" style="color:#033772">${news.title}</a></p>
+        	<p><a href="${ctx }/active/content?id=${news.id}" style="color:#033772">${news.time }-${news.title}</a></p>
             </c:forEach>
 			<a href="${ctx }/active" class="more">more</a>
             <div class="cleaner"></div>

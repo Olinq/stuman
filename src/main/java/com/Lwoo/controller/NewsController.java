@@ -28,7 +28,7 @@ public class NewsController {
 	  public String newsList(@RequestParam(required=true,defaultValue="1") Integer page,HttpSession httpSession,Model model){
 	      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
 		Admin admin=(Admin)httpSession.getAttribute("admin");
-	      PageHelper.startPage(page, 8);
+	      PageHelper.startPage(page, 15);
 	      List<News> newss =null;
 	      
 	      if(1!=admin.getLock()){//普通管理员

@@ -53,7 +53,8 @@
 	    			<tr>
 	    				<td>
 	    				<select name="isannou" id="isannou" class="selectpicker">
-							<option value="0" selected>活动新闻</option>
+							<option value="0" selected>社团新闻</option>
+							<option value="2">学校新闻</option>
 							<option value="1">通知</option>
 						</select>
 							</td>
