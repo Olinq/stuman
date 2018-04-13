@@ -19,6 +19,7 @@ public class ForgetPassword {
 		ModelAndView mav=new ModelAndView("forgetPassword");
 		Admin admin=adminService.getLock(1);
 		mav.addObject("admin",admin);
+//		mav.addObject(attributeValue);
 		return mav;
 		
 	}
