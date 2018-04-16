@@ -133,7 +133,7 @@ function checkLogout(){
 										<div class="form-group">
 											<label>密码</label>
 											<input class="form-control" name="password" id="password" type="password"><br>
-											<a href="#" style="margin-left:200px">忘记密码</a>
+											<a href="${ctx }/forgetPassword.jsp" style="margin-left:200px">忘记密码</a>
 										</div>
 										<button type="button" id="btnLogin" onclick="checkUser()" class="btn btn-primary btn-lg btn-block">登录</button>
 									</form>
