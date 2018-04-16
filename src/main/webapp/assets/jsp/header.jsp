@@ -148,9 +148,9 @@ function checkLogout(){
 							${user.username }<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" style="text-align:center">
-		                    <li><a href="personMsg.jsp">修改信息</a></li>
+		                    <li><a href="${ctx }/personMsg.jsp">修改信息</a></li>
 		                    <li><hr/></li>
-		                    <li><a href="#">个人信息</a></li>
+		                    <li><a href="${ctx }/personMsg.jsp">个人信息</a></li>
                 		</ul>
 					</li>
 					<li><a href="#" onclick="checkLogout()" data-toggle="modal" data-target='#modalRegister'>注销</a></li>

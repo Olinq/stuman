@@ -29,8 +29,6 @@ function setAssoSelect(){
     			//  console.log(id);
     				$("#selectAsso").append('<option value="'+id+'">'+tname+'</option>');
     		  });
-    		  $('#selectAsso').selectpicker('refresh');  
-    	      $('#selectAsso').selectpicker('render');//强制使用该render方法重新渲染bootstrap-select ui 
     	  },
     	  error:function(XMLHttpRequest,textStatus, errorThrown) { 
                alert("加载社团信息失败");
@@ -74,7 +72,7 @@ function setAssoSelect(){
 	    			<tr>
 	    				<td>会员状态</td>
 	    				<td>
-	    				<select name="statu" id="statu" class="selectpicker">
+	    				<select name="statu" id="statu" >
 							<option value="0" selected>未验证</option>
 							<option value="1">已验证</option>
 						</select>

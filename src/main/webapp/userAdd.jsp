@@ -31,7 +31,7 @@
 							</div>
 							<div class="form-group">
 								<label for="inputWeb">性别</label><br>
-								<select name="sex" id="sex" class="selectpicker" style="color:black">
+								<select name="sex" id="sex" style="color:black">
 									<option value="男" selected>男</option>
 									<option value="女">女</option>
 								</select>
@@ -63,7 +63,6 @@ function setAssoSelect(){
 	 var d = {"str":"setAssoSelect"};
 	  var str= JSON.stringify(d);
 	  $("#selectAsso").empty();  //清空原有select内的数据
-	  $("#selectAsso").css("height","100px");//清空原有select内的数据
 	  $("#selectAsso").append("<option value='0'>--请选择--</option>");
       $.ajax({
     	  url:"${ctx}/getAssoList",
@@ -81,8 +80,6 @@ function setAssoSelect(){
     			//  console.log(id);
     				$("#selectAsso").append('<option value="'+id+'">'+tname+'</option>');
     		  });
-    		  $('#selectAsso').selectpicker('refresh');  
-    	      $('#selectAsso').selectpicker('render');//强制使用该render方法重新渲染bootstrap-select ui 
     	  },
     	  error:function(XMLHttpRequest,textStatus, errorThrown) { 
                alert("加载社团信息失败");

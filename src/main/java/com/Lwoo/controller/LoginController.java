@@ -83,7 +83,7 @@ public class LoginController {
 		System.out.println("------------------------------"+user);
 		String result="false";
 		String statu="0";
-		if(user!=null){
+		if(user!=null&&1==user.getStatu()){
 			result="true";
 			statu=user.getStatu().toString();
 			httpSession.setAttribute("user", user);//重定向传值

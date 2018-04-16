@@ -45,10 +45,5 @@
 			</tbody>
 		</table>
 	</div>
-	
-	<div>
-	<jsp:include page="../jsp/Page.jsp"/>
-	</div>
-	
 </div>
 <jsp:include page="../jsp/FooterJsp.jsp" />

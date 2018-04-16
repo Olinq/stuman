@@ -53,7 +53,7 @@ public class StartController {
 		List<Asso> assos=assoService.list();
 		List<News> newss=newsService.listNewer(8,0);
 		List<News> annous=newsService.listNewer(8,1);
-		List<News> school=newsService.listNewer(5, 0);
+		List<News> school=newsService.listNewer(5, 2);
 		System.out.println(annous);
 		mav.addObject("categorys", categorys);
 		mav.addObject("assos", assos);
