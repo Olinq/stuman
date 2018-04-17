@@ -14,6 +14,10 @@
 	    				<td><input  id="username" name="username" value="${user.username}" type="text" class="form-control"></td>
 	    			</tr>
 	    			<tr>
+	    				<td>用户名</td>
+	    				<td><input  id="realname" name="realname" value="${user.realname}" type="text" class="form-control"></td>
+	    			</tr>
+	    			<tr>
 	    				<td>密&nbsp;码</td>
 	    					<td><input  id="password" name="password" value="${user.password}" type="text" class="form-control"></td>
 	    			</tr>
@@ -39,7 +43,7 @@
 						</td>
 	    			</tr>
 	    			<tr>
-	    				<td>所属社团</td>
+	    				<td>所属社团：${user.asso.tname}</td>
 	    					<td>
 								<select name="assoId" id="selectAsso" >
 									<option value="${user.assoId }" selected></option>
@@ -93,3 +97,5 @@ function setAssoSelect(){
 	
 }
 </script>
+</body>
+</html>

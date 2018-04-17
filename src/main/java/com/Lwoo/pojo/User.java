@@ -12,9 +12,9 @@ public class User {
     private String email;
 
     private Integer statu;
-
+    private String realname;
     private Integer assoId;
-
+    private Asso asso;
     public Integer getId() {
         return id;
     }
@@ -75,7 +75,23 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", sex=" + sex + ", email="
-				+ email + ", statu=" + statu + ", assoId=" + assoId + "]";
+				+ email + ", statu=" + statu + ", realname=" + realname + ", assoId=" + assoId + ", asso=" + asso + "]";
+	}
+
+	public Asso getAsso() {
+		return asso;
+	}
+
+	public void setAsso(Asso asso) {
+		this.asso = asso;
+	}
+
+	public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname;
 	}
 	
 }

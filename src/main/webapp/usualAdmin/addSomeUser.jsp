@@ -14,6 +14,11 @@
 	    				<span id="tishi"></span></td>
 	    			</tr>
 	    			<tr>
+	    				<td>真实姓名</td>
+	    				<td><input  id="realname" name="realname"  type="text" class="form-control" placeholder="用户名长度不小于3">
+	    				</td>
+	    			</tr>
+	    			<tr>
 	    				<td>密&nbsp;码</td>
 	    				<td><input  id="password" name="password" type="password" class="form-control" placeholder="密码长度不小于6"></td>
 	    			</tr>

@@ -108,6 +108,9 @@ function rulesValid(){
 	 rules: {//规则
 	 username: {//要对应相对应的input中的name属性
 		 required: true
+	 }, 
+	 realname:{
+		 required:true
 	 },
 	 password: {//要对应相对应的input中的name属性
 		 required: true,
@@ -123,11 +126,16 @@ function rulesValid(){
 	 },
 	 assoId:{
 		 min:1
-	 }
+	 },
+	
  },
  messages:{//验证错误信息
 	 username: {
 		 required: "请输入用户名",
+	 },
+	
+	 realname:{
+		 required:"请输入真实姓名"
 	 },
 	 password: {
 		 required: "请输入密码",

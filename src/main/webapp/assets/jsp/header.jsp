@@ -150,13 +150,32 @@ function checkLogout(){
 						<ul class="dropdown-menu" style="text-align:center">
 		                    <li><a href="${ctx }/personMsg.jsp">修改信息</a></li>
 		                    <li><hr/></li>
-		                    <li><a href="${ctx }/personMsg.jsp">个人信息</a></li>
+		                    <li><a href="#"  data-toggle="modal" data-target="#myModal">我的社团</a>
+								
+		                    </li>
                 		</ul>
 					</li>
 					<li><a href="#" onclick="checkLogout()" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->			
 		</div>	
+		<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title" id="myModalLabel">所属社团信息:${user.asso.tname }</h4>
+           </div>
+           <div class="modal-body">
+           	 <img src="${ctx }/img/logo/${user.asso.logo}" alt="" style="width:100%;">  
+           ${user.asso.description }</div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+           </div>
+       </div><!-- /.modal-content -->
+   </div><!-- /.modal -->
+</div>
 	</nav>
 </header>
 <article class="post">

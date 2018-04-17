@@ -28,6 +28,10 @@
 										class="reply"><a href="#" style="color: blue"
 										data-toggle="modal" data-target="#myModal"
 										onclick="reply(${list.id})">回复</a></span>
+										<c:if test="${list.uid==user.id }">
+											<span
+											class="reply"><a href="${ctx }/usercommentDel?id=${list.id}" style="color: blue">删除</a></span>
+										</c:if>
 								</div>
 
 								<div class="comment-body">${list.comment}</div>

@@ -65,6 +65,9 @@ function valid(){
 			 required: true,
 			 number:true,
 			 digits:true
+		 }, 
+		 realname:{
+			 required:true
 		 },
 		 password: {//要对应相对应的input中的name属性
 			 required: true,
@@ -80,12 +83,16 @@ function valid(){
 		 },
 		 assoId:{
 			 min:1
-		 }
+		 },
+		
 	 },
 	 messages:{//验证错误信息
 		 username: {
 			 required: "请输入类型名",
 			 number:"请用学号注册，审核通过学号验证"
+		 }, 
+		 realname:{
+			 required:"请输入真实姓名"
 		 },
 		 password: {
 			 required: "请输入密码",
@@ -100,7 +107,8 @@ function valid(){
 		 },
 		 assoId:{
 			 min:"请选社团"
-		 }
+		 },
+		
 	 },
 	});
 }

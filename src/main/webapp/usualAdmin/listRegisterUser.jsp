@@ -24,6 +24,7 @@
 				<tr class="success">
 					<th>ID</th>
 					<th>用户名</th>
+					<th>真实姓名</th>
 					<th>密码</th>
 					<th>性别</th>
 					<th>Email</th>
@@ -39,6 +40,7 @@
 				<tr>
 					<td>${c.id}</td>
 					<td>${c.username }</td>
+					<td>${c.realname }</td>
 					<td>${c.password }</td>
 					<td>${c.sex }</td>
 					<td>${c.email }</td>

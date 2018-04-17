@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -208,14 +209,13 @@ public class StartController {
 		return mav;
 	}
 	@RequestMapping("user/comment/add")
-	public ModelAndView commentAdd(Comment comment){
+	public String commentAdd(Comment comment,Model model){
 		System.out.println("----comment---");
 		commentService.add(comment);
-		ModelAndView mav=new ModelAndView("comments");
 		List<Comment> lists=commentService.list();
 		System.out.println(lists);
-		mav.addObject("lists", lists);
-		return mav;
+		model.addAttribute("lists", lists);
+		return "comments";
 	}
 	//用户回复
 	@ResponseBody
@@ -237,5 +237,40 @@ public class StartController {
 		rel.put("result", result);
 		return rel;
     }
+	@RequestMapping("changeMsg")
+	public ModelAndView changeMsg(User user){
+		System.out.println("----startUp-user--"+user);
+		ModelAndView mav=new ModelAndView("index");
+		userService.update(user);
+		List<Category> categorys=categoryService.list();
+		List<Asso> assos=assoService.list();
+		List<News> newss=newsService.listNewer(8,0);
+		List<News> annous=newsService.listNewer(8,1);
+		List<News> school=newsService.listNewer(5, 2);
+		System.out.println(annous);
+		mav.addObject("categorys", categorys);
+		mav.addObject("assos", assos);
+		mav.addObject("newss", newss);
+		mav.addObject("annous", annous);
+		mav.addObject("schools", school);
+		System.out.println(categorys);
+		return mav;
+	}
+	@RequestMapping("usercommentDel")
+	public ModelAndView usercommentDel(Comment comment){
+		System.out.println("----comment---");
+		commentService.delete(comment);
+		List<Comment> comments=commentService.list();
+		ModelAndView mav=new ModelAndView("comments");
+		List<Comment> lists=null;
+		if(comments.size()>=8){
+		//显示前面八条数据
+			lists=comments.subList(0, 8);
+		}else{
+			lists=comments;
+		}
+		mav.addObject("lists", lists);
+		return mav;
+	}
 	
 }
