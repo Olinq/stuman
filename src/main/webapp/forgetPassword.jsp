@@ -19,18 +19,14 @@
 .right {
 	text-align: right;
 }
-
-.disabled {
-	disabled: true;
-}
 </style>
 </head>
-<body>
-	<div>
-		<a href="${ctx }/login.jsp">返回登录页面</a>
+<body style="background-color:#badcf5;">
+	<div style="margin:20px auto auto 30px ">
+		<a href="${ctx }/login.jsp" >返回登录页面</a>
 	</div>
-	<div
-		style="width: 600px; height: 600px; margin: 60px auto auto auto; color: blue; text-align: center">
+	<div id="display"
+		style="width: 600px; height: 200px; margin: 60px auto 0px auto; color: blue; text-align: center">
 		<table class="table">
 			<tr>
 				<td class="right">用户名：<input type="text" id="forgetUsername"
@@ -41,20 +37,52 @@
 				<td class="right">邮&nbsp;&nbsp;&nbsp;箱：<input  type="text"
 					id="email" name="email" /></td>
 				<td class="left"><input type="button" id="sendValid"
-					value="发送验证码" />&nbsp;&nbsp;&nbsp;<span id="emailLog" style="color: red"></span></td>
+					value="获取验证码"/>&nbsp;&nbsp;&nbsp;<span id="emailLog" style="color: red"></span></td>
 			</tr>
 			<tr>
 				<td class="right">验证码：<input type="text"
-					id="valid" name="valid" /></td>
-				<td class="left"><input type="button" id="validNum" value="确定" /></td>
+					id="valid" name="valid"/></td>
+				<td class="left"><input type="button" id="validNum" value="确定" />&nbsp;&nbsp;&nbsp;<span id="val" style="color: red"></span></td>
+			</tr>
+		</table>
+		<span id="result" style="color: red"></span>
+	</div>
+	
+	<div id="change" style="display:none;width:350px; height: 600px; margin: 0px auto auto auto; color: blue; text-align: center">
+			<table class="table">
+			<tr>
+				<td class="right">密&nbsp;&nbsp;&nbsp;码：<input  type="text"
+					id="password" name="password" /></td>
+				<td class="left"></td>
+			</tr>
+			<tr>
+				<td class="right">再次输入密码：<input type="text"
+					id="TwoPassword" name="TwoPassword"/></td>
+				<td class="left"><input type="button" id="submit" value="修改" /></td>
 			</tr>
 		</table>
 	</div>
-
 	<script>
+	//倒计时60秒
+	var countdown=60; 
+	function settime(val) { 
+		if (countdown == 0) { 
+			val.attr("disabled", false);    
+			val.html("获取验证码"); 
+			countdown = 60; 
+			return;
+		} else { 
+			val.attr("disabled", true); 
+			val.html("重新发送(" + countdown + ")"); 
+			countdown--; 
+		} 
+		setTimeout(function() { 
+			settime(val) 
+			},1000); 
+	}
 	$().ready(function() {
-		$("#sendValid").attr('disabled',false);
-		$("#validNum").attr('disabled',false);
+		$("#sendValid").attr('disabled',true);
+		$("#validNum").attr('disabled',true);
 			$('#forgetUsername').keyup(function() {
 				$.ajax({
 					url : "${ctx}/checkUserUsername",
@@ -84,6 +112,7 @@
 			
 			$("#sendValid").click(function(){
 				$("#emailLog").html("");
+				
 				if(""==$("#email").val()){
 					alert("请输入邮箱");
 					return;
@@ -96,46 +125,113 @@
 				   return;
 				  }
 				$.ajax({
-					url : "${ctx}/senderEmail",
-					type : "post",
-					contentType : 'application/json;charset=UTF-8',
-					dataType : "json",
-					data : JSON.stringify({
-						email : $("#email").val()
-					}),
-					success : function(msg) {
-						var jsonArry = eval(msg); //将json类型字符串转换为json对象
-						console.log(jsonArry);
-						//要执行的代码
-						if ("true" == jsonArry.result + "") {
-							$("#emailLog").html("发送成功");
-						}else{
-							$("#emailLog").html("发送失败，请重试");
+						url : "${ctx}/checkUserEmail",
+						type : "post",
+						contentType : 'application/json;charset=UTF-8',
+						dataType : "json",
+						data : JSON.stringify({
+							username : $("#forgetUsername").val(),
+							email:$("#email").val()
+						}),
+						success : function(msg) {
+							var jsonArry = eval(msg); //将json类型字符串转换为json对象
+							console.log(jsonArry);
+							//要执行的代码
+							if ("true" != jsonArry.result + "") {
+								$("#emailLog").html("邮箱与用户名不匹配");
+							}else{
+								$("#log").html("");
+								$.ajax({								//邮箱与用户名匹配则请求发送验证码
+									url : "${ctx}/senderEmail",
+									type : "post",
+									contentType : 'application/json;charset=UTF-8',
+									dataType : "json",
+									data : JSON.stringify({
+										email : $("#email").val()
+									}),
+									success : function(msg) {
+										var jsonArry = eval(msg); //将json类型字符串转换为json对象
+										console.log(jsonArry);
+										//要执行的代码
+										if ("true" == jsonArry.result + "") {
+											$("#emailLog").html("发送成功");
+										}else{
+											$("#emailLog").html("发送失败，请重试");
+										}
+									},
+									 error: function (XMLHttpRequest, textStatus, errorThrown) {
+						                    // 状态码
+						                    console.log(XMLHttpRequest.status);
+						                    // 状态
+						                    console.log(XMLHttpRequest.readyState);
+						                    // 错误信息   
+						                    console.log(textStatus);
+						                    $("#emailLog").html("发送失败，请重试");
+						                }
+								});
+							}
 						}
-					}
 				});
-				
 			});
 			$("#validNum").click(function(){
-				alert("1111");
+				if(""==$("#valid").val()){
+					alert("请输入验证码");
+					return;
+				}
+				 $.ajax({
+						url : "${ctx}/validData",
+						type : "post",
+						contentType : 'application/json;charset=UTF-8',
+						dataType : "json",
+						data : JSON.stringify({
+							valid : $("#valid").val()
+						}),
+						success : function(msg) {
+							var jsonArry = eval(msg); //将json类型字符串转换为json对象
+							console.log(jsonArry);
+							//要执行的代码
+							if ("true" != jsonArry.result + "") {
+								$("#val").html("验证失败，请重试");
+							}else{
+								$("#val").html("验证成功");
+								$("#change").show();
+							}
+						}
+					});
+			});
+			$("#submit").click(function(){
+				if(""==$("#password").val()){
+					alert("请输入密码");
+					return;
+				}
+				if($("#TwoPassword").val()!=$("#password").val()){
+					alert("两次密码输入不一致");
+					return;
+				}
+				 $.ajax({
+						url : "${ctx}/changeUserPassword",
+						type : "post",
+						contentType : 'application/json;charset=UTF-8',
+						dataType : "json",
+						data : JSON.stringify({
+							email : $("#email").val(),
+							username : $("#forgetUsername").val(),
+							password : $("#password").val()
+						}),
+						success : function(msg) {
+							var jsonArry = eval(msg); //将json类型字符串转换为json对象
+							console.log(jsonArry);
+							//要执行的代码
+							if ("true" != jsonArry.result + "") {
+								$("#result").html("修改失败，请重试");
+							}else{
+								$("#result").html("修改成功");
+								$("#change").hide();
+							}
+						}
+					});
 			});
 		});
-	//倒计时60秒
-		var countdown=60; 
-		function settime(val) { 
-		if (countdown == 0) { 
-		val.removeAttribute("disabled");    
-		val.value="免费获取验证码"; 
-		countdown = 60; 
-		} else { 
-		val.setAttribute("disabled", true); 
-		val.value="重新发送(" + countdown + ")"; 
-		countdown--; 
-		} 
-		setTimeout(function() { 
-		settime(val) 
-		},1000) 
-		} 
 	</script>
 </body>
 </html>
