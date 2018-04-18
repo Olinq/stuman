@@ -35,7 +35,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: .85;
+  opacity: 1;
   z-index:9999; 
 }
 .navbar-collapse {
@@ -51,7 +51,7 @@ body {
 }
 .navbar-collapse .navbar-nav {
   margin: 0 auto;
-  text-align: right;
+  text-align: center;
 }
 .navbar-collapse .navbar-nav > li {
   float: none;
@@ -681,11 +681,15 @@ footer.entry-meta .meta-in {
 #comments .children {
   margin: 0 0 0 	30px;
 }
+.comm{
+	 border-bottom: 1px dotted #ccc;
+}
 #comments .comment-meta {
   margin: 0 0 0 70px;
+ 
 }
 #comments .comment-meta-children {
-  margin: 0 0 0 80px;
+  margin: 0 0 0 60px;
 }
 #comments .comment-meta a {
   color: #333333;
@@ -708,7 +712,7 @@ footer.entry-meta .meta-in {
   margin-right:20px
 }
 #comments .comment-body-children {
-  margin: 0 0 35px 80px;
+  margin: 0 0 35px 60px;
   color:#327de2;
 }
 #comments .comment-body {
@@ -863,3 +867,7 @@ a.agrayright { cursor: default; background-position: -51px 50%; }
 .scrolllist .imglist_w li a { color: #3366cc; text-decoration: none; float: left; }
 .scrolllist .imglist_w li a:hover img { filter: alpha(opacity=86); -moz-opacity: 0.86; opacity: 0.86; }
 .scrolllist .imglist_w li p { height: 48px; line-height: 24px; overflow: hidden; float: left; }
+/****导航栏始終保持在最頂端******/
+  .nav_fix_pos {
+             position:fixed;top:0px;left:0px;width:100%;
+      }

@@ -17,8 +17,8 @@
 
 				<ol class="comments-list">
 					<c:forEach items="${lists}" var="list">
-						<li class="comment">
-							<div>
+						<li class="comment comm">
+							<div >
 								<div class="comment-meta">
 									<span class="author" id="comment${list.id}"><a href="#">#楼主#${list.user.username}</a></span>
 									<span class="date"><a href="#">${list.time }</a></span> <span

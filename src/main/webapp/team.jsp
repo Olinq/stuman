@@ -11,7 +11,9 @@
 		   <div id="respond">
 				<form action="${ctx }/team/findData">
 					<div class="row">
-					<div class="col-md-7"></div>
+					<div class="col-md-7 text-left">
+						<h5 style="color:blue">当前位置=》缤纷社团</h5>
+					</div>
 						<div class="col-md-3 text-right" style="line-height: 40px;">
 							<div class="form-group">
 								<input type="text" name="findData" class="form-control" style="margin-left: 25;height: 40px;" required="required" placeholder="社团名称">

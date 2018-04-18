@@ -23,7 +23,7 @@
 </head>
 <body style="background-color:#badcf5;">
 	<div style="margin:20px auto auto 30px ">
-		<a href="${ctx }/login.jsp" >返回登录页面</a>
+		<a href="${ctx }/" >返回首页</a>
 	</div>
 	<div id="display"
 		style="width: 600px; height: 200px; margin: 60px auto 0px auto; color: blue; text-align: center">

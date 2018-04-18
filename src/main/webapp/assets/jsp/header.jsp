@@ -10,10 +10,15 @@ $(function(){
      console.log("user:::" + user);
      if(user!='null'){
     	 $("#login").css("display","none");
-  		 $("#user").css("display","");
+    	 $("#reg").css("display","none");
+  		 $("#user1").css("display","");
+  		 $("#user2").css("display","");
+  		 
      }else{
-    	 $("#user").css("display","none");
+    	 $("#user1").css("display","none");
+    	 $("#user2").css("display","none");
   		 $("#login").css("display","");
+  		 $("#reg").css("display","");
      }
      $("#username").val("");
      $("#password").val("");
@@ -85,11 +90,25 @@ function checkLogout(){
     		var jsonArry=eval(msg); //将json类型字符串转换为json对象
   		 	console.log(jsonArry);
        		console.log("注销成功");
-       		$("#user").css("display","none");
+       		$("#user1").css("display","none");
+       		$("#user2").css("display","none");
        		 $("#login").css("display","");
+       		$("#reg").css("display","");
     }
     });
-}
+} $(document).ready(function(){
+            var nav=$(".nav_top"); //得到导航对象
+             var win=$(window); //得到窗口对象
+             var sc=$(document);//得到document文档对象。
+          	var navHeight = nav.offset().top; //这是导航相对于文档的高度            
+             win.scroll(function(){                            
+              if(sc.scrollTop() >= navHeight){      //   当滚动条据上边的高度高于这个导航相对于文档的高度。就要让他固定啦                              
+                    nav.addClass("nav_fix_pos");
+             }else{
+                   nav.removeClass("nav_fix_pos");                    
+             };
+             });
+        });
 </script>
 <header id="header">
 	<div id="head" class="parallax" parallax-speed="1">
@@ -98,14 +117,14 @@ function checkLogout(){
 		</h2>
 	</div>
 
-	<nav class="navbar navbar-default navbar-sticky">
+	<nav class="navbar navbar-default navbar-sticky nav_top">
 		<div class="container-fluid">
 			<div class="navbar-collapse collapse">
 				
-				<ul class="nav navbar-nav navbar-center" style="width:1000px">
+				<ul class="nav navbar-nav navbar-center" style="width:100%">
 					<li  style="width:100px"></li>
 					<li ><a href="/stuman/">首页</a></li>
-					<li ><a href="/stuman/team">社团</a></li>
+					<li ><a href="/stuman/team">缤纷社团</a></li>
 					<li class="dropdown">
 						<a href="#"  class="dropdown-toggle" data-toggle="dropdown">活动预告<b class="caret"></a></b>
 						<ul class="dropdown-menu">
@@ -116,13 +135,12 @@ function checkLogout(){
 					</li>
 					<li><a href="${ctx }/about?id=1">关于我们</a></li>
 					<li ><a href="${ctx }/user/comment">留言板</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right"  id="login">
-					<li class="dropdown" id="login">
+					<li style="float:right" id="reg"><a href="${ctx }/userAdd.jsp"  data-target='#modalRegister'>注册</a></li>
+					<li class="dropdown" style="float:right" id="login">
 				   	   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							登录<span class="caret"></span>
 						</a>
-						<div class="dropdown-menu" style="width:300px" id="formLogin">
+						<div class="dropdown-menu"  style="width:300px;margin-left: -200px;" id="formLogin">
 							
 								<div class="container-fluid">
 									<form action="${ctx }/user/userLoginIn">
@@ -140,27 +158,24 @@ function checkLogout(){
 								</div>
 							</div>
 					</li>
-					<li><a href="${ctx }/userAdd.jsp"  data-target='#modalRegister'>注册</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right" style="display:none;" id="user">
-				<li class="dropdown">
+					<li class="dropdown"  style="float:right;display:none" id="user1">
 						<a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="color:#a42500">
 							${user.username }<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" style="text-align:center">
 		                    <li><a href="${ctx }/personMsg.jsp">修改信息</a></li>
 		                    <li><hr/></li>
-		                    <li><a href="#"  data-toggle="modal" data-target="#myModal">我的社团</a>
+		                    <li><a href="#"  data-toggle="modal" data-target="#myModalt">我的社团</a>
 								
 		                    </li>
                 		</ul>
 					</li>
-					<li><a href="#" onclick="checkLogout()" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
+					<li  style="float:right;display:none" id="user2"><a href="#" onclick="checkLogout()" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->			
 		</div>	
 		<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModalt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog">
        <div class="modal-content">
            <div class="modal-header">

@@ -7,17 +7,21 @@
 <main id="main">
 
 	<div class="container" >
-					
 		<div class="row topspace">
 			<div class="col-sm-9 col-sm-offset-2">
 															
  				<article class="post">
+ 					
 					<header class="entry-header">
- 						<div class="entry-meta"> 
+ 						<div class="entry-meta">
  							<div id="respond">
 						<form action="${ctx }/active/findData">
 							<div class="row">
-							<div class="col-md-6"></div>
+							<div class="col-md-6 text-left" style="clear:both">
+								<c:if test="${1==isannou}"><h4 style="color:blue">当前位置=》通知</h4></c:if>
+								<c:if test="${2==isannou}"><h4 style="color:blue">当前位置=》学校新闻</h4></c:if>
+								<c:if test="${0==isannou}"><h4 style="color:blue">当前位置=》社团新闻</h4></c:if>
+							</div>
 								<div class="col-md-4 text-right" style="line-height: 40px;">
 									<div class="form-group">
 										<input type="text" name="findData" class="form-control" style="margin-left: 25;height: 40px;" required="required" placeholder="根据标题查找">
@@ -30,9 +34,10 @@
 							</div>
 						</form>
 					</div> <!-- /respond -->
- 						</div> 
-					</header> 
-					<div class="entry-content"> 
+ 						</div>
+ 						 
+					</header>
+					<div class="entry-content">
 					<c:forEach items="${news }" var="n">
 						 <div class="post_section">
             
