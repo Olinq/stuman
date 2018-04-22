@@ -46,7 +46,9 @@ public class LoginController {
 		}
 		if(1!=admin.getLock()){
 			System.out.println("++in checkAdminLogin");
-			ModelAndView mav = new ModelAndView("redirect:/listSomeAsso"); 
+			ModelAndView mav = new ModelAndView("redirect:/listSomeAsso");
+			int tag=userService.getListNostatu(admin.getAssoId(), 0).size();
+			httpSession.setAttribute("tag", tag);
 			httpSession.setAttribute("admin", admin);
 //			attr.addFlashAttribute("admin", admin);//重定向传值，页面一刷新就清空
 			return mav;
@@ -83,11 +85,12 @@ public class LoginController {
 		System.out.println("------------------------------"+user);
 		String result="false";
 		String statu="0";
-		if(user!=null&&1==user.getStatu()){
+		if(user!=null){
 			result="true";
 			statu=user.getStatu().toString();
-			httpSession.setAttribute("user", user);//重定向传值
-			
+			if(statu=="1"){
+				httpSession.setAttribute("user", user);//重定向传值
+			}
 		}
 		Map<String,String> rel=new HashMap<String,String>();
 		rel.put("result", result);

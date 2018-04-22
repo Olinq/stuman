@@ -168,6 +168,7 @@ public class UserController {
 			  user.setStatu(1);
 			  System.out.println("RegUpdate=-=-=-=-=-"+admin+"\n"+user);
 			  userService.update(user);
+			  httpSession.setAttribute("tag", (int)httpSession.getAttribute("tag")-1);
 			  ModelAndView mav = new ModelAndView("redirect:/userRegister");
 			  return mav;
 		}

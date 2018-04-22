@@ -14,7 +14,7 @@
             </li>
             <li><a href="listSomeUser">用户管理</a></li>
              <li><a href="listNews">活动信息管理</a></li>
-             <li><a href="userRegister">用户申请</a></li>
+             <li><a href="userRegister">用户申请<span class="badge">${sessionScope.tag }</span></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right" style="margin-right:30px">
             <li class="dropdown">

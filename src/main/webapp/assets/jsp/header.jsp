@@ -57,24 +57,17 @@ function checkUser(){
         	success : function(msg) {
         		var jsonArry=eval(msg); //将json类型字符串转换为json对象
       		 	console.log(jsonArry);
-        		if("true"!=jsonArry.result+""){
-        			mizhu.alert('提示信息', '未注册或者账户名密码错误');
-        		}else if("1"!=jsonArry.statu+""){
+      		 	if("true"==jsonArry.result+""&&"1"!=jsonArry.statu+""){
         			mizhu.alert('提示信息', '尚未通过审核，请耐心等待');
+        		}else if("true"==jsonArry.result+""&&"1"==jsonArry.statu+""){
+	         		$("#login").css("display","none");
+	         		$("#user").css("display","");
+	         		console.log("登录成功");
+	         		 window.location.reload();//刷新当前页面.
+	         		$("#username").val("");
+	         		$("#password").val("");
         		}else{
-	         		//要执行的代码
-		         	if("true"==jsonArry.result+""){
-		         		$("#login").css("display","none");
-		         		$("#user").css("display","");
-		         		console.log("登录成功");
-		         		 window.location.reload();//刷新当前页面.
-		         		$("#username").val("");
-		         		$("#password").val("");
-		         	}else{
-		         		$("#username").val("");
-		         		$("#password").val("");
-		         		mizhu.alert('提示信息', '账户名或者密码错误');
-		         	}
+        			mizhu.alert('提示信息', '未注册或者账户名密码错误');
         		}
         }
         });
