@@ -10,8 +10,16 @@ public class User {
     private String sex;
 
     private String email;
+    private String uclass;
+    public String getUclass() {
+		return uclass;
+	}
 
-    private Integer statu;
+	public void setUclass(String uclass) {
+		this.uclass = uclass;
+	}
+
+	private Integer statu;
     private String realname;
     private Integer assoId;
     private Asso asso;
@@ -75,7 +83,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", sex=" + sex + ", email="
-				+ email + ", statu=" + statu + ", realname=" + realname + ", assoId=" + assoId + ", asso=" + asso + "]";
+				+ email + ", uclass=" + uclass + ", statu=" + statu + ", realname=" + realname + ", assoId=" + assoId
+				+ ", asso=" + asso + "]";
 	}
 
 	public Asso getAsso() {

@@ -6,7 +6,7 @@
 	<div class="panel panel-warning editDiv">
 	  <div class="panel-heading">编辑管理员</div>
 	  <div class="panel-body">
-	    	<form method="post" id="editForm" action="updateSomeUser">
+	    	<form method="post" id="addUserForm" action="updateSomeUser">
 	    		<table class="editTable">
 	    			<tr>
 	    				<td>用户名</td>
@@ -15,6 +15,10 @@
 	    			<tr>
 	    				<td>用户名</td>
 	    				<td><input  id="realname" name="realname" value="${user.realname}" type="text" class="form-control"></td>
+	    			</tr>
+	    			<tr>
+	    				<td>专业年级</td>
+	    				<td><input  id="uclass" name="uclass" value="${user.uclass}" type="text" class="form-control" placeholder="例如：2014级计算机科学与技术2班"></td>
 	    			</tr>
 	    			<tr>
 	    				<td>密&nbsp;码</td>

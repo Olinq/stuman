@@ -69,6 +69,9 @@ function valid(){
 		 realname:{
 			 required:true
 		 },
+		 uclass:{
+			 required:true
+		 },
 		 password: {//要对应相对应的input中的name属性
 			 required: true,
 			 minlength:3
@@ -93,6 +96,9 @@ function valid(){
 		 }, 
 		 realname:{
 			 required:"请输入真实姓名"
+		 },
+		 uclass:{
+			 required:"请输入专业年级"
 		 },
 		 password: {
 			 required: "请输入密码",

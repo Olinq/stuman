@@ -19,6 +19,10 @@
 	    				</td>
 	    			</tr>
 	    			<tr>
+	    				<td>专业年级</td>
+	    				<td><input  id="uclass" name="uclass"  type="text" class="form-control" placeholder="例如：2014级计算机科学与技术2班"></td>
+	    			</tr>
+	    			<tr>
 	    				<td>密&nbsp;码</td>
 	    				<td><input  id="password" name="password" type="password" class="form-control" placeholder="密码长度不小于6"></td>
 	    			</tr>

@@ -14,7 +14,7 @@
        		 select * from asso where id = #{id}  
     	</select> 
     	<insert id="add" parameterType="User">
-    		insert into user(username,password,sex,email,statu,assoId,realname) values(#{username},#{password},#{sex},#{email},#{statu},#{assoId},#{realname})
+    		insert into user(username,password,sex,email,statu,assoId,realname,uclass) values(#{username},#{password},#{sex},#{email},#{statu},#{assoId},#{realname},#{uclass})
     	</insert>
     	<delete id="delete" parameterType="User">
     		delete from user where id=#{id}
@@ -23,7 +23,7 @@
     		select * from user where id=#{id}
     	</select>
     	<update id="update" parameterType="User">
-    		update user set username=#{username},password=#{password},sex=#{sex},email=#{email},statu=#{statu},assoId=#{assoId} where id=#{id}
+    		update user set username=#{username},password=#{password},sex=#{sex},email=#{email},statu=#{statu},assoId=#{assoId},uclass=#{uclass} where id=#{id}
     	</update>
     	<select id="list" resultType="User" resultMap="userBean">
     	select * from user order by id desc

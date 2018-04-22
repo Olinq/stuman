@@ -10,7 +10,7 @@
 <div class="container" style="margin-bottom:200px">
 				<div id="respond">
 						<h3 id="reply-title">个人信息</h3><br/><br/>
-						<form action="${ctx }/changeMsg" method="post" id="commentform" class="">
+						<form action="${ctx }/changeMsg" method="post" id="AssertUserform" class="">
 							<div class="form-group">
 								<label for="inputName">用户名</label>
 								<input type="text" class="form-control" name="username" id="inputName" value="${user.username }">
@@ -18,6 +18,10 @@
 							<div class="form-group">
 								<label for="inputName">真实姓名</label>
 								<input type="text" class="form-control" name="realname" id="inputName" value="${user.realname }">
+							</div>
+							<div class="form-group">
+								<label for="inputName">专业年级</label>
+								<input type="text" class="form-control" name="uclass" id="inputName" value="${user.uclass }">
 							</div>
 							<div class="form-group">
 								<label for="inputEmail">密码<i class="text-danger">*</i></label>

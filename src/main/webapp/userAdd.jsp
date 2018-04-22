@@ -19,6 +19,10 @@
 								<input type="text" class="form-control" name="realname" >
 							</div>
 							<div class="form-group">
+								<label for="inputName">专业年级</label>
+								<input type="text" class="form-control" name="uclass" >
+							</div>
+							<div class="form-group">
 								<label for="inputEmail">密码</label>
 								<input type="password" class="form-control" id="USERpassword" name="password" >
 							</div>
