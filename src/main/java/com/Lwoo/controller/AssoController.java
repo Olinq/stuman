@@ -18,7 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Lwoo.pojo.Admin;
 import com.Lwoo.pojo.Asso;
+import com.Lwoo.pojo.Category;
 import com.Lwoo.service.AssoService;
+import com.Lwoo.service.CategoryService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -27,7 +29,8 @@ import com.github.pagehelper.PageInfo;
 public class AssoController {
 	@Autowired
 	AssoService assoService;
-	
+	@Autowired
+	CategoryService categoryService;
 	@RequestMapping("listAsso")
 	  public String assoList(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model){
 		System.out.println("Method---assoList");
@@ -38,6 +41,7 @@ public class AssoController {
 	      PageInfo<Asso> pageInfo=new PageInfo<Asso>(assos);
 	      model.addAttribute("pageInfo",pageInfo);
 	      model.addAttribute("assos",assos);
+	      model.addAttribute("category","全部类型社团");
 	      return "admin/listAsso";
 	  }
 	//跳转添加页面
@@ -145,12 +149,14 @@ public class AssoController {
 	  public String getListByCid(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model,int id){
 		System.out.println("Method---assoList");
 	      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
+			Category category=categoryService.get(id);
 	      PageHelper.startPage(page, 10);
 	      List<Asso> assos = assoService.getListByCid(id);
 	      System.out.println("----assosController\n"+assos);
 	      PageInfo<Asso> pageInfo=new PageInfo<Asso>(assos);
 	      model.addAttribute("pageInfo",pageInfo);
 	      model.addAttribute("assos",assos);
+	      model.addAttribute("category",category.getCategory());
 	      return "admin/listAsso";
 	  }
 }

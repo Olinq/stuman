@@ -37,12 +37,12 @@
 				<td class="right">邮&nbsp;&nbsp;&nbsp;箱：<input  type="text"
 					id="email" name="email" /></td>
 				<td class="left"><input type="button" id="sendValid"
-					value="获取验证码"/>&nbsp;&nbsp;&nbsp;<span id="emailLog" style="color: red"></span></td>
+					value="获取验证码"/></td><td><span id="emailLog" style="color: red"></span></td>
 			</tr>
 			<tr>
 				<td class="right">验证码：<input type="text"
 					id="valid" name="valid"/></td>
-				<td class="left"><input type="button" id="validNum" value="确定" />&nbsp;&nbsp;&nbsp;<span id="val" style="color: red"></span></td>
+				<td class="left"><input type="button" id="validNum" value="确定" /></td><td><span id="val" style="color: red"></span></td>
 			</tr>
 		</table>
 		<span id="result" style="color: red"></span>

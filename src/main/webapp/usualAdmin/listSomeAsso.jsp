@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="./listUsualAdminHead.jsp"/>
 <div  style="margin-bottom:20px;margin-left:40px ">
+<h3>
 <span class="label label-info">管理的社团</span>
+</h3>
 </div>
 <div class="listDataTableDiv">
 		<table style="table-layout:fixed" class="table table-striped table-bordered table-hover  table-condensed" >

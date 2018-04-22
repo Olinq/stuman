@@ -5,7 +5,8 @@
 <jsp:include page="../jsp/Navigator.jsp"/>
 <div class="workingArea">
 	<div style="margin-bottom:10px">
-		<span class="label label-info" >社团管理</span>
+	<h3>
+		社团管理>><span class="label label-info" >${category}</span>
 		<div style="float:right;margin-bottom:10px">
 		<form method="post" id="findDataForm" action="findAssoData">
 			<table title="根据ID或者用户字查找">
@@ -17,6 +18,7 @@
 			</table>
 		</form>
 		</div>
+	</h3>
 	</div>
 	<div class="listDataTableDiv">
 		<table style="table-layout:fixed" class="table table-striped table-bordered table-hover  table-condensed" >

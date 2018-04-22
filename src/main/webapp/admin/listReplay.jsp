@@ -5,7 +5,9 @@
 <jsp:include page="../jsp/Navigator.jsp"/>
 <div class="workingArea">
 	<div style="margin-bottom:10px">
+	<h3>
 		<span class="label label-info" >留言板（${comment.comment}）下的回复内容</span>		
+	</h3>
 	</div>
 
 	<div class="listDataTableDiv">

@@ -3,6 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.Lwoo.mapper.AssoMapper">
+    <resultMap type="Asso" id="assoBean">
+            <id column="id" property="id" />
+             <id column="cid" property="cid" />
+            <!-- 多对一的关系 -->
+            <association property="category" select="selectCategory" column="cid" javaType="Category">
+           	</association>
+        </resultMap>
+       	<select id="selectCategory" parameterType="_int" resultType="Category">  
+       		 select * from category_ where id = #{id}  
+    	</select> 
     	<insert id="add" parameterType="Asso">
     		insert into asso(tname,description,logo,cid) values(#{tname},#{description},#{logo},#{cid})
     	</insert>
@@ -15,7 +25,7 @@
     	<update id="update" parameterType="Asso">
     		update asso set tname=#{tname},description=#{description},logo=#{logo},cid=#{cid} where id=#{id}
     	</update>
-    	<select id="list" resultType="Asso">
+    	<select id="list" resultMap="assoBean">
     	select * from asso  order by id desc
     	</select>
     	<select id="getListByCid" parameterType="_int" resultType="Asso">

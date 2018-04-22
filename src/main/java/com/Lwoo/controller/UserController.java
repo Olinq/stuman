@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Lwoo.pojo.Admin;
+import com.Lwoo.pojo.Asso;
 import com.Lwoo.pojo.User;
+import com.Lwoo.service.AssoService;
 import com.Lwoo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -23,16 +25,19 @@ import com.github.pagehelper.PageInfo;
 public class UserController {
 	@Autowired
 	UserService userService;
-	
+	@Autowired
+	AssoService assoService;
 	@RequestMapping("listUser")
 	  public String UserList(@RequestParam(required=true,defaultValue="1") Integer page,HttpServletRequest request,Model model){
 	      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
-		  PageHelper.startPage(page, 10);
+		  PageHelper.startPage(page, 15);
 		  List<User>users = userService.list();
 		System.out.println("----userController\n" +users);
 	      PageInfo<User> pageInfo=new PageInfo<User>(users);
 	      model.addAttribute("pageInfo",pageInfo);
 	      model.addAttribute("users",users);
+	      model.addAttribute("tname","全部社团");
+	      model.addAttribute("tid",0);
 	      return "admin/listUser";
 	  }
 	//跳转添加页面
@@ -77,11 +82,14 @@ public class UserController {
 			System.out.println("Method---getListByAssoId");
 		      //PageHelper.startPage(page, pageSize);这段代码表示，程序开始分页了，page默认值是1，pageSize默认是10，意思是从第1页开始，每页显示10条记录。
 		      PageHelper.startPage(page, 10);
+		      Asso asso=assoService.get(id);
 		      List<User> users = userService.getListByAssoId(id);
 		      System.out.println("----assosController\n"+users);
 		      PageInfo<User> pageInfo=new PageInfo<User>(users);
 		      model.addAttribute("pageInfo",pageInfo);
 		      model.addAttribute("users",users);
+		      model.addAttribute("tname",asso.getTname());
+		      model.addAttribute("tid",id);
 		      return "admin/listUser";
 		  }
 		@RequestMapping("listSomeUser")
@@ -96,6 +104,7 @@ public class UserController {
 		      PageInfo<User> pageInfo=new PageInfo<User>(users);
 		      model.addAttribute("pageInfo",pageInfo);
 		      model.addAttribute("users",users);
+		      model.addAttribute("tid", admin.getAssoId());
 		      return "usualAdmin/listSomeUser";
 		  }
 		//编辑管理员

@@ -6,6 +6,7 @@
 <div class="workingArea">
 	
 	<div style="margin-bottom:10px">
+	<h3>
 		<span class="label label-info" >管理员管理</span>		
 		<div style="float:right;margin-bottom:10px">
 		<form method="post" id="findDataForm" action="findAdminData">
@@ -17,6 +18,7 @@
 			</table>
 		</form>
 		</div>
+		</h3>
 	</div>
 	<div class="listDataTableDiv">
 		<table class="table table-striped table-bordered table-hover  table-condensed">
@@ -24,6 +26,7 @@
 				<tr class="success">
 					<th>ID</th>
 					<th>用户名</th>
+					<th>管理的社团</th>
 					<th>密码</th>
 					<th>邮箱</th>
 					<th>编辑</th>
@@ -36,6 +39,7 @@
 				<tr>
 					<td>${c.id}</td>
 					<td>${c.username }</td>
+					<td>${c.asso.tname }</td>
 					<td>${c.password}</td>
 					<td>${c.email }</td>
 					<td><a href="editAdmin?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>

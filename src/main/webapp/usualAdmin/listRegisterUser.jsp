@@ -4,6 +4,7 @@
 <jsp:include page="./listUsualAdminHead.jsp"/>
 <div class="workingArea">
 	<div style="margin-bottom:10px">
+	<h3>
 		<span class="label label-info" >用户管理</span>
 		<div style="float:right;margin-bottom:10px">
 		<form method="post" id="findDataForm" action="findUserData">
@@ -16,6 +17,7 @@
 			</table>
 		</form>
 		</div>
+		</h3>
 	</div>
 	
 	<div class="listDataTableDiv">

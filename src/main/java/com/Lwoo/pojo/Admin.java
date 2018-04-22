@@ -9,6 +9,13 @@ public class Admin {
 	private String email;
 	private int assoId;
 	private int lock;
+	private Asso asso;
+	public Asso getAsso() {
+		return asso;
+	}
+	public void setAsso(Asso asso) {
+		this.asso = asso;
+	}
 	public int getLock() {
 		return lock;
 	}
@@ -48,7 +55,7 @@ public class Admin {
 	@Override
 	public String toString() {
 		return "Admin [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
-				+ ", assoId=" + assoId + ", lock=" + lock + "]";
+				+ ", assoId=" + assoId + ", lock=" + lock + ", asso=" + asso + "]";
 	}
 	
 }

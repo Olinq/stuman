@@ -65,6 +65,7 @@ public class AdminController {
 		System.out.println("updateAdmin----"+ad);
 		adminService.update(ad);
 		Admin admin=(Admin) httpSession.getAttribute("admin");
+		httpSession.setAttribute("admin", adminService.get(admin.getId()));
 		if(1!=admin.getLock()){//普通管理员
 			ModelAndView mav = new ModelAndView("redirect:/listSomeAsso");
 			return mav;
@@ -72,4 +73,14 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView("redirect:/listAdmin");
 		return mav;
 	}
+	//编辑管理员
+		@RequestMapping("selfEditAdmin")
+		public ModelAndView seleEditAdmin(Admin ad,HttpSession httpSession){
+			Admin admin=(Admin) httpSession.getAttribute("admin");
+			System.out.println("===seleEditAdmin"+admin);
+			httpSession.setAttribute("admin", admin);
+			ModelAndView mav = new ModelAndView("admin/editAdmin");
+			mav.addObject("Eadmin", admin);
+			return mav;
+		}
 }

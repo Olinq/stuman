@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <jsp:include page="./listUsualAdminHead.jsp"/>
 <div class="workingArea">
 	<div style="margin-bottom:10px">
+	<h3>
 		<span class="label label-info" >用户管理</span>
 		<div style="float:right;margin-bottom:10px">
+		<form action="${ctx }/export" style="float:left;margin-left:-200px">
+	                <input name="tid" type="hidden" value="${tid}">  
+	                <button id="btnExport" type="submit" class="btn btn-blue">导出会员数据到Excel表</button>  
+        </form>  
 		<form method="post" id="findDataForm" action="findUserData">
 			<table title="根据ID或者名字查找">
 				<tr>
@@ -16,6 +22,7 @@
 			</table>
 		</form>
 		</div>
+	</h3>
 	</div>
 	
 	<div class="listDataTableDiv">

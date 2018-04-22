@@ -217,8 +217,12 @@
         <artifactId>mail</artifactId>    
         <version>1.4.7</version>    
     </dependency>  
-  
-     	
+  	<!-- Excel相关 -->
+   	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>3.17</version>
+	</dependency> 
   </dependencies>
  
   <build>

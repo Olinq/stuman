@@ -13,6 +13,13 @@
     <!-- jQueryValidate -->
     <script src="./js/jQueryValidate/jquery.validate.min.js"></script>
     <script src="./js/jQueryValidate/messages_zh.js"></script>
+<style>
+form label.error {
+    width: 200px;
+    margin-left: 8px;
+    color: Red;
+}
+</style>
 </head>
 <body >
 <div id="fullscreen_bg" class="fullscreen_bg">

@@ -5,6 +5,7 @@
 <jsp:include page="../jsp/Navigator.jsp"/>
 <div class="workingArea">
 	<div style="margin-bottom:10px">
+	<h3>
 		<span class="label label-info" >社团类型管理</span>
 		<div style="float:right;margin-bottom:10px">
 		<form method="post" id="findDataForm" action="findCatagoryData">
@@ -16,6 +17,7 @@
 			</table>
 		</form>
 		</div>
+	</h3>
 	</div>
 
 	<div class="listDataTableDiv">

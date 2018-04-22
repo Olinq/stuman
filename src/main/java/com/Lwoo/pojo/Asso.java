@@ -8,7 +8,15 @@ public class Asso {
     private String description;
 
     private String logo;
-//    private Category category;
+    public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	private Category category;
 
     private Integer cid;
     public Integer getId() {
@@ -53,8 +61,8 @@ public class Asso {
 
 	@Override
 	public String toString() {
-		return "Asso [id=" + id + ", tname=" + tname + ", description=" + description + ", logo=" + logo + ", cid="
-				+ cid + "]";
+		return "Asso [id=" + id + ", tname=" + tname + ", description=" + description + ", logo=" + logo + ", category="
+				+ category + ", cid=" + cid + "]";
 	}
     
 }

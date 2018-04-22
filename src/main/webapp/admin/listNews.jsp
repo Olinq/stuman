@@ -13,6 +13,7 @@
 <div class="workingArea">
 	
 	<div style="margin-bottom:10px">
+	<h3>
 		<span class="label label-info" >活动信息管理</span>		
 		<div style="float:right;margin-bottom:10px">
 		<form method="post" id="findDataForm" action="findNewsData">
@@ -25,6 +26,7 @@
 			</table>
 		</form>
 		</div>
+	</h3>
 	</div>
 	<div class="listDataTableDiv">
 		<table class="table table-striped table-bordered table-hover  table-condensed">
