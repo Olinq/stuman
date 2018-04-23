@@ -99,8 +99,12 @@ public class UserServiceImpl implements UserService{
             map.put("学号", user.getUsername());  
             map.put("姓名", user.getRealname());  
             map.put("性别", user.getSex());  
-            map.put("Email", user.getEmail());  
+            map.put("Email", user.getEmail());
+            if(user.getAsso()==null){
+            	map.put("所属社团", ""); 
+            }else{
             map.put("所属社团", user.getAsso().getTname()+"");  
+            }
             map.put("会员状态", user.getStatu()+"");  
             mapList.add(map);  
         }  

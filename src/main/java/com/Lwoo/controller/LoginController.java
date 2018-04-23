@@ -80,7 +80,7 @@ public class LoginController {
      public Map<String,String> getUser(@RequestBody Map<String,String> usermap,HttpSession httpSession){
  		String username=usermap.get("username");
  		String password=usermap.get("password");
- 		System.out.println("checkAdminLogin----"+username+":"+password);
+ 		System.out.println("userLoginIn----"+username+":"+password);
  		User user=userService.checkLogin(username, password);
 		System.out.println("------------------------------"+user);
 		String result="false";
@@ -88,7 +88,9 @@ public class LoginController {
 		if(user!=null){
 			result="true";
 			statu=user.getStatu().toString();
-			if(statu=="1"){
+			System.out.println(statu);
+			if("1".equals(statu)){
+				System.out.println("***********************************");
 				httpSession.setAttribute("user", user);//重定向传值
 			}
 		}

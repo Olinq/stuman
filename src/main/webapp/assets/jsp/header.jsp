@@ -63,7 +63,7 @@ function checkUser(){
 	         		$("#login").css("display","none");
 	         		$("#user").css("display","");
 	         		console.log("登录成功");
-	         		 window.location.reload();//刷新当前页面.
+	         		window.location.reload();//刷新当前页面.
 	         		$("#username").val("");
 	         		$("#password").val("");
         		}else{
