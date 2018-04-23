@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="./listUsualAdminHead.jsp"/>
 <div class="panel panel-warning addDiv" style="margin-top:100px">
 	  <div class="panel-heading">新增社团</div>
@@ -30,6 +31,18 @@
 							<select name="cid" id="AssoType" class="selectpicker">
 								<option value="${asso.cid}" selected></option>
 							</select>
+						</td>
+	    			</tr>
+	    				<tr>
+	    				<td>成立时间</td>
+	    				<td>
+							<input type="date" value="<fmt:formatDate value='${asso.createtime }' pattern='yyyy-MM-dd'/>"  name="createtime"/>
+						</td>
+	    			</tr>
+	    			<tr>
+	    				<td>指导老师</td>
+	    				<td>
+							<input type="text" value="${asso.teacher }" name="teacher"/>
 						</td>
 	    			</tr>
 	    			<tr class="submitTR">

@@ -14,7 +14,7 @@
        		 select * from category_ where id = #{id}  
     	</select> 
     	<insert id="add" parameterType="Asso">
-    		insert into asso(tname,description,logo,cid) values(#{tname},#{description},#{logo},#{cid})
+    		insert into asso(tname,description,logo,cid,createtime,teacher) values(#{tname},#{description},#{logo},#{cid},#{createtime},#{teacher})
     	</insert>
     	<delete id="delete" parameterType="Asso">
     		delete from asso where id=#{id}
@@ -23,7 +23,7 @@
     		select * from asso where id=#{id}
     	</select>
     	<update id="update" parameterType="Asso">
-    		update asso set tname=#{tname},description=#{description},logo=#{logo},cid=#{cid} where id=#{id}
+    		update asso set tname=#{tname},description=#{description},logo=#{logo},cid=#{cid},createtime=#{createtime},teacher=#{teacher} where id=#{id}
     	</update>
     	<select id="list" resultMap="assoBean">
     	select * from asso  order by id desc

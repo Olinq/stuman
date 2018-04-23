@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <nav class="navbar navbar-fixed-top navbar-inverse bs-dark">
         <div class="navbar-header">
           <a class="navbar-brand" style="color:white" href="#">社团后台管理</a>
@@ -84,7 +85,6 @@ function loadType(){
 				 if(index%5==0&&index!=0){
 					$("#typeId").append("<li role='separator' class='divider'></li>");
 				 }
-					 
 		  });
 	  },
 	  error:function(XMLHttpRequest,textStatus, errorThrown) { 

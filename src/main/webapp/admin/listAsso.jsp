@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="../jsp/HeadJsp.jsp"/>
 <jsp:include page="../jsp/Navigator.jsp"/>
 <div class="workingArea">
@@ -28,6 +29,8 @@
 					<th>LOGO</th>
 					<th>社团名字</th>
 					<th>社团描述</th>
+					<th>成立时间</th>
+					<th>指导老师</th>
 					<th>编辑</th>
 					<th>删除</th>
 				</tr>
@@ -43,6 +46,8 @@
 					<td>${c.tname}</td>
 					<td data-toggle="tooltip"  title="${c.description}" style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"
 					>${c.description}</td>
+					<td><fmt:formatDate value="${c.createtime }" pattern="yyyy-MM-dd"/></td>
+					<td>${c.teacher }</td>
 					<td><a href="editAsso?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
 					<td><a deleteLink="true" href="deleteAssoById?id=${c.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>

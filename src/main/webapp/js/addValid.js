@@ -174,6 +174,12 @@ function rulesValid(){
 	 },
 	 cid:{
 		 min:1
+	 },
+	 createtime:{
+		 required:true
+	 },
+	 teacher:{
+		 required:true
 	 }
  },
  messages:{//验证错误信息
@@ -186,6 +192,12 @@ function rulesValid(){
 	 },
 	 cid:{
 		 min:"请选择社团类型"
+	 },
+	 createtime:{
+		 required:"请选择社团成立时间"
+	 },
+	 teacher:{
+		 required:"请输入知道老师"
 	 }
  },
 });

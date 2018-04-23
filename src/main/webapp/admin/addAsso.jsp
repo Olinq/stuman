@@ -33,6 +33,18 @@
 							</select>
 						</td>
 	    			</tr>
+    				<tr>
+	    				<td>成立时间</td>
+	    				<td>
+							<input type="date" name="createtime"/>
+						</td>
+	    			</tr>
+	    			<tr>
+	    				<td>指导老师</td>
+	    				<td>
+							<input type="text" name="teacher"/>
+						</td>
+	    			</tr>
 	    			<tr class="submitTR">
 	    				<td colspan="2" align="right">
 	    					<button id="submitAsso" type="submit" class="btn btn-success">提 交</button>
