@@ -9,37 +9,33 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-
-			<div id="comments">
-				<h3 class="comments-title">留言表</h3>
+		<div class="col-sm-12 col-sm-offset-2" style="margin-left:-20px">
+		<h3 class="comments-title">留言表</h3>
 				<br>
-
-				<ol class="comments-list">
-					<c:forEach items="${lists}" var="list">
-						<li class="comment comm">
-							<div >
-								<div class="comment-meta">
-									<span class="author" id="comment${list.id}"><a href="#">#楼主#${list.user.username}</a></span>
-									<span class="date"><a href="#">${list.time }</a></span> <span
-										class="reply" id="location${list.id}"><a
-										href="#location${list.id+2}" style="color: blue"
-										onclick="see(${list.id})">查看留言(${list.totalReplay})</a></span> <span
-										class="reply"><a href="#" style="color: blue"
-										data-toggle="modal" data-target="#myModal"
-										onclick="reply(${list.id})">回复</a></span>
-										<c:if test="${list.uid==user.id }">
-											<span
-											class="reply"><a href="${ctx }/usercommentDel?id=${list.id}" style="color: blue">删除</a></span>
-										</c:if>
-								</div>
-
-								<div class="comment-body">${list.comment}</div>
-							</div>
-							<div id="replay${list.id}" style="display: none">
-								<c:forEach items="${list.replays }" var="replay"
-									varStatus="status">
-									<ul class="children" id="children${list.id}">
+		<c:forEach items="${lists}" var="list">
+			<div class="story">
+				<div class="opbtn"></div>
+				<p class="story_t">#${list.user.realname}</p>
+				<p class="story_time">2015/07/12 20:48</p>
+				<p class="story_m"><a href="#">${list.comment}</a>
+					<span class="story_reply">
+						<span
+						class="reply" id="location${list.id}"><a
+						href="#location${list.id+2}" style="color: blue;"
+						onclick="see(${list.id})">查看留言(${list.totalReplay})</a></span> <span
+						class="reply"><a href="#" style="color:blue"
+						data-toggle="modal" data-target="#myModal"
+						onclick="reply(${list.id})">回复</a></span>
+						<c:if test="${list.uid==user.id }">
+							<span
+							class="reply"><a href="${ctx }/usercommentDel?id=${list.id}" style="color: blue">删除</a></span>
+						</c:if>
+					</span>
+				</p>
+						<span class="story_hf" id="replay${list.id}" style="display: none">
+							<c:forEach items="${list.replays }" var="replay"
+												varStatus="status">
+												<ul class="children" id="children${list.id}">
 										<li class="comment">
 											<div>
 												<div class="comment-meta-children">
@@ -53,15 +49,15 @@
 											</div>
 										</li>
 									</ul>
-								</c:forEach>
-							</div> <!-- .children -->
-						</li>
-					</c:forEach>
-				</ol>
+							</c:forEach>
+						</span>
+			</div>
+			</c:forEach>
 					<div><a href="${ctx }/user/comment/all">查看全部</a></div>
+			<div id="comments">
 				<div class="clearfix">
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-						aria-labelledby="myModalLabel" aria-hidden="true">
+						aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:60px">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -72,7 +68,7 @@
 								<form id="form_data">
 									<div class="modal-body">
 										<label for="name">回复内容</label>
-										<textarea class="form-control" rows="3" required="required" id="comm" name="comm"></textarea>
+										<textarea class="form-control" rows="4" required="required" id="comm" name="comm"></textarea>
 										<input type="hidden" id="uid" value="${user.id }" name="uid" />
 										<input type="hidden" id="commId" name="commId">
 									</div>

@@ -209,13 +209,14 @@ public class StartController {
 		return mav;
 	}
 	@RequestMapping("user/comment/add")
-	public String commentAdd(Comment comment,Model model){
+	public ModelAndView commentAdd(Comment comment,Model model){
 		System.out.println("----comment---");
 		commentService.add(comment);
 		List<Comment> lists=commentService.list();
 		System.out.println(lists);
-		model.addAttribute("lists", lists);
-		return "comments";
+		ModelAndView mav = new ModelAndView("redirect:/user/comment");
+		mav.addObject("lists", lists);
+		return mav;
 	}
 	//用户回复
 	@ResponseBody

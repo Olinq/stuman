@@ -4,7 +4,7 @@ html {
 body {
   font-size: 15px;
   font-size: 0.9375rem;
-  font-family: "Open sans", Helvetica, Arial, sans-serif;
+  font-family:"微软雅黑", Helvetica, Arial, sans-serif;;font-size:12px;
   color: #666666;
   padding: 0;
 
@@ -656,90 +656,26 @@ footer.entry-meta .meta-in {
 
 
 **********************************************************************/
-#comments {
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-#comments .comments-title {
-  margin: 0 0 60px 0;
-}
-#comments ul,
-#comments ol {
-  margin: 0;
-  padding: 0;
-}
-#comments .comment {
+.story_hf .comment {
   margin: 0;
   padding: 0;
   list-style: none;
   clear: both;
 }
-#comments .comments-title {
-  text-shadow: none;
-  margin-bottom: 0;
-}
-#comments .children {
-  margin: 0 0 0 	30px;
-}
 .comm{
 	 border-bottom: 1px dotted #ccc;
 }
-#comments .comment-meta {
-  margin: 0 0 0 70px;
- 
+.story_reply{
+    font-size: 0.6em;
 }
-#comments .comment-meta-children {
-  margin: 0 0 0 60px;
-}
-#comments .comment-meta a {
-  color: #333333;
-}
-#comments .comment-meta a:hover {
-  color: #bd1550;
-}
-#comments .comment-meta .author {
-  margin: 0 20px 0 0;
-  font-weight: bold;
-}
-#comments .comment-meta .date {
-  margin: 0 20px 0 0;
-}
-#comments .comment-meta .date a {
-  color: #666666;
-}
-#comments .comment-meta .reply {
+.story_reply .reply {
   float: right;
   margin-right:20px
 }
-#comments .comment-body-children {
-  margin: 0 0 35px 60px;
-  color:#327de2;
-}
-#comments .comment-body {
-  margin: 0 0 35px 70px;
-  font-size:20px;
-}
-.comment-navigation {
-  width: 100%;
-  border-top: 1px solid #ccc;
-  padding: 2px 0 0 0;
-}
-.comment-navigation .nav-content {
-  border-top: 1px solid #ccc;
-  width: 100%;
-  padding: 10px 0 0 0;
-}
-.comment-navigation .nav-previous {
-  float: left;
-  width: 50%;
-}
-.comment-navigation .nav-next {
-  float: right;
-  width: 50%;
-  text-align: right;
-}
 #respond {
   margin: 55px 0 0 0;
+      background: url(../images/head.png) no-repeat;
+      padding-left:60px;
 }
 /*********************************************************************
 
@@ -871,3 +807,15 @@ a.agrayright { cursor: default; background-position: -51px 50%; }
   .nav_fix_pos {
              position:fixed;top:0px;left:0px;width:100%;
       }
+ /****留言样式******/
+ 
+ul,li{list-style:none;}
+.ylcon{width:100%;min-width:320px;}
+.tit{height:26px;line-height:26px;padding:0px 15px;position:relative;font-size:15px;color:#aaa;border-bottom:1px solid rgba(0, 0, 0, 0.15);}
+
+.story{border-bottom:1px dashed #d5d5d5;padding:10px 15px 3px 60px;position:relative;}
+.story_t{font-size:1.2em;color:rgba(0,0,0,1);padding-top:6px;margin-bottom:0px;color:#000057;}
+.story_m{color:rgba(110,110,110,1);line-height:21px;word-break:break-all;word-wrap:break-word;overflow:hidden;font-size:1.6em;padding:2px 0;}
+.story_time{color:rgba(154,154,154,1);padding:-2px 0px;}
+.story_hf{background:rgb(245,245,245);font-size:1.2em;border:1px solid rgba(204,204,204,0.2);border-radius:2px;color:rgba(110,110,110,1);padding:4px;margin-bottom:5px;}
+.opbtn{position:absolute;top: 0;right: 0;}
