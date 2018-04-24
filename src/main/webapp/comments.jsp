@@ -9,14 +9,35 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-12 col-sm-offset-2" style="margin-left:-20px">
-		<h3 class="comments-title">留言表</h3>
-				<br>
+		<div class="col-sm-12 col-sm-offset-2" style="margin-left:55px">
+		<div id="comments">
+					<div id="respond">
+						<h4 id="reply-title">发帖</h4>
+						<form action="${ctx }/user/comment/add" method="post"
+							id="commentform" onsubmit="return mySubmit()">
+							<div class="form-group">
+								<label for="inputComment">Comment</label>
+								<textarea class="form-control" rows="6" name="comment"
+								style="margin-left:-60px;margin-top:10px" required="required"></textarea>
+							</div>
+							<div class="row">
+								<div class="col-md-14">
+									<div class="col-md-13 text-right" style="margin-right:65px;" >
+										<input type="hidden" name="uid" value="${user.id}">
+										<button type="submit" id="submitComment" class="btn btn-info">Submit</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<hr id="commhr"/>
 		<c:forEach items="${lists}" var="list">
 			<div class="story">
 				<div class="opbtn"></div>
-				<p class="story_t">#${list.user.realname}</p>
-				<p class="story_time">2015/07/12 20:48</p>
+				<p class="story_t">#${list.user.realname} <span class="story_time" style="margin-right:0px">${list.time}</span></p>
+				
 				<p class="story_m"><a href="#">${list.comment}</a>
 					<span class="story_reply">
 						<span
@@ -39,8 +60,7 @@
 										<li class="comment">
 											<div>
 												<div class="comment-meta-children">
-													<span class="author"><a href="#">${replay.user.username }</a></span>
-													<span class="date"><a href="#">${replay.time}</a></span><span>#楼层#<a>${status.index + 1}</a></span>
+												<p class="story_t-children">#${replay.user.realname }<span>#楼层#<a>${status.index + 1}</a></span><span class="story_time-children">${replay.time}</span></p>
 												</div>
 												<!-- .comment-meta -->
 
@@ -53,10 +73,8 @@
 						</span>
 			</div>
 			</c:forEach>
-					<div><a href="${ctx }/user/comment/all">查看全部</a></div>
-			<div id="comments">
-				<div class="clearfix">
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					<div style="text-align:right;margin:30px 0px 50px"><h3><a href="${ctx }/user/comment/all">查看全部</a></h3></div>
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:60px">
 						<div class="modal-dialog">
 							<div class="modal-content">
@@ -68,7 +86,7 @@
 								<form id="form_data">
 									<div class="modal-body">
 										<label for="name">回复内容</label>
-										<textarea class="form-control" rows="4" required="required" id="comm" name="comm"></textarea>
+										<textarea  class="form-control form-comm" rows="4" required="required" id="comm" name="comm"></textarea>
 										<input type="hidden" id="uid" value="${user.id }" name="uid" />
 										<input type="hidden" id="commId" name="commId">
 									</div>
@@ -83,28 +101,6 @@
 							<!-- /.modal-content -->
 						</div>
 						<!-- /.modal -->
-					</div>
-					<div id="respond">
-						<h4 id="reply-title">发帖</h4>
-						<form action="${ctx }/user/comment/add" method="post"
-							id="commentform" onsubmit="return mySubmit()">
-							<div class="form-group">
-								<label for="inputComment">Comment</label>
-								<textarea class="form-control" rows="6" name="comment"
-									required="required"></textarea>
-							</div>
-							<div class="row">
-								<div class="col-md-14">
-									<div class="col-md-14 text-right">
-										<input type="hidden" name="uid" value="${user.id}">
-										<button type="submit" id="submitComment" class="btn btn-info">Submit</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

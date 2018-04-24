@@ -42,7 +42,7 @@ public class Replay {
 	}
 	public String getTime() {
 		//转换数据库时间格式
-   	 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+   	 	SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm");  
         String formatDate = df.format(time);  
         
        return formatDate;

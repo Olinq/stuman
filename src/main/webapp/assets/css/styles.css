@@ -656,11 +656,17 @@ footer.entry-meta .meta-in {
 
 
 **********************************************************************/
+#commhr{
+border:3px double #648cf7;
+}
 .story_hf .comment {
   margin: 0;
   padding: 0;
   list-style: none;
   clear: both;
+}
+.form-comm{
+	
 }
 .comm{
 	 border-bottom: 1px dotted #ccc;
@@ -814,8 +820,18 @@ ul,li{list-style:none;}
 .tit{height:26px;line-height:26px;padding:0px 15px;position:relative;font-size:15px;color:#aaa;border-bottom:1px solid rgba(0, 0, 0, 0.15);}
 
 .story{border-bottom:1px dashed #d5d5d5;padding:10px 15px 3px 60px;position:relative;}
-.story_t{font-size:1.2em;color:rgba(0,0,0,1);padding-top:6px;margin-bottom:0px;color:#000057;}
+.story_t{font-size:1.2em;color:rgba(0,0,0,1);padding-top:6px;margin-bottom:10px;color:#000057;}
+.story_t-children {
+	font-size:0.8em;color:rgba(0,0,0,1);padding-top:6px;margin-bottom:0px;color:#000057;
+}
 .story_m{color:rgba(110,110,110,1);line-height:21px;word-break:break-all;word-wrap:break-word;overflow:hidden;font-size:1.6em;padding:2px 0;}
-.story_time{color:rgba(154,154,154,1);padding:-2px 0px;}
-.story_hf{background:rgb(245,245,245);font-size:1.2em;border:1px solid rgba(204,204,204,0.2);border-radius:2px;color:rgba(110,110,110,1);padding:4px;margin-bottom:5px;}
+.story_time{color:rgba(154,154,154,1);padding:-2px 0px;
+    margin-right: 20px;
+    float: right;}
+.story_time-children {color:rgba(154,154,154,1);padding:-2px 0px;font-size:0.6em;
+margin-right: 20px;
+    float: right;}
+.story_hf{background:rgb(245,245,245);font-size:1.2em;color:rgba(110,110,110,1);margin-bottom:2px;}
+ul.children{background-color: #f5f5f5;
+}
 .opbtn{position:absolute;top: 0;right: 0;}
