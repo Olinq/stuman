@@ -656,7 +656,7 @@ footer.entry-meta .meta-in {
 
 **********************************************************************/
 #commhr{
-border:3px double #648cf7;
+border:1px dotted #648cf7;
 }
 .story_hf .comment {
   margin: 0;
@@ -823,14 +823,14 @@ ul,li{list-style:none;}
 .story_t-children {
 	font-size:0.8em;color:rgba(0,0,0,1);padding-top:6px;margin-bottom:0px;color:#000057;
 }
-.story_m{color:rgba(110,110,110,1);line-height:21px;word-break:break-all;word-wrap:break-word;overflow:hidden;font-size:1.6em;padding:2px 0;}
+.story_m{color:rgba(110,110,110,1);line-height:1.2;word-break:break-all;word-wrap:break-word;overflow:hidden;font-size:1.4em;padding:2px 0;}
 .story_time{color:rgba(154,154,154,1);padding:-2px 0px;
     margin-right: 20px;
     float: right;}
 .story_time-children {color:rgba(154,154,154,1);padding:-2px 0px;font-size:0.6em;
 margin-right: 20px;
     float: right;}
-.story_hf{background:rgb(245,245,245);font-size:1.2em;color:rgba(110,110,110,1);margin-bottom:2px;}
+.story_hf{background:rgb(245,245,245);font-size:0.8em;color:rgba(110,110,110,1);margin-bottom:2px;}
 ul.children{background-color: #f5f5f5;
 }
 .opbtn{position:absolute;top: 0;right: 0;}

@@ -86,4 +86,14 @@ public class CommentController {
 				 model.addAttribute("comment",comment);
 				  return "review";
 			}
+			 //添加留言
+			@RequestMapping("user/review/add")
+			public String userReviewAdd(Replay Replay,HttpSession httpSession,Model model){
+				System.out.println("---addReplay----"+Replay);
+				replayService.add(Replay);
+				Comment comment=commentService.get(Replay.getCommId());
+				System.out.println(comment);
+				 model.addAttribute("comment",comment);
+				  return "review";
+			}
 }

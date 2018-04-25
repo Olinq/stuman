@@ -41,11 +41,11 @@
 			<div id="comments" style="width: 800px;margin-left:100px">
 				<div id="respond">
 					<h4 id="reply-title">评论</h4>
-					<form action="${ctx }/user/comment/add" method="post"
+					<form action="${ctx }/user/review/add" method="post"
 						id="commentform" onsubmit="return replySubmit()">
 						<div class="form-group">
 							<label for="inputComment">Reply</label>
-							<textarea class="form-control" rows="6" name="comment"
+							<textarea class="form-control" rows="6" name="replay"
 								style="margin-left: -60px; margin-top: 10px" required="required"></textarea>
 						</div>
 						<div class="row">

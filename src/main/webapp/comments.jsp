@@ -38,21 +38,23 @@
 				<div class="opbtn"></div>
 				<p class="story_t">#${list.user.realname} <span class="story_time" style="margin-right:0px">${list.time}</span></p>
 				
-				<p class="story_m"><a href="${ctx }/review?id=${list.id}">${list.comment}</a>
-					<span class="story_reply">
+				<p class="story_m"><a href="${ctx }/review?id=${list.id}" style="margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2; ">${list.comment}</a>
+					<span class="story_reply"">
 						<span
 						class="reply" id="location${list.id}"><a
 						href="#location${list.id+2}" style="color: blue;"
-						onclick="see(${list.id})">查看留言(${list.totalReplay})</a></span> <span
+						onclick="see(${list.id})">查看留言(${list.totalReplay})</a></span> 
+						<span
 						class="reply"><a href="#" style="color:blue"
 						data-toggle="modal" data-target="#myModal"
 						onclick="reply(${list.id})">回复</a></span>
 						<c:if test="${list.uid==user.id }">
 							<span
-							class="reply"><a href="${ctx }/usercommentDel?id=${list.id}" style="color: blue">删除</a></span>
+							class="reply" >
+							<a href="${ctx }/usercommentDel?id=${list.id}" style="color: blue">删除</a></span>
 						</c:if>
 					</span>
-				</p>
+					</p>
 						<span class="story_hf" id="replay${list.id}" style="display: none">
 							<c:forEach items="${list.replays }" var="replay"
 												varStatus="status">
