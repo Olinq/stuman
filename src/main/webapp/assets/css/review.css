@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+article, section { display: block; }
+section{
+	margin-left:60px;
+	margin-top:50px;
+}
+p {
+    margin: 0 0 1em;
+}
+
+.rcomment {
+    overflow: hidden;
+    padding: 0 0 1em;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 1em;
+    *zoom: 1;
+    width:700px;
+}
+
+.rcomment-img {
+    float: left;
+    margin-right: 33px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.rcomment-img img {
+    display: block;
+}
+
+.rcomment-body {
+    overflow: hidden;
+}
+
+.rcomment .text {
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.rcomment .text p:last-child {
+    margin: 0;
+}
+
+.rcomment .attribution {
+    margin: 0.5em 0 0;
+    font-size: 14px;
+    color: #666;
+}
+.attribution {
+    margin: 0.5em 0 0;
+    font-size: 14px;
+    color: #666;
+}
+/* Decoration */
+
+.rcomments,
+.rcomment {
+    position: relative;
+}
+
+.rcomments:before,
+.rcomment:before,
+.rcomment .text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 65px;
+}
+
+.rcomments:before {
+    width: 3px;
+    top: -20px;
+    bottom: -20px;
+    background: rgba(0,0,0,0.1);
+}
+
+.rcomment:before {
+    width: 9px;
+    height: 9px;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    margin: 16px 0 0 -6px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
+    background: #ccc;
+}
+
+.rcomment:hover:before {
+    background: orange;
+}
+
+.rcomment .text:before {
+    top: 18px;
+    left: 78px;
+    width: 9px;
+    height: 9px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.rstory{padding:10px 15px 3px auto;position:relative;margin-top:-10px;margin-left:100px;width: 800px; text-indent: 2em;}
+.rstory_t{font-size:1.2em;color:rgba(0,0,0,1);padding-top:6px;margin-bottom:10px;color:#000057;}
+.rstory_m{color:rgba(110,110,110,1);line-height:1.3em;word-break:break-all;word-wrap:break-word;overflow:hidden;font-size:1.2em;padding:2px 0;}
+.rstory_time{color:rgba(154,154,154,1);
+    margin-right: 80px;
+    float: right;}

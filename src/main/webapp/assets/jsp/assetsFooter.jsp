@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<div style="background-position: 0px 0px; margin-top: -125px;"
+		id="rocket-to-top">
+		<div style="opacity: 0; display: block;" class="level-2"></div>
+		<div class="level-3"></div>
+	</div>
 <div style="clear:both"></div>
 <div id="templatemo_footer_wrapper">
     <div id="templatemo_footer" class="row">
@@ -47,6 +52,7 @@
  <script src="${ctx}/assets/js/validAdd.js"></script>
  <!-- 图片滚动 -->
 <script src="${ctx}/assets/js/slider.js"></script>
+<script src="${ctx}/assets/js/rocket.js"></script>
 		<script type="text/javascript">
 	$(function(){
 		//默认状态下左右滚动

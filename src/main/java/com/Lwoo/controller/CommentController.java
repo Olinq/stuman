@@ -78,4 +78,12 @@ public class CommentController {
 				 model.addAttribute("comment",comment);
 				  return "admin/listReplay";
 			}
+			 //评论
+			@RequestMapping("review")
+			public String review(int id,HttpSession httpSession,Model model){
+				System.out.println("---review----"+id);
+				Comment comment = commentService.get(id);
+				 model.addAttribute("comment",comment);
+				  return "review";
+			}
 }

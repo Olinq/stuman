@@ -38,7 +38,7 @@
 				<div class="opbtn"></div>
 				<p class="story_t">#${list.user.realname} <span class="story_time" style="margin-right:0px">${list.time}</span></p>
 				
-				<p class="story_m"><a href="#">${list.comment}</a>
+				<p class="story_m"><a href="${ctx }/review?id=${list.id}">${list.comment}</a>
 					<span class="story_reply">
 						<span
 						class="reply" id="location${list.id}"><a
