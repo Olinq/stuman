@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <jsp:include page="./assets/jsp/assetsHeader.jsp"/>
 <jsp:include page="./assets/jsp/header.jsp"/>
@@ -19,6 +20,9 @@
 			<!-- Article main content -->
 			<article class="col-sm-8 maincontent">
 				<h3>${asso.tname}</h3>
+				<p>社团成立时间：<fmt:formatDate pattern="yyyy-MM-dd" 
+            value="${asso.createtime }" /></p>
+				<p>指导老师：${asso.teacher }</p>
 				<br/><br/>
 				<p><img src="${ctx }/img/logo/${asso.logo}" alt="" class="" width="100%" height="600px"></p>
 				<br/><br/>

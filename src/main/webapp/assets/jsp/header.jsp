@@ -48,6 +48,13 @@ function setBackground(){
 }
 
 function checkUser(){
+		if(""==$("#username").val()){
+			$("#nameLog").html("用户名不为空");
+			if(""==$("#password").val()){
+				$("#pwdLog").html("密码不为空");
+			}
+			return;
+		}
         $.ajax({
          	url : "${ctx }/user/userLoginIn",
          	type : "post",
@@ -136,14 +143,14 @@ function checkLogout(){
 						<div class="dropdown-menu"  style="width:300px;margin-left: -200px;" id="formLogin">
 							
 								<div class="container-fluid">
-									<form action="${ctx }/user/userLoginIn">
+									<form action="${ctx }/user/userLoginIn" id="userLoginIn">
 										<div class="form-group">
-											<label>用户名</label>
-											<input class="form-control" name="username" id="username" type="text">
+											<label>用户名&nbsp;&nbsp;<span id="nameLog" style="color:red"></span></label>
+											<input class="form-control" name="username" id="username" type="text" required="required">
 										</div>
 										<div class="form-group">
-											<label>密码</label>
-											<input class="form-control" name="password" id="password" type="password"><br>
+											<label>密码 &nbsp;&nbsp;<span id="pwdLog" style="color:red"></span></label>
+											<input class="form-control" name="password" id="password" type="password" required="required"><br>
 											<a href="${ctx }/forgetPassword.jsp" style="margin-left:200px">忘记密码</a>
 										</div>
 										<button type="button" id="btnLogin" onclick="checkUser()" class="btn btn-primary btn-lg btn-block">登录</button>

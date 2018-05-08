@@ -11,25 +11,32 @@
 		<table style="table-layout:fixed" class="table table-striped table-bordered table-hover  table-condensed" >
 			<thead>
 				<tr class="success">
-					<th>ID</th>
-					<th>LOGO</th>
-					<th>社团名字</th>
-					<th>社团描述</th>
-					<th>成立时间</th>
-					<th>指导老师</th>
-					<th>编辑</th>
+					<th>属性：值</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>${asso.id }</td>
-					<td><img width="40px" src="img/logo/${asso.logo}"></td>
-					<td>${asso.tname }</td>
-					<td data-toggle="tooltip"  title="${c.description}" style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"
-					>${asso.description}</td>
-					<td><fmt:formatDate value="${asso.createtime }" pattern="yyyy-MM-dd"/></td>
-					<td>${asso.teacher }</td>
-					<td><a href="editAsso?id=${asso.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
+					<td>ID：${asso.id }</td>
+				</tr>
+				<tr>
+					<td>LOGO：<img width="40px" src="img/logo/${asso.logo}"></td>
+					</tr>
+				<tr>
+					<td>社团名字：${asso.tname }</td>
+					</tr>
+				<tr>
+					<td data-toggle="tooltip"  title="${c.description}">社团描述 ：
+					${asso.description}</td>
+					</tr>
+				<tr>
+					<td>成立时间：<fmt:formatDate value="${asso.createtime }" pattern="yyyy-MM-dd"/></td>
+						</tr>
+				<tr>
+					<td>指导老师：${asso.teacher }</td>
+						</tr>
+				<tr>
+					<td><a href="editAsso?id=${asso.id}"><span class="glyphicon glyphicon-edit"></span>编辑</a></td>
+					
 				</tr>
 			</tbody>
 		</table>
