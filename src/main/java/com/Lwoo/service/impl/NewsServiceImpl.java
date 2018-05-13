@@ -86,4 +86,10 @@ public class NewsServiceImpl implements NewsService {
 		return newsMapper.searchType(findData, isannou);
 	}
 
+	@Override
+	public List<News> searchByAssoId(int assoId, int isannou) {
+		// TODO Auto-generated method stub
+		return newsMapper.searchByAssoId(assoId, isannou);
+	}
+
 }

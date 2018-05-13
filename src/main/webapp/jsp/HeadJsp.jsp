@@ -35,7 +35,6 @@
     <link href="${ctx}/css/HeadCSS.css" rel="stylesheet">
     <script src="${ctx}/js/admin.js"></script>
     <script src="${ctx}/js/addValid.js"></script>
-    <script src="${ctx}/js/register_js.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="${ctx}/utf8-jsp/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="${ctx}/utf8-jsp/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->

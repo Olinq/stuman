@@ -158,9 +158,10 @@ function checkLogout(){
 								</div>
 							</div>
 					</li>
+					<li  style="float:right;display:none" id="user2"><a href="#" onclick="checkLogout()" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
 					<li class="dropdown"  style="float:right;display:none" id="user1">
 						<a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="color:#a42500">
-							${user.username }<span class="caret"></span>
+							${user.realname }<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" style="text-align:center">
 		                    <li><a href="${ctx }/personMsg.jsp">修改信息</a></li>
@@ -170,7 +171,6 @@ function checkLogout(){
 		                    </li>
                 		</ul>
 					</li>
-					<li  style="float:right;display:none" id="user2"><a href="#" onclick="checkLogout()" data-toggle="modal" data-target='#modalRegister'>注销</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->			
 		</div>	

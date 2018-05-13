@@ -169,6 +169,7 @@ public class StartController {
 		ModelAndView mav=new ModelAndView("active");
 		List<News> news=newsService.searchType(findData,isannou);
 		mav.addObject("news", news);
+		mav.addObject("isannou",isannou);
 		System.out.println(news);
 		return mav;
 	}

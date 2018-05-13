@@ -24,7 +24,7 @@
             value="${asso.createtime }" /></p>
 				<p>指导老师：${asso.teacher }</p>
 				<br/><br/>
-				<p><img src="${ctx }/img/logo/${asso.logo}" alt="" class="" width="100%" height="600px"></p>
+				<p><img src="${ctx }/img/logo/${asso.logo}" width="400px" height="400px"></p>
 				<br/><br/>
 				<h5>社团介绍</h5><br/>
 				<p class="phelper">${asso.description}</p>

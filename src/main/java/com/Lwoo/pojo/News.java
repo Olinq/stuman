@@ -15,6 +15,7 @@ public class News {
     private Date time;
 
     private Integer isannou;
+    private Integer assoId;
     public Integer getIsannou() {
 		return isannou;
 	}
@@ -89,7 +90,16 @@ public class News {
 	@Override
 	public String toString() {
 		return "News [id=" + id + ", aid=" + aid + ", title=" + title + ", author=" + author + ", time=" + time
-				+ ", isannou=" + isannou + ", content=" + content + ", contentText=" + contentText + "]";
+				+ ", isannou=" + isannou + ", assoId=" + assoId + ", content=" + content + ", contentText="
+				+ contentText + "]";
+	}
+
+	public Integer getAssoId() {
+		return assoId;
+	}
+
+	public void setAssoId(Integer assoId) {
+		this.assoId = assoId;
 	}
     
 }

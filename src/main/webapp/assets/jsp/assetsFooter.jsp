@@ -10,13 +10,13 @@
 <div style="clear:both"></div>
 <div id="templatemo_footer_wrapper">
     <div id="templatemo_footer" class="row">
-		    <div class="col-md-14" id="copyright">
+		    <div class="col-md-15" id="copyright">
     			<ul>
 				<li><a href="#" title="关于本站">关于本站</a>　|　<a href="#" title="联系我们">联系我们</a>　|　<a href="http://jwxt.gcu.edu.cn/" title="网站地图" target="_blank">教务系统</a>　|　<a href="http://www.gcu.edu.cn/" title="友情链接">学校官网</a>　|　<a href="${ctx }/" title="学生社团管理">返回首页</a></li>
 				<li><p>电话:&nbsp;+234 23 9873237&nbsp;&nbsp;&nbsp;
 						邮箱:&nbsp;<a href="mailto:#">some.email@somewhere.com</a>&nbsp;&nbsp;&nbsp;
 					地址:&nbsp;广东省广州市花都区新华街道学府路1号华南理工大学广州学院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					Copyright &copy; 2018, One awesome name here &nbsp;&nbsp;&nbsp;
+					<br>Copyright &copy; 2018, One awesome name here &nbsp;&nbsp;&nbsp;
 					 <a href="${ctx }/login.jsp" rel="designer">后台登录</a> 
 					</p>
 				</li>

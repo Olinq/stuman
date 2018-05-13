@@ -12,14 +12,31 @@
 </c:choose>
  <c:if test="${1==admin.lock}">    <!--如果为超级管理员则显示此项 -->
 	<script type="text/javascript">
+	var jsonArry;
 	$(function(){
 		setAssoSelect();
+
+		$("#aid").change(function(){
+		    var opt=$("#aid").val();
+		   // alert(opt);
+		    console.log("+++++++++++++++");
+		    console.log(jsonArry);
+		    $.each(jsonArry,function(index,item){
+			    var id=item.id;          
+				var username=item.username;
+				var assoId=item.assoId;
+			if(opt==id){
+				alert(username+"--assoId:"+assoId);
+				$("#IassoId").val(assoId);
+				console.log("-==-=====/*//*/*//*"+$("#IassoId").val());
+			}
+		  });
+		});
 	});
 	function setAssoSelect(){
 		 var d = {"str":"aid"};
 		  var str= JSON.stringify(d);
 		  $("#aid").empty();  //清空原有select内的数据
-		  $("#aid").css({"size":"8"});
 		  $("#aid").append("<option value='0'>--请选择--</option>");
 	      $.ajax({
 	    	  url:"${ctx}/stuman/getAdminList",
@@ -28,7 +45,7 @@
 	    	  dataType:"json",
 	    	  data:str,  // 以json字符串方式传递
 	    	  success:function(data){
-	    		  var jsonArry=eval(data); //将json类型字符串转换为json对象
+	    		  jsonArry=eval(data); //将json类型字符串转换为json对象
 	    		  console.log(jsonArry);
 	    		  console.log("------------------------");
 	    		  $.each(jsonArry,function(index,item){
@@ -43,6 +60,7 @@
 	           }
 	      });
 	}
+	
 	</script>
 </c:if>
 <div class="panel panel-warning addDivEditor" style="margin-top:100px">
@@ -100,9 +118,11 @@
 									</select>
 								</td>
 		    				</tr>
+		    				<input type="hidden" id="IassoId" name="assoId"/>
 					 	</c:when>      
 					   	<c:otherwise>  <!--否则 -->    
 							<input type="hidden" name="aid" value="${admin.id}"/>
+							<input type="hidden" name="assoId" value="${admin.assoId}"/>
 					  	</c:otherwise> 
 					</c:choose>
 	    			<tr class="submitTR">

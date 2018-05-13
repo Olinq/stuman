@@ -12,4 +12,5 @@ public interface NewsService extends BaseService<News> {
 	public List<News> listNewer(int limit,int isannou);
 	public List<News> list(int isannou);
 	public List<News> searchType(String findData,int isannou);
+	public List<News> searchByAssoId(int assoId,int isannou);
 }

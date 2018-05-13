@@ -18,9 +18,9 @@
 						<form action="${ctx }/active/findData">
 							<div class="row">
 							<div class="col-md-6 text-left" style="clear:both">
-								<c:if test="${1==isannou}"><h4 style="color:blue">当前位置=》通知</h4></c:if>
-								<c:if test="${2==isannou}"><h4 style="color:blue">当前位置=》学校新闻</h4></c:if>
-								<c:if test="${0==isannou}"><h4 style="color:blue">当前位置=》社团新闻</h4></c:if>
+								<c:if test="${1==isannou}"><h4>当前位置=》<a href="${ctx }/active/isannou">通知</a></h4></c:if>
+								<c:if test="${2==isannou}"><h4>当前位置=》<a href="${ ctx}/active/school">学校新闻</a></h4></c:if>
+								<c:if test="${0==isannou}"><h4>当前位置=》<a href="${ctx }/active">社团新闻</a></h4></c:if>
 							</div>
 								<div class="col-md-4 text-right" style="line-height: 40px;">
 									<div class="form-group">
