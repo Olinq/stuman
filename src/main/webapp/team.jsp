@@ -20,7 +20,7 @@
 							</div>
 						</div>
 						<div class="col-md-1 text-left"  style="line-height: 40px;">
-									<button type="submit" class="btn btn-action" style="height: 40px;">查找</button>
+									<button type="submit" class="btn btn-action" style="height: 40px;border: 1px solid #333;">查找</button>
 						</div>
 					</div>
 				</form>
