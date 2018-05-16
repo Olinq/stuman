@@ -1,6 +1,7 @@
 <%@ page language="java" import="com.Lwoo.pojo.User" contentType="text/html; charset=UTf-8"
     pageEncoding="UTf-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
     <script src="${ctx}/webjars/jquery/3.1.1/jquery.min.js"></script>
 <script>
@@ -183,8 +184,12 @@ function checkLogout(){
                <h4 class="modal-title" id="myModalLabel">所属社团信息:${user.asso.tname }</h4>
            </div>
            <div class="modal-body">
-           	 <img src="${ctx }/img/logo/${user.asso.logo}" alt="" style="width:100%;">  
-           ${user.asso.description }</div>
+           	 <img src="${ctx }/img/logo/${user.asso.logo}" alt="" style="width:200px;height:200px;margin-left:200px;">  
+           	<p><b>社团成立时间:</b><fmt:formatDate pattern="yyyy-MM-dd" 
+            value="${user.asso.createtime }" /></p>
+            <p><b>指导老师：</b>${user.asso.teacher }</p>
+           <p><b>社团简介：</b>${user.asso.description }</p>
+           </div>
            <div class="modal-footer">
                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
            </div>
