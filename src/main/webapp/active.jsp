@@ -72,7 +72,9 @@
 
 			</div> 
 		</div> <!-- /row post  -->
-	</div>	<!-- /container -->
-
+	</div>	<!-- /container
+<div>
+	<jsp:include page="./jsp/Page.jsp"/>
+</div> -->
 </main>
 <jsp:include page="./assets/jsp/assetsFooter.jsp"/>
